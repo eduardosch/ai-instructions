@@ -15,7 +15,9 @@
       "version": "1.0.0",
       "source": "./plugins/commit-message",
       "strict": false,
-      "skills": ["./skills/commit-message"],
+      "skills": [
+        "./skills/commit-message"
+      ],
       "keywords": [
         "git",
         "git-commit",
@@ -36,7 +38,9 @@
       "version": "1.0.0",
       "source": "./plugins/versioning",
       "strict": false,
-      "skills": ["./skills"],
+      "skills": [
+        "./skills"
+      ],
       "keywords": [
         "semver",
         "versioning",
