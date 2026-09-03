@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.2.4 — 2026-09-03
+
+### Other
+
+- expand README with plugin descriptions and update CLAUDE.md rules
+
 ## v0.2.3 — 2026-09-03
 
 ### Other
