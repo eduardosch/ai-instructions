@@ -5,10 +5,12 @@
  * Reads the commit history since the last "vX.Y.Z" tag, classifies each
  * commit by its Conventional Commit type (allowing a leading emoji, per
  * this project's commit style — see CLAUDE.md), decides the correct
- * semver bump, updates package.json/package-lock.json, prepends a
- * CHANGELOG.md entry, and creates a release commit + annotated tag.
+ * semver bump, prepends a CHANGELOG.md entry, and creates a release
+ * commit + annotated git tag. Updates package.json/package-lock.json too
+ * when a package.json is present.
  *
- * Usage: npm run release
+ * Usage: node release.mjs
+ *        npm run release   (if a package.json with a "release" script exists)
  */
 import { execSync } from 'node:child_process'
 import { readFileSync, writeFileSync, existsSync } from 'node:fs'
@@ -103,11 +105,10 @@ if (hasBreaking) {
   reason = 'only maintenance commits (refactor/docs/style/test/chore/ci/build) — patch fallback'
 }
 
-// --- 5. Compute new version ----------------------------------------------
+// --- 5. Compute new version from last git tag --------------------------
+// package.json is not required; the tag is the source of truth.
 
-const pkgPath = 'package.json'
-const pkg = JSON.parse(readFileSync(pkgPath, 'utf8'))
-const currentVersion = pkg.version || '0.0.0'
+const currentVersion = lastTag ? lastTag.replace(/^v/, '') : '0.0.0'
 const [major, minor, patch] = currentVersion.split('.').map(Number)
 
 let newVersion
@@ -115,11 +116,15 @@ if (bump === 'major') newVersion = `${major + 1}.0.0`
 else if (bump === 'minor') newVersion = `${major}.${minor + 1}.0`
 else newVersion = `${major}.${minor}.${patch + 1}`
 
-// --- 6. Write version into package.json + package-lock.json --------------
+// --- 6. Update package.json + package-lock.json if present -------------
 
-run(`npm version ${newVersion} --no-git-tag-version --allow-same-version`)
+const pkgPath = 'package.json'
+const hasPkg = existsSync(pkgPath)
+if (hasPkg) {
+  run(`npm version ${newVersion} --no-git-tag-version --allow-same-version`)
+}
 
-// --- 7. Build and prepend CHANGELOG.md entry ------------------------------
+// --- 7. Build and prepend CHANGELOG.md entry ---------------------------
 
 const groups = {
   Features: commits.filter((c) => c.type === 'feat'),
@@ -145,9 +150,14 @@ const updatedChangelog = existing.startsWith('# Changelog')
   : `# Changelog\n\n${entry}${existing}`
 writeFileSync(changelogPath, updatedChangelog)
 
-// --- 8. Commit + tag -------------------------------------------------------
+// --- 8. Commit + tag ---------------------------------------------------
 
-run('git add package.json package-lock.json CHANGELOG.md')
+const filesToStage = [changelogPath]
+if (hasPkg) {
+  filesToStage.push(pkgPath)
+  if (existsSync('package-lock.json')) filesToStage.push('package-lock.json')
+}
+run(`git add ${filesToStage.join(' ')}`)
 run(`git commit -m "🔨 chore: release v${newVersion}"`)
 run(`git tag -a v${newVersion} -m "v${newVersion}"`)
 
@@ -160,5 +170,4 @@ console.log(`
 
 Next steps:
   git push && git push --tags
-  npm run build && firebase deploy
 `)
