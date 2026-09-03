@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.2.2 — 2026-09-03
+
+### Other
+
+- run release script after every push, not every commit
+
 ## v0.2.1 — 2026-09-03
 
 ### Other
