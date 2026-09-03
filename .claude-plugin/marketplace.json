@@ -1,0 +1,34 @@
+{
+  "name": "eduardosch-marketplace",
+  "owner": {
+    "name": "Eduardo Schroder",
+    "email": "dudu.schroder@gmail.com"
+  },
+  "metadata": {
+    "description": "A collection of Claude skills and plugins by Eduardo Schroder.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "commit-message",
+      "description": "Generates semantic git commit messages based on staged changes",
+      "version": "1.0.0",
+      "source": "./plugins/commit-message",
+      "strict": false,
+      "skills": ["./skills/commit-message"],
+      "keywords": [
+        "git",
+        "git-commit",
+        "commit-message",
+        "conventional-commits",
+        "version-control"
+      ],
+      "author": {
+        "name": "Eduardo Schroder",
+        "email": "dudu.schroder@gmail.com"
+      },
+      "license": "MIT",
+      "category": "version-control"
+    }
+  ]
+}
