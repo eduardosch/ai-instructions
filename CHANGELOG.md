@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.2.1 — 2026-09-03
+
+### Other
+
+- always run release script after commits
+
 ## v0.2.0 — 2026-09-03
 
 ### Features
