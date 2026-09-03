@@ -26,12 +26,12 @@ function fail(message) {
 
 // --- 1. Safety checks -------------------------------------------------
 
-const RELEASE_BRANCH = 'master'
+const RELEASE_BRANCHES = ['main', 'master']
 const currentBranch = run('git rev-parse --abbrev-ref HEAD')
-if (currentBranch !== RELEASE_BRANCH) {
+if (!RELEASE_BRANCHES.includes(currentBranch)) {
   fail(
-    `Releases can only be cut from "${RELEASE_BRANCH}" (currently on "${currentBranch}"). ` +
-      `Merge your changes into ${RELEASE_BRANCH} first, then run this from there.`,
+    `Releases can only be cut from ${RELEASE_BRANCHES.map((b) => `"${b}"`).join(' or ')} (currently on "${currentBranch}"). ` +
+      `Merge your changes first, then run this from there.`,
   )
 }
 
