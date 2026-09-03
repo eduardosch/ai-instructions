@@ -29,6 +29,27 @@
       },
       "license": "MIT",
       "category": "version-control"
+    },
+    {
+      "name": "versioning",
+      "description": "Automated semantic versioning via release.mjs — reads commit history, bumps MAJOR/MINOR/PATCH, updates package.json, and creates a release commit + git tag",
+      "version": "1.0.0",
+      "source": "./plugins/versioning",
+      "strict": false,
+      "skills": ["./skills"],
+      "keywords": [
+        "semver",
+        "versioning",
+        "release",
+        "changelog",
+        "conventional-commits"
+      ],
+      "author": {
+        "name": "Eduardo Schroder",
+        "email": "dudu.schroder@gmail.com"
+      },
+      "license": "MIT",
+      "category": "version-control"
     }
   ]
 }

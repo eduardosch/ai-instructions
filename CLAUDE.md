@@ -8,6 +8,10 @@ Invoke it with `/commit-message` or by asking to "create a commit message".
 
 Can be invoked writing just commit or commit and push.
 
+## Plugins
+
+After creating a new plugin, always update `.claude-plugin/marketplace.json` to register it in the plugins array, following the same shape as the existing entries (name, description, version, source, skills, keywords, author, license, category).
+
 ## Releases
 
 Always use the `versioning` skill when cutting a release in this repository.
