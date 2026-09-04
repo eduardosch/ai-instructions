@@ -1,5 +1,11 @@
 # Changelog
 
+## v4.0.1 — 2026-09-04
+
+### Other
+
+- add pinia-style-guide to setup flow
+
 ## v4.0.0 — 2026-09-04
 
 ### Features
