@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.0 — 2026-09-04
+
+### Features
+
+- implement vue style guide skill
+
 ## v1.0.0 — 2026-09-04
 
 ### Features
