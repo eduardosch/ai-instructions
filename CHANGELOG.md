@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.2.6 — 2026-09-04
+
+### Other
+
+- track settings and update gitignore
+
 ## v0.2.5 — 2026-09-04
 
 ### Other
