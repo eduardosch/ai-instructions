@@ -88,6 +88,23 @@
       },
       "license": "MIT",
       "category": "TODO"
+    },
+    {
+      "name": "vue-project-setup",
+      "description": "TODO — one-line description.",
+      "version": "1.0.0",
+      "source": "./plugins/vue-project-setup",
+      "strict": false,
+      "skills": [
+        "./skills/vue-project-setup"
+      ],
+      "keywords": [],
+      "author": {
+        "name": "Eduardo Schroder",
+        "email": "dudu.schroder@gmail.com"
+      },
+      "license": "MIT",
+      "category": "TODO"
     }
   ]
 }
