@@ -1,6 +1,6 @@
 # AI Instructions
 
-A collection of Claude Code plugins and skills by Eduardo Schroder.
+A collection of Claude Code plugins and skills by Eduardo Schröder.
 
 ## Installation
 
