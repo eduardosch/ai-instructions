@@ -1,5 +1,11 @@
 # Changelog
 
+## v5.0.0 — 2026-09-04
+
+### Features
+
+- add vue-i18n plugin with prerequisite checks
+
 ## v4.0.4 — 2026-09-04
 
 ### Other
