@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.2.7 — 2026-09-04
+
+### Other
+
+- clarify major commit rule with examples
+
 ## v0.2.6 — 2026-09-04
 
 ### Other
