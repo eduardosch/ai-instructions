@@ -138,3 +138,7 @@ A comprehensive Vue style guide skill covering naming conventions, component str
 /plugin uninstall <plugin-name>
 /plugin marketplace remove eduardosch-marketplace
 ```
+
+## License
+
+MIT © [Eduardo Schröder](https://github.com/eduardosch)
