@@ -1,5 +1,11 @@
 # Changelog
 
+## v5.0.1 — 2026-09-04
+
+### Other
+
+- add PR template and expand contributing guide in README
+
 ## v5.0.0 — 2026-09-04
 
 ### Features
