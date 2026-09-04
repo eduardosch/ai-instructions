@@ -52,6 +52,18 @@ Automated semantic versioning — reads commit history since the last git tag, d
 
 ---
 
+### `vue-style-guide`
+
+A comprehensive Vue style guide skill covering naming conventions, component structure, and code patterns — organized by priority (Essential / Strongly recommended / Recommended) so teams know what's negotiable and what isn't.
+
+```bash
+/plugin install vue-style-guide@eduardosch-marketplace
+```
+
+**Usage:** `/vue-style-guide`
+
+---
+
 ## Uninstalling
 
 ```bash
