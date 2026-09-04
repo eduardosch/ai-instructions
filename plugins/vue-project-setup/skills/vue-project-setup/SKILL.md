@@ -32,12 +32,12 @@ Prompt the user for the project name before continuing.
 ## 4. Install additional plugins
 
 ​```
-/plugin marketplace add eduardosch/ai-instructions
-/plugin install commit-message@eduardosch-marketplace
-/plugin install versioning@eduardosch-marketplace
-/plugin install vue-style-guide@eduardosch-marketplace
-/plugin install vue-ts-style-guide@eduardosch-marketplace
-/plugin install pinia-style-guide@eduardosch-marketplace
+1. /plugin marketplace add eduardosch/ai-instructions
+2. /plugin install commit-message@eduardosch-marketplace
+3. /plugin install versioning@eduardosch-marketplace
+4. /plugin install vue-style-guide@eduardosch-marketplace
+5. /plugin install vue-ts-style-guide@eduardosch-marketplace
+6. /plugin install pinia-style-guide@eduardosch-marketplace
 ​```
 
 - **commit-message** — enables semantic commit messages
