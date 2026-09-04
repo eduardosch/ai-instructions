@@ -105,6 +105,23 @@
       },
       "license": "MIT",
       "category": "TODO"
+    },
+    {
+      "name": "pinia-style-guide",
+      "description": "TODO — one-line description.",
+      "version": "1.0.0",
+      "source": "./plugins/pinia-style-guide",
+      "strict": false,
+      "skills": [
+        "./skills/pinia-style-guide"
+      ],
+      "keywords": [],
+      "author": {
+        "name": "Eduardo Schroder",
+        "email": "dudu.schroder@gmail.com"
+      },
+      "license": "MIT",
+      "category": "TODO"
     }
   ]
 }
