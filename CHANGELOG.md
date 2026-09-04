@@ -1,5 +1,11 @@
 # Changelog
 
+## v4.0.4 — 2026-09-04
+
+### Other
+
+- number plugin install steps for clarity
+
 ## v4.0.3 — 2026-09-04
 
 ### Fixes
