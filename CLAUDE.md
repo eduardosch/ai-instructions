@@ -18,7 +18,9 @@ After creating a new plugin, always:
 1. Update `.claude-plugin/marketplace.json` to register it in the plugins array, following the same shape as the existing entries (name, description, version, source, skills, keywords, author, license, category).
 2. Update the root `README.md` to add a section for the new plugin under **Plugins**, including a one-line description, the install command, and usage instructions.
 
-Also update the root `README.md` whenever a plugin's usage or installation steps change.
+
+## PROJECT README
+Update the root `README.md` whenever there is a new plugin / skill or this usage or installation steps change.
 
 ## Releases
 
