@@ -1,5 +1,15 @@
 # Changelog
 
+## v2.1.0 — 2026-09-04
+
+### Features
+
+- implement vue 3 + typescript style guide skill
+
+### Other
+
+- add to root README and update plugin description
+
 ## v2.0.0 — 2026-09-04
 
 ### Features
