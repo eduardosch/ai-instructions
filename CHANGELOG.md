@@ -1,5 +1,11 @@
 # Changelog
 
+## v5.0.3 — 2026-09-04
+
+### Other
+
+- reorder plugins section and clean up layout
+
 ## v5.0.2 — 2026-09-04
 
 ### Other
