@@ -46,7 +46,7 @@ Install any plugin individually:
 
 ## Plugins
 
-### `commit-message`
+### <img src="icons/github.svg" height="20" valign="middle"> `commit-message`
 
 Generates semantic git commit messages based on your staged changes, following the Conventional Commits format with emoji support. Handles branch creation, push confirmation, and breaking change detection.
 
@@ -58,7 +58,7 @@ Generates semantic git commit messages based on your staged changes, following t
 
 ---
 
-### `versioning`
+### 📖 `versioning`
 
 Automated semantic versioning — reads commit history since the last git tag, decides the correct MAJOR/MINOR/PATCH bump, prepends a `CHANGELOG.md` entry, and creates a release commit + annotated git tag. Works in any git repo; updates `package.json` too when present.
 
@@ -72,7 +72,7 @@ Automated semantic versioning — reads commit history since the last git tag, d
 
 ---
 
-### `vue-project-setup`
+### <img src="icons/vue.svg" height="20" valign="middle"> `vue-project-setup`
 
 Scaffolds a new Vue 3 project with an opinionated stack: TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, Prettier, and Vue DevTools — then automatically installs the `commit-message`, `versioning`, `vue-style-guide`, `vue-ts-style-guide`, and `pinia-style-guide` plugins so the project is ready to go from the first commit.
 
@@ -84,7 +84,7 @@ Scaffolds a new Vue 3 project with an opinionated stack: TypeScript, JSX, Vue Ro
 
 ---
 
-### `pinia-style-guide`
+### <img src="icons/vue.svg" height="20" valign="middle"> `pinia-style-guide`
 
 Enforces conventions for writing Pinia stores with the Composition API — setup syntax, naming, folder structure, typed state, async actions with loading/error state, computed getters, persistence, testing, and correct usage inside components with `storeToRefs()`.
 
@@ -96,7 +96,7 @@ Enforces conventions for writing Pinia stores with the Composition API — setup
 
 ---
 
-### `vue-i18n`
+### <img src="icons/vue.svg" height="20" valign="middle"> `vue-i18n`
 
 Enforces internationalization best practices in Vue.js + vue-i18n projects, fully compatible with the i18n Ally VS Code extension. Covers i18n Ally config, key naming conventions, creating keys across all locale files, auditing missing/unused keys, and ensuring all user-facing strings go through `$t()`/`t()` instead of being hardcoded.
 
@@ -108,7 +108,7 @@ Enforces internationalization best practices in Vue.js + vue-i18n projects, full
 
 ---
 
-### `vue-style-guide`
+### <img src="icons/vue.svg" height="20" valign="middle"> `vue-style-guide`
 
 A comprehensive Vue style guide skill covering naming conventions, component structure, and code patterns — organized by priority (Essential / Strongly recommended / Recommended) so teams know what's negotiable and what isn't.
 
@@ -120,7 +120,7 @@ A comprehensive Vue style guide skill covering naming conventions, component str
 
 ---
 
-### `vue-ts-style-guide`
+### <img src="icons/vue.svg" height="20" valign="middle"> `vue-ts-style-guide`
 
 Enforces Vue 3 + TypeScript conventions for Composition API codebases — props, emits, refs, reactive state, event handlers, provide/inject, and custom directives. Mandates `<script setup lang="ts">` and explicit named types throughout. Based on the [official Vue.js TypeScript guide](https://vuejs.org/guide/typescript/composition-api.html).
 
