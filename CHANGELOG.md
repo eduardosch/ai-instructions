@@ -1,5 +1,11 @@
 # Changelog
 
+## v3.0.1 — 2026-09-04
+
+### Other
+
+- add vue-project-setup plugin section
+
 ## v3.0.0 — 2026-09-04
 
 ### Features
