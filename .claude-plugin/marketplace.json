@@ -71,6 +71,23 @@
       },
       "license": "MIT",
       "category": "TODO"
+    },
+    {
+      "name": "vue-ts-style-guide",
+      "description": "TODO — one-line description.",
+      "version": "1.0.0",
+      "source": "./plugins/vue-ts-style-guide",
+      "strict": false,
+      "skills": [
+        "./skills/vue-ts-style-guide"
+      ],
+      "keywords": [],
+      "author": {
+        "name": "Eduardo Schroder",
+        "email": "dudu.schroder@gmail.com"
+      },
+      "license": "MIT",
+      "category": "TODO"
     }
   ]
 }
