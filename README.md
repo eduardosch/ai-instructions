@@ -52,6 +52,18 @@ Automated semantic versioning — reads commit history since the last git tag, d
 
 ---
 
+### `vue-project-setup`
+
+Scaffolds a new Vue 3 project with an opinionated stack: TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, Prettier, and Vue DevTools — then automatically installs the `commit-message`, `versioning`, `vue-style-guide`, and `vue-ts-style-guide` plugins so the project is ready to go from the first commit.
+
+```bash
+/plugin install vue-project-setup@eduardosch-marketplace
+```
+
+**Usage:** `/vue-project-setup`
+
+---
+
 ### `vue-ts-style-guide`
 
 Enforces Vue 3 + TypeScript conventions for Composition API codebases — props, emits, refs, reactive state, event handlers, provide/inject, and custom directives. Mandates `<script setup lang="ts">` and explicit named types throughout. Based on the [official Vue.js TypeScript guide](https://vuejs.org/guide/typescript/composition-api.html).
