@@ -1,5 +1,11 @@
 # Changelog
 
+## v4.0.2 — 2026-09-04
+
+### Other
+
+- clarify plugin install step with exact commands
+
 ## v4.0.1 — 2026-09-04
 
 ### Other
