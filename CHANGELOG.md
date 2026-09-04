@@ -1,5 +1,11 @@
 # Changelog
 
+## v4.0.3 — 2026-09-04
+
+### Fixes
+
+- correct marketplace add command
+
 ## v4.0.2 — 2026-09-04
 
 ### Other
