@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.0.0 — 2026-09-04
+
+### Features
+
+- add vue style guide plugin scaffold
+
 ## v0.2.8 — 2026-09-04
 
 ### Other
