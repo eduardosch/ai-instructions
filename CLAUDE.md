@@ -8,6 +8,10 @@ Invoke it with `/commit-message` or by asking to "create a commit message".
 
 Can be invoked writing just commit or commit and push.
 
+Every new plugin or new module must be a major commit like: feat!(plugin-name or module-name) - message
+
+New SPECS or SKILLS must be a major version as well
+
 ## Plugins
 
 After creating a new plugin, always:
