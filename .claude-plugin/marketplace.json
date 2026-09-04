@@ -122,6 +122,23 @@
       },
       "license": "MIT",
       "category": "TODO"
+    },
+    {
+      "name": "vue-i18n",
+      "description": "TODO — one-line description.",
+      "version": "1.0.0",
+      "source": "./plugins/vue-i18n",
+      "strict": false,
+      "skills": [
+        "./skills/vue-i18n"
+      ],
+      "keywords": [],
+      "author": {
+        "name": "Eduardo Schroder",
+        "email": "dudu.schroder@gmail.com"
+      },
+      "license": "MIT",
+      "category": "TODO"
     }
   ]
 }

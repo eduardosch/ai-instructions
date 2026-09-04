@@ -52,6 +52,18 @@ Automated semantic versioning — reads commit history since the last git tag, d
 
 ---
 
+### `vue-project-setup`
+
+Scaffolds a new Vue 3 project with an opinionated stack: TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, Prettier, and Vue DevTools — then automatically installs the `commit-message`, `versioning`, `vue-style-guide`, `vue-ts-style-guide`, and `pinia-style-guide` plugins so the project is ready to go from the first commit.
+
+```bash
+/plugin install vue-project-setup@eduardosch-marketplace
+```
+
+**Usage:** `/vue-project-setup`
+
+---
+
 ### `pinia-style-guide`
 
 Enforces conventions for writing Pinia stores with the Composition API — setup syntax, naming, folder structure, typed state, async actions with loading/error state, computed getters, persistence, testing, and correct usage inside components with `storeToRefs()`.
@@ -64,15 +76,15 @@ Enforces conventions for writing Pinia stores with the Composition API — setup
 
 ---
 
-### `vue-project-setup`
+### `vue-i18n`
 
-Scaffolds a new Vue 3 project with an opinionated stack: TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, Prettier, and Vue DevTools — then automatically installs the `commit-message`, `versioning`, `vue-style-guide`, `vue-ts-style-guide`, and `pinia-style-guide` plugins so the project is ready to go from the first commit.
+Enforces internationalization best practices in Vue.js + vue-i18n projects, fully compatible with the i18n Ally VS Code extension. Covers i18n Ally config, key naming conventions, creating keys across all locale files, auditing missing/unused keys, and ensuring all user-facing strings go through `$t()`/`t()` instead of being hardcoded.
 
 ```bash
-/plugin install vue-project-setup@eduardosch-marketplace
+/plugin install vue-i18n@eduardosch-marketplace
 ```
 
-**Usage:** `/vue-project-setup`
+**Usage:** `/vue-i18n`
 
 ---
 
