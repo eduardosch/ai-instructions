@@ -52,6 +52,18 @@ Automated semantic versioning — reads commit history since the last git tag, d
 
 ---
 
+### `pinia-style-guide`
+
+Enforces conventions for writing Pinia stores with the Composition API — setup syntax, naming, folder structure, typed state, async actions with loading/error state, computed getters, persistence, testing, and correct usage inside components with `storeToRefs()`.
+
+```bash
+/plugin install pinia-style-guide@eduardosch-marketplace
+```
+
+**Usage:** `/pinia-style-guide`
+
+---
+
 ### `vue-project-setup`
 
 Scaffolds a new Vue 3 project with an opinionated stack: TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, Prettier, and Vue DevTools — then automatically installs the `commit-message`, `versioning`, `vue-style-guide`, and `vue-ts-style-guide` plugins so the project is ready to go from the first commit.
