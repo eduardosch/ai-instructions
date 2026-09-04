@@ -32,7 +32,7 @@ Prompt the user for the project name before continuing.
 ## 4. Install additional plugins
 
 ​```
-/plugin marketplace add eduardosch/eduardosch-marketplace
+/plugin marketplace add eduardosch/ai-instructions
 /plugin install commit-message@eduardosch-marketplace
 /plugin install versioning@eduardosch-marketplace
 /plugin install vue-style-guide@eduardosch-marketplace
