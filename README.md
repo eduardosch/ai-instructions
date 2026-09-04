@@ -66,7 +66,7 @@ Enforces conventions for writing Pinia stores with the Composition API — setup
 
 ### `vue-project-setup`
 
-Scaffolds a new Vue 3 project with an opinionated stack: TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, Prettier, and Vue DevTools — then automatically installs the `commit-message`, `versioning`, `vue-style-guide`, and `vue-ts-style-guide` plugins so the project is ready to go from the first commit.
+Scaffolds a new Vue 3 project with an opinionated stack: TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, Prettier, and Vue DevTools — then automatically installs the `commit-message`, `versioning`, `vue-style-guide`, `vue-ts-style-guide`, and `pinia-style-guide` plugins so the project is ready to go from the first commit.
 
 ```bash
 /plugin install vue-project-setup@eduardosch-marketplace

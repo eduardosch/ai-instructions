@@ -37,6 +37,7 @@ Install, without asking for confirmation:
 - Versioning plugin, to keep control of the app version and automatically generate a `CHANGELOG.md`
 - `vue-style-guide`
 - `vue-ts-style-guide`
+- `pinia-style-guide`
 
 ## 5. Show a summary
 
@@ -50,3 +51,4 @@ Once everything is finished, show the user a bullet list with emojis and short d
 - 🔖 **Versioning plugin** — automatic app versioning and `CHANGELOG.md` generation
 - 🎨 **vue-style-guide** — Vue style guide rules installed
 - 📘 **vue-ts-style-guide** — TypeScript style guide rules installed
+- 🍍 **pinia-style-guide** — Pinia store conventions installed
