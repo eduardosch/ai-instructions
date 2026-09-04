@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.1 — 2026-09-04
+
+### Other
+
+- add to root README and link official style guide
+
 ## v1.1.0 — 2026-09-04
 
 ### Features
