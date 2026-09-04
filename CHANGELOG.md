@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.2.8 — 2026-09-04
+
+### Other
+
+- fix author name diacritics
+
 ## v0.2.7 — 2026-09-04
 
 ### Other
