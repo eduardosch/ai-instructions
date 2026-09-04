@@ -52,6 +52,18 @@ Automated semantic versioning — reads commit history since the last git tag, d
 
 ---
 
+### `vue-ts-style-guide`
+
+Enforces Vue 3 + TypeScript conventions for Composition API codebases — props, emits, refs, reactive state, event handlers, provide/inject, and custom directives. Mandates `<script setup lang="ts">` and explicit named types throughout. Based on the [official Vue.js TypeScript guide](https://vuejs.org/guide/typescript/composition-api.html).
+
+```bash
+/plugin install vue-ts-style-guide@eduardosch-marketplace
+```
+
+**Usage:** `/vue-ts-style-guide`
+
+---
+
 ### `vue-style-guide`
 
 A comprehensive Vue style guide skill covering naming conventions, component structure, and code patterns — organized by priority (Essential / Strongly recommended / Recommended) so teams know what's negotiable and what isn't.

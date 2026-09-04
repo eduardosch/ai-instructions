@@ -1,6 +1,6 @@
 # `vue-ts-style-guide` Claude Skill
 
-TODO — short description.
+Enforces Vue 3 + TypeScript conventions for Composition API codebases — props typing, emits, refs, reactive state, event handlers, provide/inject, and custom directives. Based on the official Vue.js guide at [vuejs.org/guide/typescript/composition-api](https://vuejs.org/guide/typescript/composition-api.html), with stricter rules (mandatory `<script setup lang="ts">`, explicit named types everywhere, no implicit `any`).
 
 ## Installation
 
