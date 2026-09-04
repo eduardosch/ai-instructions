@@ -84,7 +84,7 @@ Scaffolds a new Vue 3 project with an opinionated stack: TypeScript, JSX, Vue Ro
 
 ---
 
-### <img src="icons/vue.svg" height="20" valign="middle"> `pinia-style-guide`
+### <img src="icons/pinia.svg" height="20" valign="middle"> `pinia-style-guide`
 
 Enforces conventions for writing Pinia stores with the Composition API — setup syntax, naming, folder structure, typed state, async actions with loading/error state, computed getters, persistence, testing, and correct usage inside components with `storeToRefs()`.
 
@@ -96,7 +96,7 @@ Enforces conventions for writing Pinia stores with the Composition API — setup
 
 ---
 
-### <img src="icons/vue.svg" height="20" valign="middle"> `vue-i18n`
+### <img src="icons/vue-i18n.svg" height="20" valign="middle"> `vue-i18n`
 
 Enforces internationalization best practices in Vue.js + vue-i18n projects, fully compatible with the i18n Ally VS Code extension. Covers i18n Ally config, key naming conventions, creating keys across all locale files, auditing missing/unused keys, and ensuring all user-facing strings go through `$t()`/`t()` instead of being hardcoded.
 
