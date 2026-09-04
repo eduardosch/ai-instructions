@@ -55,7 +55,9 @@ When this skill is invoked, follow these steps:
    - Add breaking change informations on commit, on the title and on the description
    - Example on title: feat!: send an email to the customer when a product is shipped
    - Example on the description: BREAKING CHANGE: use JavaScript features not available in Node 6. (this must appear on the bottom of the commit descripion)
-13. New modules must be a major commit like: feat!(module-name) - message
+13. New modules must be a major commit
+   - Example with new module: feat!(scope): add a new module to the project
+   - Example with new message: feat!: commit message
 
 ## Commands to get details of staged changes
 
