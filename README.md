@@ -2,6 +2,26 @@
 
 A collection of Claude Code plugins and skills by Eduardo Schröder.
 
+This repo covers the essential things that I usually do on my projects.
+
+But feel free to create a PR and add more plugins.
+
+## Creating a new plugin
+
+```bash
+node create.mjs <plugin-name>
+```
+
+- The script creates the folders and files to a new plugin:
+1. `plugins/<name>/README.md`
+2. `plugins/<name>/skills/<name>/SKILL.md`
+3. Registers the plugin in `.claude-plugin/marketplace.json`.
+
+- Create a new branch on the format <plugin-name/author>
+- After that you need to update the **README** and **SKILL** file of the plugin
+- After this push commit and push via claude, the commit message and CHANGELOG will be automatically updated
+- create a new pull request using the template provided on PULL_REQUEST_TEMPLATE.md
+
 ## Installation
 
 Launch Claude Code first:
@@ -118,11 +138,3 @@ A comprehensive Vue style guide skill covering naming conventions, component str
 /plugin uninstall <plugin-name>
 /plugin marketplace remove eduardosch-marketplace
 ```
-
-## Creating a new plugin
-
-```bash
-node create.mjs <plugin-name>
-```
-
-Scaffolds `plugins/<name>/README.md` and `plugins/<name>/skills/<name>/SKILL.md` and registers the plugin in `.claude-plugin/marketplace.json`.
