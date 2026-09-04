@@ -1,5 +1,15 @@
 # Changelog
 
+## v3.0.0 — 2026-09-04
+
+### Features
+
+- add vue project setup plugin scaffold
+
+### Other
+
+- replace README stub with full description
+
 ## v2.1.0 — 2026-09-04
 
 ### Features
