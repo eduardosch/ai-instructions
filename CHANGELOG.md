@@ -1,5 +1,11 @@
 # Changelog
 
+## v5.0.5 — 2026-09-04
+
+### Other
+
+- use official pinia logo and add vue-i18n icon
+
 ## v5.0.4 — 2026-09-04
 
 ### Other
