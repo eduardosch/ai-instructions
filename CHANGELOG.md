@@ -1,5 +1,12 @@
 # Changelog
 
+## v4.0.0 — 2026-09-04
+
+### Features
+
+- register plugin in marketplace and add skill
+- add pinia style guide plugin docs
+
 ## v3.0.1 — 2026-09-04
 
 ### Other
