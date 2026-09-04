@@ -31,13 +31,20 @@ Prompt the user for the project name before continuing.
 
 ## 4. Install additional plugins
 
-Install, without asking for confirmation:
+​```
+/plugin marketplace add eduardosch/eduardosch-marketplace
+/plugin install commit-message@eduardosch-marketplace
+/plugin install versioning@eduardosch-marketplace
+/plugin install vue-style-guide@eduardosch-marketplace
+/plugin install vue-ts-style-guide@eduardosch-marketplace
+/plugin install pinia-style-guide@eduardosch-marketplace
+​```
 
-- Commit-message plugin, to create semantic commits
-- Versioning plugin, to keep control of the app version and automatically generate a `CHANGELOG.md`
-- `vue-style-guide`
-- `vue-ts-style-guide`
-- `pinia-style-guide`
+- **commit-message** — enables semantic commit messages
+- **versioning** — keeps control of the app version and automatically generates a `CHANGELOG.md`
+- **vue-style-guide** — Vue style guide rules
+- **vue-ts-style-guide** — TypeScript style guide rules
+- **pinia-style-guide** — Pinia store conventions
 
 ## 5. Show a summary
 
