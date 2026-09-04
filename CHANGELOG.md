@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.2.5 — 2026-09-04
+
+### Other
+
+- add major commit rules for new modules
+
 ## v0.2.4 — 2026-09-03
 
 ### Other
