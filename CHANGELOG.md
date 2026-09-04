@@ -1,5 +1,11 @@
 # Changelog
 
+## v5.0.4 — 2026-09-04
+
+### Other
+
+- add local icons for plugin headings
+
 ## v5.0.3 — 2026-09-04
 
 ### Other
