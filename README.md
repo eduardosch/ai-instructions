@@ -4,23 +4,7 @@ A collection of Claude Code plugins and skills by Eduardo Schröder.
 
 This repo covers the essential things that I usually do on my projects.
 
-But feel free to create a PR and add more plugins.
-
-## Creating a new plugin
-
-```bash
-node create.mjs <plugin-name>
-```
-
-- The script creates the folders and files to a new plugin:
-1. `plugins/<name>/README.md`
-2. `plugins/<name>/skills/<name>/SKILL.md`
-3. Registers the plugin in `.claude-plugin/marketplace.json`.
-
-- Create a new branch on the format <plugin-name/author>
-- After that you need to update the **README** and **SKILL** file of the plugin
-- After this push commit and push via claude, the commit message and CHANGELOG will be automatically updated
-- create a new pull request using the template provided on PULL_REQUEST_TEMPLATE.md
+Feel free to create a PR and add more plugins.
 
 ## Installation
 
@@ -138,6 +122,32 @@ Enforces Vue 3 + TypeScript conventions for Composition API codebases — props,
 /plugin uninstall <plugin-name>
 /plugin marketplace remove eduardosch-marketplace
 ```
+
+## Contributing 🚀
+
+1. Give this project a star ⭐
+2. Fork the project.
+3. Execute:
+
+```bash
+node create.mjs <plugin-name>
+```
+
+- The script creates the folders and files to a new plugin:
+  - `plugins/<name>/README.md`
+  - `plugins/<name>/skills/<name>/SKILL.md`
+  - Registers the plugin in `.claude-plugin/marketplace.json`.
+  - Create a new block of description on the root folder of this project
+
+
+5. Create a branch. (git checkout -b your-branch-name).
+5. Make your changes on the new SKILL.md file just created.
+6. After that you need to update:
+    1. the **README** file of the plugin
+    2. the **README** of root folder with the description of the plugin
+    3. the **README** of marktplace.json with a short description
+7. After this push commit and push via claude, the commit message and CHANGELOG will be automatically updated when the PR is merged
+8. create a new pull request using the template provided on PULL_REQUEST_TEMPLATE.md
 
 ## License
 

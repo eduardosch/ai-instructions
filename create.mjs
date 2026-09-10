@@ -93,6 +93,34 @@ Then from within Claude Code, add the marketplace and install the skill:
 `,
 )
 
+// --- Root README.md -------------------------------------------------------
+
+const rootReadmePath = 'README.md'
+const rootReadme = readFileSync(rootReadmePath, 'utf8')
+
+const pluginSection = `### 🔌 \`${name}\`
+
+TODO - describe your plugin here
+
+> TODO - add a short description of the plugin on marketplace.json
+
+\`\`\`bash
+/plugin install ${name}@eduardosch-marketplace
+\`\`\`
+
+**Usage:** \`/${name}\`
+
+---
+
+`
+
+const updatedReadme = rootReadme.replace(
+  '## Uninstalling',
+  `${pluginSection}## Uninstalling`,
+)
+
+writeFileSync(rootReadmePath, updatedReadme)
+
 // --- marketplace.json -----------------------------------------------------
 
 const marketplacePath = '.claude-plugin/marketplace.json'
@@ -127,9 +155,11 @@ console.log(`
       └── SKILL.md
 
   Registered in .claude-plugin/marketplace.json
+  Added section in README.md
 
 Next steps:
   1. Fill in the TODO sections in plugins/${name}/skills/${name}/SKILL.md
-  2. Update the description and category in .claude-plugin/marketplace.json
-  3. Commit with: /commit-message
+  2. Replace the TODO placeholders in README.md
+  3. Update the description and category in .claude-plugin/marketplace.json
+  4. Commit with: /commit-message
 `)
