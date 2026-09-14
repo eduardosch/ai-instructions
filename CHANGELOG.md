@@ -1,5 +1,11 @@
 # Changelog
 
+## v8.0.0 — 2026-09-14
+
+### Features
+
+- add Vitest + Playwright testing conventions plugin
+
 ## v7.0.0 — 2026-09-14
 
 ### Features
