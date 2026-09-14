@@ -144,6 +144,20 @@ Style guide for structuring API calls and services with full TypeScript coverage
 
 ---
 
+### 🔌 `testing-conventions`
+
+House style guide for Vitest unit/component tests and Playwright e2e tests — file layout, naming, Page Object Models, mocking, and auth fixtures for Vue 3 + TypeScript projects.
+
+> Pairs with `vue-project-setup` (which scaffolds Playwright) and `vue-ts-style-guide`.
+
+```bash
+/plugin install testing-conventions@eduardosch-marketplace
+```
+
+**Usage:** `/testing-conventions`
+
+---
+
 ## Uninstalling
 
 ```bash

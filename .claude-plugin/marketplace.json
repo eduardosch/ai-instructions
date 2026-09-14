@@ -219,6 +219,33 @@
       },
       "license": "MIT",
       "category": "vue"
+    },
+    {
+      "name": "testing-conventions",
+      "description": "House style guide for Vitest unit/component tests and Playwright e2e tests — file layout, naming, Page Object Models, mocking, and auth fixtures for Vue 3 + TypeScript projects.",
+      "version": "1.0.0",
+      "source": "./plugins/testing-conventions",
+      "strict": false,
+      "skills": [
+        "./skills/testing-conventions"
+      ],
+      "keywords": [
+        "testing",
+        "vitest",
+        "playwright",
+        "unit-testing",
+        "e2e",
+        "vue",
+        "typescript",
+        "page-object-model",
+        "conventions"
+      ],
+      "author": {
+        "name": "Eduardo Schroder",
+        "email": "dudu.schroder@gmail.com"
+      },
+      "license": "MIT",
+      "category": "testing"
     }
   ]
 }
