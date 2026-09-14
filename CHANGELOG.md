@@ -1,5 +1,11 @@
 # Changelog
 
+## v10.0.0 — 2026-09-14
+
+### Features
+
+- add Vue component documentation plugin
+
 ## v9.0.0 — 2026-09-14
 
 ### Features
