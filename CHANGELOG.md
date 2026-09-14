@@ -1,5 +1,11 @@
 # Changelog
 
+## v7.0.0 — 2026-09-14
+
+### Features
+
+- add API client conventions style guide plugin
+
 ## v6.0.1 — 2026-09-14
 
 ### Other
