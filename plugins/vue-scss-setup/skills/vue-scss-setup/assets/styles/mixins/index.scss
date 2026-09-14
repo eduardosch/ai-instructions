@@ -1,0 +1,7 @@
+// Single entry point for every mixin/function.
+// Import this file (not the individual partials) from vite.config.ts
+// or from any component that needs a mixin directly.
+
+@forward "rem";
+@forward "responsive";
+@forward "truncate";

@@ -1,0 +1,7 @@
+// Single entry point for every design token.
+// Import this file (not the individual partials) from vite.config.ts
+// or from any component that needs the tokens directly.
+
+@forward "colors";
+@forward "fonts";
+@forward "breakpoints";

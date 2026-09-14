@@ -1,0 +1,39 @@
+@use "sass:map";
+@use "../variables/breakpoints" as *;
+
+/// Wraps content in a media query for a named breakpoint.
+/// @param {String} $breakpoint - key from $breakpoints (sm, md, lg, xl, xxl)
+/// @param {String} $direction - 'up' (min-width, default) or 'down' (max-width)
+///
+/// @example mobile-first, applies from md up
+///   .card {
+///     @include respond-to('md') {
+///       display: flex;
+///     }
+///   }
+///
+/// @example applies below md (i.e. mobile only)
+///   .mobile-nav {
+///     @include respond-to('md', 'down') {
+///       display: block;
+///     }
+///   }
+@mixin respond-to($breakpoint, $direction: "up") {
+  @if not map.has-key($breakpoints, $breakpoint) {
+    @error "Unknown breakpoint `#{$breakpoint}`. Available: #{map.keys($breakpoints)}";
+  }
+
+  $value: map.get($breakpoints, $breakpoint);
+
+  @if $direction == "up" {
+    @media (min-width: $value) {
+      @content;
+    }
+  } @else if $direction == "down" {
+    @media (max-width: ($value - 1px)) {
+      @content;
+    }
+  } @else {
+    @error "Unknown direction `#{$direction}`. Use 'up' or 'down'.";
+  }
+}

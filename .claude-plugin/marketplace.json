@@ -169,6 +169,29 @@
       },
       "license": "MIT",
       "category": "i18n"
+    },
+    {
+      "name": "vue-scss-setup",
+      "description": "Configures Sass/SCSS in a Vue 3 + Vite project — installs sass-embedded, creates global variable and mixin partials, and wires them into every component via vite.config.ts additionalData",
+      "version": "1.0.0",
+      "source": "./plugins/vue-scss-setup",
+      "strict": false,
+      "skills": [
+        "./skills/vue-scss-setup"
+      ],
+      "keywords": [
+        "vue",
+        "scss",
+        "sass",
+        "vite",
+        "styling"
+      ],
+      "author": {
+        "name": "Eduardo Schroder",
+        "email": "dudu.schroder@gmail.com"
+      },
+      "license": "MIT",
+      "category": "vue"
     }
   ]
 }

@@ -1,0 +1,24 @@
+/// Truncates a single line of text with an ellipsis.
+/// Requires the element (or an ancestor) to have a bounded width.
+///
+/// @example
+///   .item-name { @include truncate; }
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/// Truncates text after N lines with an ellipsis, using -webkit-line-clamp.
+/// Supported in all current evergreen browsers (Chrome, Safari, Firefox 68+, Edge).
+/// @param {Number} $lines - number of lines to show before truncating (default: 2)
+///
+/// @example
+///   .description { @include truncate-lines(2); }
+///   .card-excerpt { @include truncate-lines(3); }
+@mixin truncate-lines($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

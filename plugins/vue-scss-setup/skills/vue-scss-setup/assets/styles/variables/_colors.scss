@@ -1,0 +1,29 @@
+// -----------------------------------------------------------------------------
+// Color tokens
+// Edit these to match your design system / Figma palette.
+// -----------------------------------------------------------------------------
+
+// Brand
+$color-primary: #42b983 !default;
+$color-primary-light: #6fcf9e !default;
+$color-primary-dark: #2f8f63 !default;
+
+$color-secondary: #35495e !default;
+$color-secondary-light: #4a6178 !default;
+$color-secondary-dark: #23313f !default;
+
+// Text
+$color-text: #1f2937 !default;
+$color-text-light: #6b7280 !default;
+$color-text-inverse: #ffffff !default;
+
+// Surfaces
+$color-background: #ffffff !default;
+$color-surface: #f9fafb !default;
+$color-border: #e5e7eb !default;
+
+// Feedback
+$color-success: #22c55e !default;
+$color-warning: #f59e0b !default;
+$color-error: #ef4444 !default;
+$color-info: #3b82f6 !default;
