@@ -1,6 +1,6 @@
 ---
 name: vue-project-setup
-description: Scaffolds a new Vue 3 project with TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, Prettier, and Vue DevTools, then installs the commit-message, versioning, vue-style-guide, vue-ts-style-guide, and pinia-style-guide plugins. Use when starting a new Vue 3 project.
+description: Scaffolds a new Vue 3 project with TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, Prettier, and Vue DevTools, then installs the commit-message, versioning, vue-style-guide, vue-ts-style-guide, pinia-style-guide, and vue-scss-setup plugins. Use when starting a new Vue 3 project.
 ---
 
 # Vue Project Setup
@@ -43,6 +43,7 @@ Prompt the user for the project name before continuing.
 4. /plugin install vue-style-guide@eduardosch-marketplace
 5. /plugin install vue-ts-style-guide@eduardosch-marketplace
 6. /plugin install pinia-style-guide@eduardosch-marketplace
+7. /plugin install vue-scss-setup@eduardosch-marketplace
 ​```
 
 - **commit-message** — enables semantic commit messages
@@ -50,6 +51,7 @@ Prompt the user for the project name before continuing.
 - **vue-style-guide** — Vue style guide rules
 - **vue-ts-style-guide** — TypeScript style guide rules
 - **pinia-style-guide** — Pinia store conventions
+- **vue-scss-setup** — configures Sass/SCSS with global variables and mixins via Vite
 
 ## 5. Show a summary
 
@@ -64,3 +66,4 @@ Once everything is finished, show the user a bullet list with emojis and short d
 - 🎨 **vue-style-guide** — Vue style guide rules installed
 - 📘 **vue-ts-style-guide** — TypeScript style guide rules installed
 - 🍍 **pinia-style-guide** — Pinia store conventions installed
+- 🎨 **vue-scss-setup** — Sass/SCSS configured with global variables and mixins
