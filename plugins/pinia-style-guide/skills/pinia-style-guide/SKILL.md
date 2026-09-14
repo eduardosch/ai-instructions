@@ -1,3 +1,8 @@
+---
+name: pinia-style-guide
+description: Enforces conventions for writing Pinia stores with the Composition API — setup syntax, naming, folder structure, typed state, async actions with loading/error state, computed getters, persistence, testing, and storeToRefs() usage in components. Use when creating or editing a Pinia store.
+---
+
 # Pinia Store Guide
 
 Conventions and recommendations to follow whenever creating or editing a Pinia store in this project.

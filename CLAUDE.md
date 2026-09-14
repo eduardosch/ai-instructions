@@ -8,7 +8,7 @@ Invoke it with `/commit-message` or by asking to "create a commit message".
 
 Can be invoked writing just commit or commit and push.
 
-Every new plugin or new module must be a major commit like: feat!(plugin-name or module-name) - message
+Every new plugin or new module must be a major commit, e.g. `feat!(plugin-name or module-name): message` — always the colon-delimited Conventional Commits form, since `release.mjs` only recognizes that format when deciding the version bump.
 
 New SPECS or SKILLS must be a major version as well
 

@@ -1,3 +1,8 @@
+---
+name: vue-project-setup
+description: Scaffolds a new Vue 3 project with TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, Prettier, and Vue DevTools, then installs the commit-message, versioning, vue-style-guide, vue-ts-style-guide, and pinia-style-guide plugins. Use when starting a new Vue 3 project.
+---
+
 # Vue Project Setup
 
 Instructions for scaffolding a new Vue project.

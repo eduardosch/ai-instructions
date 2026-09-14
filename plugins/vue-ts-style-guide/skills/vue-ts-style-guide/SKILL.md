@@ -1,3 +1,8 @@
+---
+name: vue-ts-style-guide
+description: Enforces Vue 3 + TypeScript Composition API conventions — mandatory <script setup lang="ts">, explicit named types, typed props/emits/refs/reactive/computed, event handlers, provide/inject, template refs, and custom directives. Use when writing or reviewing Vue 3 + TypeScript components.
+---
+
 # Vue 3 + TypeScript Style Guide
 
 A house style guide for writing Vue 3 components with the Composition API and TypeScript. Based on the official Vue.js TypeScript with Composition API guide, adapted with stricter conventions for this codebase.

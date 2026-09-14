@@ -210,8 +210,8 @@ When asked to audit or sync locale files:
 
 Quick script for a flat check (adjust paths to the project's `localesPaths`):
 ```js
-const fs = require('fs')
-const path = require('path')
+import fs from 'node:fs'
+import path from 'node:path'
 
 function flatten(obj, prefix = '') {
   return Object.entries(obj).flatMap(([k, v]) =>

@@ -3,15 +3,16 @@
  * Scaffolds a new plugin folder under plugins/<name>/ and registers it
  * in .claude-plugin/marketplace.json.
  *
- * Usage: node create.mjs <plugin-name>
+ * Usage: node create.mjs <plugin-name> ["<description>"]
  */
 import { mkdirSync, writeFileSync, readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 
 const name = process.argv[2]
+const description = process.argv[3] || 'TODO — one-line description of what this skill does.'
 
 if (!name) {
-  console.error('\n✖ Usage: node create.mjs <plugin-name>\n')
+  console.error('\n✖ Usage: node create.mjs <plugin-name> ["<description>"]\n')
   process.exit(1)
 }
 
@@ -38,7 +39,7 @@ writeFileSync(
   join(skillDir, 'SKILL.md'),
   `---
 name: ${name}
-description: TODO — one-line description of what this skill does.
+description: ${description}
 ---
 
 ## ${name}
@@ -146,6 +147,11 @@ writeFileSync(marketplacePath, JSON.stringify(marketplace, null, 2) + '\n')
 
 // --- Summary --------------------------------------------------------------
 
+const descriptionNote =
+  process.argv[3]
+    ? `  Description set from argument: "${description}"`
+    : '  No description passed — SKILL.md still has a TODO placeholder (pass one as: node create.mjs <plugin-name> "<description>")'
+
 console.log(`
 ✔ Plugin "${name}" created
 
@@ -156,6 +162,7 @@ console.log(`
 
   Registered in .claude-plugin/marketplace.json
   Added section in README.md
+${descriptionNote}
 
 Next steps:
   1. Fill in the TODO sections in plugins/${name}/skills/${name}/SKILL.md

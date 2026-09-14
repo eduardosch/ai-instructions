@@ -1,3 +1,8 @@
+---
+name: vue-style-guide
+description: Enforces the official Vue.js style guide for naming and structuring Vue components, composables, and code, organized by priority (Essential / Strongly recommended / Recommended). Use when writing or reviewing Vue components.
+---
+
 # Vue Style Guide
  
 A generic, framework-agnostic-within-Vue style guide for naming and structuring Vue components, composables, and code. Organized by priority so teams know what's negotiable and what isn't.

@@ -57,88 +57,118 @@
     },
     {
       "name": "vue-style-guide",
-      "description": "TODO — one-line description.",
+      "description": "Enforces the official Vue.js style guide for naming and structuring Vue components, composables, and code, organized by priority",
       "version": "1.0.0",
       "source": "./plugins/vue-style-guide",
       "strict": false,
       "skills": [
         "./skills/vue-style-guide"
       ],
-      "keywords": [],
+      "keywords": [
+        "vue",
+        "style-guide",
+        "components",
+        "composition-api",
+        "conventions"
+      ],
       "author": {
         "name": "Eduardo Schroder",
         "email": "dudu.schroder@gmail.com"
       },
       "license": "MIT",
-      "category": "TODO"
+      "category": "vue"
     },
     {
       "name": "vue-ts-style-guide",
-      "description": "TODO — one-line description.",
+      "description": "Enforces Vue 3 + TypeScript Composition API conventions — typed props, emits, refs, reactive state, event handlers, provide/inject, and custom directives",
       "version": "1.0.0",
       "source": "./plugins/vue-ts-style-guide",
       "strict": false,
       "skills": [
         "./skills/vue-ts-style-guide"
       ],
-      "keywords": [],
+      "keywords": [
+        "vue",
+        "typescript",
+        "composition-api",
+        "style-guide",
+        "types"
+      ],
       "author": {
         "name": "Eduardo Schroder",
         "email": "dudu.schroder@gmail.com"
       },
       "license": "MIT",
-      "category": "TODO"
+      "category": "vue"
     },
     {
       "name": "vue-project-setup",
-      "description": "TODO — one-line description.",
+      "description": "Scaffolds a new Vue 3 project with TypeScript, JSX, Router, Pinia, Playwright, ESLint, and Prettier, then installs the companion style-guide plugins",
       "version": "1.0.0",
       "source": "./plugins/vue-project-setup",
       "strict": false,
       "skills": [
         "./skills/vue-project-setup"
       ],
-      "keywords": [],
+      "keywords": [
+        "vue",
+        "scaffolding",
+        "project-setup",
+        "vite",
+        "typescript"
+      ],
       "author": {
         "name": "Eduardo Schroder",
         "email": "dudu.schroder@gmail.com"
       },
       "license": "MIT",
-      "category": "TODO"
+      "category": "vue"
     },
     {
       "name": "pinia-style-guide",
-      "description": "TODO — one-line description.",
+      "description": "Enforces conventions for writing Pinia stores with the Composition API — naming, typed state, async actions, getters, persistence, and testing",
       "version": "1.0.0",
       "source": "./plugins/pinia-style-guide",
       "strict": false,
       "skills": [
         "./skills/pinia-style-guide"
       ],
-      "keywords": [],
+      "keywords": [
+        "vue",
+        "pinia",
+        "state-management",
+        "composition-api",
+        "style-guide"
+      ],
       "author": {
         "name": "Eduardo Schroder",
         "email": "dudu.schroder@gmail.com"
       },
       "license": "MIT",
-      "category": "TODO"
+      "category": "vue"
     },
     {
       "name": "vue-i18n",
-      "description": "TODO — one-line description.",
+      "description": "Enforces internationalization best practices in Vue.js + vue-i18n projects, fully compatible with the i18n Ally VS Code extension",
       "version": "1.0.0",
       "source": "./plugins/vue-i18n",
       "strict": false,
       "skills": [
         "./skills/vue-i18n"
       ],
-      "keywords": [],
+      "keywords": [
+        "vue",
+        "i18n",
+        "vue-i18n",
+        "internationalization",
+        "translations"
+      ],
       "author": {
         "name": "Eduardo Schroder",
         "email": "dudu.schroder@gmail.com"
       },
       "license": "MIT",
-      "category": "TODO"
+      "category": "i18n"
     }
   ]
 }

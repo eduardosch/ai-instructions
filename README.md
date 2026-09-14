@@ -140,12 +140,12 @@ node create.mjs <plugin-name>
   - Create a new block of description on the root folder of this project
 
 
-5. Create a branch. (git checkout -b your-branch-name).
+4. Create a branch. (git checkout -b your-branch-name).
 5. Make your changes on the new SKILL.md file just created.
 6. After that you need to update:
     1. the **README** file of the plugin
     2. the **README** of root folder with the description of the plugin
-    3. the **README** of marktplace.json with a short description
+    3. the **description** and **category** in marketplace.json
 7. After this push commit and push via claude, the commit message and CHANGELOG will be automatically updated when the PR is merged
 8. create a new pull request using the template provided on PULL_REQUEST_TEMPLATE.md
 
