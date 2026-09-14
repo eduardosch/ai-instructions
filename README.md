@@ -158,6 +158,18 @@ House style guide for Vitest unit/component tests and Playwright e2e tests — f
 
 ---
 
+### 🔒 `env-validation`
+
+Enforces `.env` schema validation with Zod so projects fail fast on missing or malformed config — never silently at runtime. Covers a single typed gateway file (`src/env.ts`), fail-fast startup import, `.env.example` parity, boolean coercion, and Vitest-safe environment stubs. Works with Vite/Vue and Node/Express projects.
+
+```bash
+/plugin install env-validation@eduardosch-marketplace
+```
+
+**Usage:** `/env-validation`
+
+---
+
 ## Uninstalling
 
 ```bash

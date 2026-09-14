@@ -246,6 +246,33 @@
       },
       "license": "MIT",
       "category": "testing"
+    },
+    {
+      "name": "env-validation",
+      "description": "Enforces .env schema validation with Zod — single typed gateway file, fail-fast startup, .env.example parity, and Vitest-safe stubs for Vue/Vite and Node projects",
+      "version": "1.0.0",
+      "source": "./plugins/env-validation",
+      "strict": false,
+      "skills": [
+        "./skills/env-validation"
+      ],
+      "keywords": [
+        "env",
+        "environment-variables",
+        "zod",
+        "validation",
+        "typescript",
+        "vite",
+        "node",
+        "configuration",
+        "fail-fast"
+      ],
+      "author": {
+        "name": "Eduardo Schroder",
+        "email": "dudu.schroder@gmail.com"
+      },
+      "license": "MIT",
+      "category": "configuration"
     }
   ]
 }
