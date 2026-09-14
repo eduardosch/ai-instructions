@@ -170,6 +170,18 @@ Enforces `.env` schema validation with Zod so projects fail fast on missing or m
 
 ---
 
+### <img src="icons/vue.svg" height="20" valign="middle"> `vue-component-docs`
+
+Documents Vue 3 reusable components with JSDoc-style comments and generates a live, browsable style guide with Vue Styleguidist powered by `vue-docgen-api`. Covers component-level JSDoc, typed prop annotations, emit payloads, slot documentation, side-car `.examples.md` files, and Styleguidist config with sections and webpack setup.
+
+```bash
+/plugin install vue-component-docs@eduardosch-marketplace
+```
+
+**Usage:** `/vue-component-docs`
+
+---
+
 ## Uninstalling
 
 ```bash

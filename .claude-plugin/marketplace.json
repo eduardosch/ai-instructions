@@ -273,6 +273,32 @@
       },
       "license": "MIT",
       "category": "configuration"
+    },
+    {
+      "name": "vue-component-docs",
+      "description": "Documents Vue 3 reusable components with JSDoc-style comments and generates a live Vue Styleguidist site powered by vue-docgen-api",
+      "version": "1.0.0",
+      "source": "./plugins/vue-component-docs",
+      "strict": false,
+      "skills": [
+        "./skills/vue-component-docs"
+      ],
+      "keywords": [
+        "vue",
+        "documentation",
+        "jsdoc",
+        "vue-styleguidist",
+        "vue-docgen-api",
+        "component-library",
+        "styleguide",
+        "typescript"
+      ],
+      "author": {
+        "name": "Eduardo Schroder",
+        "email": "dudu.schroder@gmail.com"
+      },
+      "license": "MIT",
+      "category": "vue"
     }
   ]
 }
