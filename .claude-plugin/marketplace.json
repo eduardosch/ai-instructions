@@ -192,6 +192,33 @@
       },
       "license": "MIT",
       "category": "vue"
+    },
+    {
+      "name": "api-client-conventions",
+      "description": "Style guide for structuring API calls and services — typed axios/fetch wrapper, error normalisation, service modules, and Vue 3 composables",
+      "version": "1.0.0",
+      "source": "./plugins/api-client-conventions",
+      "strict": false,
+      "skills": [
+        "./skills/api-client-conventions"
+      ],
+      "keywords": [
+        "api",
+        "axios",
+        "fetch",
+        "http-client",
+        "typescript",
+        "error-handling",
+        "services",
+        "composables",
+        "vue"
+      ],
+      "author": {
+        "name": "Eduardo Schroder",
+        "email": "dudu.schroder@gmail.com"
+      },
+      "license": "MIT",
+      "category": "vue"
     }
   ]
 }

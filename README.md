@@ -130,6 +130,20 @@ Configures Sass/SCSS in a Vue 3 + Vite project — installs `sass-embedded`, cre
 
 ---
 
+### 🔌 `api-client-conventions`
+
+Style guide for structuring API calls and services with full TypeScript coverage — singleton axios wrapper with interceptors, typed service modules, normalised `ApiError`, `PaginatedResponse<T>`, and Vue 3 composables with `isLoading`/`error` state. Pairs with `vue-ts-style-guide`.
+
+> Style guide for structuring API calls and services — typed axios/fetch wrapper, error normalisation, service modules, and Vue 3 composables
+
+```bash
+/plugin install api-client-conventions@eduardosch-marketplace
+```
+
+**Usage:** `/api-client-conventions`
+
+---
+
 ## Uninstalling
 
 ```bash
