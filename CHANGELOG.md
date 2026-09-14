@@ -1,5 +1,16 @@
 # Changelog
 
+## v6.0.0 — 2026-09-14
+
+### Features
+
+- add vue scss setup plugin
+- auto-update readme on plugin scaffold
+
+### Other
+
+- add skill frontmatter and marketplace metadata
+
 ## v5.0.5 — 2026-09-04
 
 ### Other
