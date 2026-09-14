@@ -1,5 +1,11 @@
 # Changelog
 
+## v6.0.1 — 2026-09-14
+
+### Other
+
+- add vue-scss-setup to project setup skill
+
 ## v6.0.0 — 2026-09-14
 
 ### Features
