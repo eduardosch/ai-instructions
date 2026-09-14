@@ -1,5 +1,11 @@
 # Changelog
 
+## v9.0.0 — 2026-09-14
+
+### Features
+
+- add .env schema validation plugin
+
 ## v8.0.0 — 2026-09-14
 
 ### Features
