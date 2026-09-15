@@ -1,5 +1,11 @@
 # Changelog
 
+## v12.0.1 — 2026-09-15
+
+### Fixes
+
+- use VueUse useDark, add icons question, use project name as brand
+
 ## v12.0.0 — 2026-09-15
 
 ### Features
