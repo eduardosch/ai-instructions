@@ -308,6 +308,7 @@
       "version": "1.0.0",
       "source": "./plugins/element-plus-setup",
       "strict": false,
+      "oneshot": true,
       "skills": [
         "./skills/element-plus-setup"
       ],
