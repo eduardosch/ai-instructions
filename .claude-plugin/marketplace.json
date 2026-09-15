@@ -177,6 +177,7 @@
       "version": "1.0.0",
       "source": "./plugins/vue-scss-setup",
       "strict": false,
+      "oneshot": true,
       "skills": [
         "./skills/vue-scss-setup"
       ],

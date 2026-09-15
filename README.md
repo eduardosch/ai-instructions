@@ -50,6 +50,14 @@ Installs and configures Firebase in any TypeScript project — asks which servic
 
 ---
 
+### 🎨 `vue-scss-setup`
+
+Configures Sass/SCSS in a Vue 3 + Vite project — installs `sass-embedded`, creates global variable partials (colors, fonts, breakpoints) and mixin partials (px-to-rem, responsive, truncate), and wires them into every component automatically via `vite.config.ts` `additionalData`.
+
+**Usage:** `/vue-scss-setup`
+
+---
+
 ## Plugins
 
 ### <img src="icons/github.svg" height="20" valign="middle"> `commit-message`
@@ -123,20 +131,6 @@ Enforces Vue 3 + TypeScript conventions for Composition API codebases — props,
 ```
 
 **Usage:** `/vue-ts-style-guide`
-
----
-
-### 🎨 `vue-scss-setup`
-
-Configures Sass/SCSS in a Vue 3 + Vite project — installs `sass-embedded`, creates global variable partials (colors, fonts, breakpoints) and mixin partials (px-to-rem, responsive, truncate), and wires them into every component automatically via `vite.config.ts` `additionalData`.
-
-> Trigger when adding Sass to a Vue project, setting up global SCSS variables/mixins, or scaffolding styles for a `create-vue` project.
-
-```bash
-/plugin install vue-scss-setup@eduardosch-marketplace
-```
-
-**Usage:** `/vue-scss-setup`
 
 ---
 
