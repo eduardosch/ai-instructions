@@ -55,7 +55,19 @@ Prompt the user for the project name before continuing.
 - **vue-scss-setup** — configures Sass/SCSS with global variables and mixins via Vite
 - **api-client-conventions** — typed axios/fetch wrapper, error normalisation, service modules, and Vue 3 composables
 
-## 5. Show a summary
+## 5. Install npm packages
+
+Run the following after the project scaffolding and plugin installation:
+
+```bash
+npm install axios
+npm install -D sass-embedded
+```
+
+- **axios** — HTTP client used by `api-client-conventions` (`src/lib/http.ts`)
+- **sass-embedded** — modern Dart Sass implementation required by `vue-scss-setup`; use this instead of `sass` to avoid the legacy-JS-API deprecation warning under Vite
+
+## 6. Show a summary
 
 Once everything is finished, show the user a bullet list with emojis and short descriptions of what was done, e.g.:
 
@@ -70,3 +82,5 @@ Once everything is finished, show the user a bullet list with emojis and short d
 - 🍍 **pinia-style-guide** — Pinia store conventions installed
 - 🎨 **vue-scss-setup** — Sass/SCSS configured with global variables and mixins
 - 🌐 **api-client-conventions** — typed API client with error normalisation, service modules, and composables
+- 📦 **axios** — HTTP client installed for the API service layer
+- 📦 **sass-embedded** — Dart Sass installed for SCSS compilation
