@@ -15,7 +15,22 @@ Run the following command directly without asking the user — all options are p
 npm create vue@latest -- . --typescript --jsx --router --pinia --playwright --eslint --prettier --devtools --force
 ```
 
-## 2. Install additional plugins
+## 2. Install npm packages
+
+```bash
+npm install
+npm install axios
+npm install -D sass-embedded vue-styleguidist vue-docgen-api webpack webpack-dev-server css-loader style-loader vue-loader ts-loader
+```
+
+- **axios** — HTTP client used by `api-client-conventions` (`src/lib/http.ts`)
+- **sass-embedded** — modern Dart Sass implementation required by `vue-scss-setup`; use this instead of `sass` to avoid the legacy-JS-API deprecation warning under Vite
+- **vue-styleguidist** + **vue-docgen-api** — powers the live component documentation site (`npm run styleguide`)
+- **webpack**, **webpack-dev-server**, **css-loader**, **style-loader**, **vue-loader**, **ts-loader** — webpack peer dependencies required by Vue Styleguidist in a Vite-only project
+
+## 3. Install additional plugins
+
+Install plugins last so they are never overwritten by the scaffolding or npm steps above.
 
 ​```
 1. /plugin marketplace add eduardosch/ai-instructions
@@ -37,21 +52,6 @@ npm create vue@latest -- . --typescript --jsx --router --pinia --playwright --es
 - **vue-scss-setup** — configures Sass/SCSS with global variables and mixins via Vite
 - **api-client-conventions** — typed axios/fetch wrapper, error normalisation, service modules, and Vue 3 composables
 - **vue-component-docs** — JSDoc conventions and Vue Styleguidist site for component library documentation
-
-## 3. Install npm packages
-
-Run the following after the project scaffolding and plugin installation:
-
-```bash
-npm install
-npm install axios
-npm install -D sass-embedded vue-styleguidist vue-docgen-api webpack webpack-dev-server css-loader style-loader vue-loader ts-loader
-```
-
-- **axios** — HTTP client used by `api-client-conventions` (`src/lib/http.ts`)
-- **sass-embedded** — modern Dart Sass implementation required by `vue-scss-setup`; use this instead of `sass` to avoid the legacy-JS-API deprecation warning under Vite
-- **vue-styleguidist** + **vue-docgen-api** — powers the live component documentation site (`npm run styleguide`)
-- **webpack**, **webpack-dev-server**, **css-loader**, **style-loader**, **vue-loader**, **ts-loader** — webpack peer dependencies required by Vue Styleguidist in a Vite-only project
 
 ## 4. Show a summary
 
