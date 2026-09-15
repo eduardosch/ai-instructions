@@ -9,32 +9,13 @@ Instructions for scaffolding a new Vue project.
 
 ## 1. Create the project
 
-Run:
+Run the following command directly without asking the user — all options are pre-selected:
 
-```
-npm create vue@latest -- .
-```
-
-## 2. Ask for the project name
-
-Prompt the user for the project name before continuing.
-
-## 3. Select these options
-
-```
-✔ Project name: … name of the project that the user chose before
-✔ Add TypeScript? … Yes
-✔ Add JSX Support? … Yes
-✔ Add Vue Router for Single Page Application development? … Yes
-✔ Add Pinia for state management? … Yes
-✔ Add Vitest for Unit testing? … No
-✔ Add an End-to-End Testing Solution? … Playwright
-✔ Add ESLint for code quality? … Yes
-✔ Add Prettier for code formatting? … Yes
-✔ Add Vue DevTools … Yes
+```bash
+npm create vue@latest -- . --typescript --jsx --router --pinia --playwright --eslint --prettier --devtools --force
 ```
 
-## 4. Install additional plugins
+## 2. Install additional plugins
 
 ​```
 1. /plugin marketplace add eduardosch/ai-instructions
@@ -57,7 +38,7 @@ Prompt the user for the project name before continuing.
 - **api-client-conventions** — typed axios/fetch wrapper, error normalisation, service modules, and Vue 3 composables
 - **vue-component-docs** — JSDoc conventions and Vue Styleguidist site for component library documentation
 
-## 5. Install npm packages
+## 3. Install npm packages
 
 Run the following after the project scaffolding and plugin installation:
 
@@ -71,7 +52,7 @@ npm install -D sass-embedded vue-styleguidist vue-docgen-api webpack webpack-dev
 - **vue-styleguidist** + **vue-docgen-api** — powers the live component documentation site (`npm run styleguide`)
 - **webpack**, **webpack-dev-server**, **css-loader**, **style-loader**, **vue-loader**, **ts-loader** — webpack peer dependencies required by Vue Styleguidist in a Vite-only project
 
-## 6. Show a summary
+## 4. Show a summary
 
 Once everything is finished, show the user a bullet list with emojis and short descriptions of what was done, e.g.:
 
