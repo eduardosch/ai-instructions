@@ -301,6 +301,32 @@
       "category": "vue"
     },
     {
+      "name": "element-plus-setup",
+      "description": "Installs and configures Element Plus in a Vue 3 + Vite project — sets up auto-import, enables optional dark mode, aligns theming with existing SCSS variables or Element Plus defaults, and scaffolds an optional app structure with auth pages and a chosen navigation layout",
+      "version": "1.0.0",
+      "source": "./plugins/element-plus-setup",
+      "strict": false,
+      "skills": [
+        "./skills/element-plus-setup"
+      ],
+      "keywords": [
+        "vue",
+        "element-plus",
+        "ui-library",
+        "dark-mode",
+        "theming",
+        "layout",
+        "authentication",
+        "vite"
+      ],
+      "author": {
+        "name": "Eduardo Schroder",
+        "email": "dudu.schroder@gmail.com"
+      },
+      "license": "MIT",
+      "category": "vue"
+    },
+    {
       "name": "firebase-setup",
       "description": "Installs and configures Firebase in any TypeScript project — asks which services to enable (Firestore, Authentication, Realtime Database, Storage, Functions, Hosting), scaffolds typed service modules, and wires Firebase config through environment variables",
       "version": "1.0.0",

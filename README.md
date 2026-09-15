@@ -182,6 +182,18 @@ Documents Vue 3 reusable components with JSDoc-style comments and generates a li
 
 ---
 
+### 🧩 `element-plus-setup`
+
+Installs and configures Element Plus in a Vue 3 + Vite project — sets up auto-import, enables optional dark mode, aligns theming with existing SCSS variables or Element Plus defaults, and scaffolds an optional app structure with authentication pages and a chosen navigation layout (top-bar only, top-bar + sidebar, two-level sidebar).
+
+```bash
+/plugin install element-plus-setup@eduardosch-marketplace
+```
+
+**Usage:** `/element-plus-setup`
+
+---
+
 ### 🔥 `firebase-setup`
 
 Installs and configures Firebase in any TypeScript project — asks which services to enable (Firestore, Authentication, Realtime Database, Storage, Cloud Functions, Hosting), scaffolds typed service modules under `src/lib/`, and wires all Firebase config through environment variables. Credentials can be provided upfront or filled in later via `.env.example`. Integrates with `env-validation` when present.
