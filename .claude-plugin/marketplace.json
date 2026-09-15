@@ -107,6 +107,7 @@
       "version": "1.0.0",
       "source": "./plugins/vue-project-setup",
       "strict": false,
+      "oneshot": true,
       "skills": [
         "./skills/vue-project-setup"
       ],

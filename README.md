@@ -28,6 +28,20 @@ Install any plugin individually:
 
 ---
 
+## Setup Skills
+
+These are **one-shot skills** — run them once per project directly from Claude Code without installing. They scaffold or configure your project and don't persist in your Claude Code settings.
+
+---
+
+### <img src="icons/vue.svg" height="20" valign="middle"> `vue-project-setup`
+
+Scaffolds a new Vue 3 project with an opinionated stack: TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, Prettier, and Vue DevTools — then automatically installs the `commit-message`, `versioning`, `vue-style-guide`, `vue-ts-style-guide`, and `pinia-style-guide` plugins so the project is ready to go from the first commit.
+
+**Usage:** `/vue-project-setup`
+
+---
+
 ## Plugins
 
 ### <img src="icons/github.svg" height="20" valign="middle"> `commit-message`
@@ -53,18 +67,6 @@ Automated semantic versioning — reads commit history since the last git tag, d
 ```
 
 **Usage:** `/versioning` to set up a project, then `node release.mjs` (or `npm run release`) to cut a release.
-
----
-
-### <img src="icons/vue.svg" height="20" valign="middle"> `vue-project-setup`
-
-Scaffolds a new Vue 3 project with an opinionated stack: TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, Prettier, and Vue DevTools — then automatically installs the `commit-message`, `versioning`, `vue-style-guide`, `vue-ts-style-guide`, and `pinia-style-guide` plugins so the project is ready to go from the first commit.
-
-```bash
-/plugin install vue-project-setup@eduardosch-marketplace
-```
-
-**Usage:** `/vue-project-setup`
 
 ---
 
