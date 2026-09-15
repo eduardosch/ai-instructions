@@ -1,11 +1,11 @@
 ---
 name: element-plus-setup
-description: Installs and configures Element Plus in a Vue 3 + Vite project — sets up auto-import, asks about dark mode, aligns theming with existing SCSS variables or Element Plus defaults, and optionally scaffolds a full app structure with authentication pages and a chosen navigation layout (top-bar only, top-bar + sidebar, two-level sidebar). Use when adding Element Plus to any Vue 3 project.
+description: Installs and configures Element Plus in a Vue 3 + Vite project — sets up auto-import, asks about dark mode (via VueUse useDark with moon/sun toggle), aligns theming with existing SCSS variables or Element Plus defaults, optionally installs the icons package, and scaffolds an optional app structure with authentication pages and a chosen navigation layout using the project folder name as the brand. Use when adding Element Plus to any Vue 3 project.
 ---
 
 # Element Plus Setup
 
-Installs and wires Element Plus into a Vue 3 + Vite project with auto-import, optional dark mode, custom theming, and an optional starter app structure.
+Installs and wires Element Plus into a Vue 3 + Vite project with auto-import, optional dark mode, custom theming, optional icons, and an optional starter app structure.
 
 Pairs naturally with [[vue-project-setup]] (project scaffolding) and [[vue-scss-setup]] (global SCSS variables).
 
@@ -63,55 +63,26 @@ If the project already has a `vite.config.ts`, read it first and **merge** — d
 Ask the user:
 
 > Do you want to enable dark mode support?
-> - **Yes** — I want a dark/light mode toggle
+> - **Yes** — I want a dark/light mode toggle (moon/sun button in the header)
 > - **No** — light mode only
 
 ### If dark mode is enabled
 
-Follow the official Element Plus dark mode guide. Add `class="dark"` toggling support:
+Dark mode is powered by VueUse's `useDark()`, which handles the `class="dark"` toggle and persists the preference to `localStorage` automatically. A moon/sun icon button will appear on the right side of the header.
 
-1. In `src/main.ts`, import the dark mode CSS variables:
+1. Install VueUse:
+
+```bash
+npm install @vueuse/core
+```
+
+2. In `src/main.ts`, import the Element Plus dark mode CSS variables so the dark theme tokens load:
 
 ```ts
 import 'element-plus/theme-chalk/dark/css-vars.css'
 ```
 
-2. Create a composable at `src/composables/useDarkMode.ts`:
-
-```ts
-import { ref, watchEffect } from 'vue'
-
-const isDark = ref(false)
-
-export function useDarkMode() {
-  watchEffect(() => {
-    if (isDark.value) {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-    }
-  })
-
-  function toggleDark() {
-    isDark.value = !isDark.value
-  }
-
-  return { isDark, toggleDark }
-}
-```
-
-3. If the app has a header/navbar, add a toggle button there. Example using `ElSwitch`:
-
-```vue
-<template>
-  <el-switch v-model="isDark" @change="toggleDark" />
-</template>
-
-<script setup lang="ts">
-import { useDarkMode } from '@/composables/useDarkMode'
-const { isDark, toggleDark } = useDarkMode()
-</script>
-```
+The `useDark()` composable from VueUse will be used directly in the header component — no separate composable file is needed.
 
 ---
 
@@ -221,7 +192,53 @@ If no variable file exists, skip theming and proceed. Element Plus default token
 
 ---
 
-## Step 5 — Ask about app structure
+## Step 5 — Ask about Element Plus icons
+
+Ask the user:
+
+> Do you want to install the Element Plus icons package (`@element-plus/icons-vue`)?
+> - **Yes** — install and register all icons globally
+> - **No** — skip icons
+
+### If icons are requested
+
+```bash
+npm install @element-plus/icons-vue
+```
+
+Register all icons globally in `src/main.ts` so they can be used anywhere without explicit imports:
+
+```ts
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+import { createApp } from 'vue'
+import App from './App.vue'
+
+const app = createApp(App)
+
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+  app.component(key, component)
+}
+
+app.mount('#app')
+```
+
+If `src/main.ts` already exists, add only the icon registration loop — preserve any existing imports and `app.mount()` call.
+
+---
+
+## Step 6 — Read the project name
+
+Before scaffolding any layout, read the project name to use as the brand label in the header and sidebar.
+
+1. Read `package.json` and get the `name` field.
+2. Convert it to title case for display (e.g., `my-app` → `My App`, `acme-dashboard` → `Acme Dashboard`).
+3. Use this value wherever "My App" appears in the templates below.
+
+If `package.json` is missing or has no `name`, fall back to the current directory name (last segment of the working path), title-cased.
+
+---
+
+## Step 7 — Ask about app structure
 
 Ask the user:
 
@@ -344,6 +361,83 @@ Ask the user:
 > **3) Level 3** — top bar + two-column sidebar (first-level left, second-level middle) + main content  
 > **4) Top navigation** — top bar with inline nav links + main content (no sidebar)
 
+#### AppHeader component
+
+All layouts that have a top bar use a shared `src/components/AppHeader.vue`. Create it first, then reference it from the layout files below.
+
+Replace `PROJECT_NAME` with the title-cased project name resolved in Step 6.
+
+**With dark mode enabled:**
+
+```vue
+<template>
+  <div class="app-header">
+    <span class="app-header__brand">PROJECT_NAME</span>
+    <div class="app-header__right">
+      <el-button :icon="isDark ? Sunny : Moon" circle text @click="toggleDark" />
+      <el-avatar :icon="UserFilled" size="small" />
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { useDark, useToggle } from '@vueuse/core'
+import { Moon, Sunny, UserFilled } from '@element-plus/icons-vue'
+
+const isDark = useDark()
+const toggleDark = useToggle(isDark)
+</script>
+
+<style scoped>
+.app-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.app-header__brand { font-weight: 600; font-size: 18px; }
+.app-header__right { display: flex; align-items: center; gap: 12px; }
+</style>
+```
+
+**Without dark mode:**
+
+```vue
+<template>
+  <div class="app-header">
+    <span class="app-header__brand">PROJECT_NAME</span>
+    <div class="app-header__right">
+      <el-avatar :icon="UserFilled" size="small" />
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { UserFilled } from '@element-plus/icons-vue'
+</script>
+
+<style scoped>
+.app-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.app-header__brand { font-weight: 600; font-size: 18px; }
+.app-header__right { display: flex; align-items: center; gap: 12px; }
+</style>
+```
+
+The `Moon`, `Sunny`, and `UserFilled` icon imports are always explicit here even when icons are registered globally, to keep the component self-contained and avoid ambiguity.
+
+If icons were **not** installed (Step 5 declined), replace `el-button :icon="..."` with a plain text or emoji button:
+
+```vue
+<el-button circle text @click="toggleDark">{{ isDark ? '☀️' : '🌙' }}</el-button>
+```
+
+---
+
 #### Layout 1 — Top bar + sidebar + body
 
 Create `src/layouts/DefaultLayout.vue`:
@@ -386,9 +480,11 @@ import AppHeader from '@/components/AppHeader.vue'
 </style>
 ```
 
+If icons were not installed, remove the `el-icon` wrappers and use plain text labels only.
+
 #### Layout 2 — Top bar + sidebar with category groups + body
 
-Same as Layout 1 but the sidebar uses `el-menu-item-group` to group items:
+Same structure as Layout 1 but the sidebar uses `el-menu-item-group` to group items:
 
 ```vue
 <el-menu router :default-active="$route.path">
@@ -405,14 +501,14 @@ Same as Layout 1 but the sidebar uses `el-menu-item-group` to group items:
 
 #### Layout 3 — Top bar + two-level sidebar + body
 
-The left panel shows first-level navigation; the middle column shows second-level items for the selected section:
+The left panel (64px wide) shows icon-only first-level navigation. The middle column (180px) shows text second-level items for the active section:
 
 ```vue
 <template>
   <el-container class="layout-root">
     <el-header class="layout-header"><AppHeader /></el-header>
     <el-container>
-      <!-- Primary nav -->
+      <!-- Primary nav (icon only) -->
       <el-aside width="64px" class="layout-primary-nav">
         <el-menu :default-active="activeSection" @select="setSection">
           <el-menu-item index="dashboard" title="Dashboard">
@@ -460,72 +556,58 @@ function setSection(key: string) { activeSection.value = key }
 
 #### Layout 4 — Top navigation only
 
-The header contains the nav links directly; there is no sidebar:
+The header holds the nav links directly. Replace `PROJECT_NAME` with the title-cased project name.
+
+**With dark mode:**
 
 ```vue
 <template>
   <el-container class="layout-root" direction="vertical">
     <el-header class="layout-header">
-      <span class="layout-brand">My App</span>
+      <span class="layout-brand">PROJECT_NAME</span>
       <el-menu mode="horizontal" router :default-active="$route.path" class="layout-nav">
         <el-menu-item index="/">Home</el-menu-item>
         <el-menu-item index="/about">About</el-menu-item>
         <el-menu-item index="/contact">Contact</el-menu-item>
       </el-menu>
+      <div class="layout-actions">
+        <el-button :icon="isDark ? Sunny : Moon" circle text @click="toggleDark" />
+        <el-avatar :icon="UserFilled" size="small" />
+      </div>
     </el-header>
     <el-main><router-view /></el-main>
   </el-container>
 </template>
 
-<script setup lang="ts"></script>
-
-<style scoped>
-.layout-root { height: 100vh; }
-.layout-header { display: flex; align-items: center; border-bottom: 1px solid var(--el-border-color); }
-.layout-brand { font-weight: 600; font-size: 18px; margin-right: 24px; }
-.layout-nav { flex: 1; border-bottom: none; }
-</style>
-```
-
-#### AppHeader component
-
-For layouts 1–3, create `src/components/AppHeader.vue`:
-
-```vue
-<template>
-  <div class="app-header">
-    <span class="app-header__brand">My App</span>
-    <div class="app-header__right">
-      <el-switch v-if="darkModeEnabled" v-model="isDark" @change="toggleDark" />
-      <el-avatar icon="UserFilled" size="small" />
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
-// Remove darkModeEnabled and useDarkMode import if dark mode was not enabled
-import { useDarkMode } from '@/composables/useDarkMode'
-const darkModeEnabled = true
-const { isDark, toggleDark } = useDarkMode()
+import { useDark, useToggle } from '@vueuse/core'
+import { Moon, Sunny, UserFilled } from '@element-plus/icons-vue'
+
+const isDark = useDark()
+const toggleDark = useToggle(isDark)
 </script>
 
 <style scoped>
-.app-header {
-  width: 100%;
+.layout-root { height: 100vh; }
+.layout-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  border-bottom: 1px solid var(--el-border-color);
+  gap: 0;
 }
-.app-header__brand { font-weight: 600; font-size: 18px; }
-.app-header__right { display: flex; align-items: center; gap: 12px; }
+.layout-brand { font-weight: 600; font-size: 18px; margin-right: 24px; white-space: nowrap; }
+.layout-nav { flex: 1; border-bottom: none; }
+.layout-actions { display: flex; align-items: center; gap: 8px; margin-left: 16px; }
 </style>
 ```
 
-If dark mode was **not** enabled in Step 3, remove the `el-switch` and the `useDarkMode` import from `AppHeader.vue`.
+**Without dark mode:** remove the `el-button` toggle, `useDark`/`useToggle` imports, and `Moon`/`Sunny` imports.
+
+---
 
 #### Wire the layout in the router
 
-Update `src/router/index.ts` so the app routes are children of the chosen layout:
+Update `src/router/index.ts` so app routes are children of the chosen layout:
 
 ```ts
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
@@ -542,40 +624,20 @@ import DefaultLayout from '@/layouts/DefaultLayout.vue'
 
 Create stub pages (`HomePage.vue`, `AboutPage.vue`) under `src/views/` so the router does not throw on startup.
 
-Install the icons package:
-
-```bash
-npm install @element-plus/icons-vue
-```
-
-Register icons globally in `src/main.ts`:
-
-```ts
-import * as ElementPlusIconsVue from '@element-plus/icons-vue'
-import { createApp } from 'vue'
-import App from './App.vue'
-
-const app = createApp(App)
-
-for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
-  app.component(key, component)
-}
-```
-
 ---
 
-## Step 6 — Show a summary
+## Step 8 — Show a summary
 
 Once everything is done, show a bullet list with what was set up:
 
 - 📦 **Element Plus installed** — `element-plus` + `unplugin-vue-components` + `unplugin-auto-import`
 - ⚡ **Auto-import configured** — components and composables resolved on demand via `vite.config.ts`
-- 🌙 **Dark mode** — `useDarkMode` composable + CSS vars imported (if enabled)
+- 🌙 **Dark mode** — powered by `@vueuse/core` `useDark()` with moon/sun toggle in the header (if enabled)
 - 🎨 **Custom theme** — `src/assets/styles/element/index.scss` overriding Element Plus tokens with project variables (if Option A chosen)
 - 🔗 **Variable alignment** — project variable file updated with Element Plus default values (if Option B chosen)
+- 🧭 **Icons** — `@element-plus/icons-vue` installed and globally registered (if requested)
 - 🔐 **Auth pages** — Login, Register, Forgot Password, Password Sent, Password Reset under `src/views/auth/` (if requested)
-- 🏗️ **App layout** — `src/layouts/DefaultLayout.vue` scaffolded (layout variant name) (if requested)
-- 🧭 **Icons** — `@element-plus/icons-vue` installed and globally registered (if layout was scaffolded)
+- 🏗️ **App layout** — `src/layouts/DefaultLayout.vue` scaffolded with `PROJECT_NAME` as brand (layout variant name, if requested)
 
 ---
 
@@ -583,9 +645,11 @@ Once everything is done, show a bullet list with what was set up:
 
 - [ ] `element-plus` installed
 - [ ] `unplugin-vue-components` + `unplugin-auto-import` installed and wired in `vite.config.ts`
-- [ ] Dark mode CSS imported and `useDarkMode` composable created (if enabled)
+- [ ] `@vueuse/core` installed and dark mode CSS imported in `main.ts` (if dark mode enabled)
 - [ ] Custom SCSS theme file created and `css.preprocessorOptions` updated (if custom theming)
 - [ ] Variable file updated with Element Plus defaults (if alignment chosen)
+- [ ] `@element-plus/icons-vue` installed and globally registered (if icons requested)
 - [ ] Auth pages + routes added (if requested)
+- [ ] Project name read from `package.json` and used as brand in header/layout
 - [ ] Layout component created and wired in router (if requested)
-- [ ] `@element-plus/icons-vue` installed and globally registered (if layout created)
+- [ ] `AppHeader.vue` created with moon/sun toggle (if dark mode + layout both enabled)

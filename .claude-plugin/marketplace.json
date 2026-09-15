@@ -302,7 +302,7 @@
     },
     {
       "name": "element-plus-setup",
-      "description": "Installs and configures Element Plus in a Vue 3 + Vite project — sets up auto-import, enables optional dark mode, aligns theming with existing SCSS variables or Element Plus defaults, and scaffolds an optional app structure with auth pages and a chosen navigation layout",
+      "description": "Installs and configures Element Plus in a Vue 3 + Vite project — sets up auto-import, enables optional dark mode via VueUse useDark with moon/sun toggle, aligns theming with existing SCSS variables or Element Plus defaults, optionally installs the icons package, and scaffolds an optional app structure with auth pages and a chosen navigation layout using the project folder name as the brand",
       "version": "1.0.0",
       "source": "./plugins/element-plus-setup",
       "strict": false,

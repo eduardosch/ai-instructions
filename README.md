@@ -184,7 +184,7 @@ Documents Vue 3 reusable components with JSDoc-style comments and generates a li
 
 ### 🧩 `element-plus-setup`
 
-Installs and configures Element Plus in a Vue 3 + Vite project — sets up auto-import, enables optional dark mode, aligns theming with existing SCSS variables or Element Plus defaults, and scaffolds an optional app structure with authentication pages and a chosen navigation layout (top-bar only, top-bar + sidebar, two-level sidebar).
+Installs and configures Element Plus in a Vue 3 + Vite project — sets up auto-import, enables optional dark mode via VueUse `useDark()` with a moon/sun toggle in the header, aligns theming with existing SCSS variables or Element Plus defaults, optionally installs the icons package, and scaffolds an optional app structure with authentication pages and a chosen navigation layout (top-bar only, top-bar + sidebar, two-level sidebar). Uses the project folder name as the brand label.
 
 ```bash
 /plugin install element-plus-setup@eduardosch-marketplace
