@@ -1,5 +1,11 @@
 # Changelog
 
+## v11.0.2 — 2026-09-15
+
+### Fixes
+
+- add npm install step before extra packages
+
 ## v11.0.1 — 2026-09-15
 
 ### Fixes
