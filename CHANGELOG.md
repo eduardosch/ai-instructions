@@ -1,5 +1,11 @@
 # Changelog
 
+## v11.0.5 — 2026-09-15
+
+### Fixes
+
+- create .claude/settings.json directly instead of /plugin install
+
 ## v11.0.4 — 2026-09-15
 
 ### Fixes
