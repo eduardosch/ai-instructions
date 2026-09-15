@@ -31,7 +31,44 @@ npm install -D sass-embedded vue-styleguidist vue-docgen-api webpack webpack-dev
 - **vue-styleguidist** + **vue-docgen-api** — powers the live component documentation site (`npm run styleguide`)
 - **webpack**, **webpack-dev-server**, **css-loader**, **style-loader**, **vue-loader**, **ts-loader** — webpack peer dependencies required by Vue Styleguidist in a Vite-only project
 
-## 3. Wire the plugins
+## 3. Fix tsconfig.app.json (if needed)
+
+After `npm install`, verify that `@vue/tsconfig/tsconfig.dom.json` exists:
+
+```bash
+node -e "require.resolve('@vue/tsconfig/tsconfig.dom.json')" 2>&1
+```
+
+If the command **fails** (file not found), replace the contents of `tsconfig.app.json` with the following inline configuration — this is equivalent to what `@vue/tsconfig/tsconfig.dom.json` provides but without the broken extends:
+
+```json
+{
+  "compilerOptions": {
+    "composite": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "baseUrl": ".",
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "skipLibCheck": true
+  },
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  "exclude": ["src/**/__tests__/*"]
+}
+```
+
+## 4. Wire the plugins
 
 The `/plugin install` slash commands do not run reliably inside a skill. Instead, directly create the project's `.claude/settings.json` so Claude Code picks up all plugins when the project is opened:
 
@@ -67,7 +104,7 @@ Then register the marketplace so Claude Code can resolve the plugin source:
 - **api-client-conventions** — typed axios/fetch wrapper, error normalisation, service modules, and Vue 3 composables
 - **vue-component-docs** — JSDoc conventions and Vue Styleguidist site for component library documentation
 
-## 4. Show a summary
+## 5. Show a summary
 
 Once everything is finished, show the user a bullet list with emojis and short descriptions of what was done, e.g.:
 
