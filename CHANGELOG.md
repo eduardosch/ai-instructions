@@ -1,5 +1,11 @@
 # Changelog
 
+## v12.0.0 — 2026-09-15
+
+### Features
+
+- add Element Plus setup plugin
+
 ## v11.0.6 — 2026-09-15
 
 ### Fixes
