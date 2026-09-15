@@ -1,5 +1,11 @@
 # Changelog
 
+## v12.0.3 — 2026-09-15
+
+### Fixes
+
+- rename Base* to App*, move components step before app structure
+
 ## v12.0.2 — 2026-09-15
 
 ### Fixes
