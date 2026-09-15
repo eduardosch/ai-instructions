@@ -1,5 +1,11 @@
 # Changelog
 
+## v11.0.3 — 2026-09-15
+
+### Fixes
+
+- install plugins after npm steps to prevent .claude removal
+
 ## v11.0.2 — 2026-09-15
 
 ### Fixes
