@@ -43,6 +43,7 @@ npm create vue@latest -- . --typescript --jsx --router --pinia --playwright --es
 Run the following after the project scaffolding and plugin installation:
 
 ```bash
+npm install
 npm install axios
 npm install -D sass-embedded vue-styleguidist vue-docgen-api webpack webpack-dev-server css-loader style-loader vue-loader ts-loader
 ```
