@@ -1,6 +1,6 @@
 ---
 name: vue-project-setup
-description: Scaffolds a new Vue 3 project with TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, Prettier, and Vue DevTools, then installs the commit-message, versioning, vue-style-guide, vue-ts-style-guide, pinia-style-guide, vue-scss-setup, and api-client-conventions plugins. Use when starting a new Vue 3 project.
+description: Scaffolds a new Vue 3 project with TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, Prettier, and Vue DevTools, then installs the commit-message, versioning, vue-style-guide, vue-ts-style-guide, pinia-style-guide, vue-scss-setup, api-client-conventions, and vue-component-docs plugins. Use when starting a new Vue 3 project.
 ---
 
 # Vue Project Setup
@@ -45,6 +45,7 @@ Prompt the user for the project name before continuing.
 6. /plugin install pinia-style-guide@eduardosch-marketplace
 7. /plugin install vue-scss-setup@eduardosch-marketplace
 8. /plugin install api-client-conventions@eduardosch-marketplace
+9. /plugin install vue-component-docs@eduardosch-marketplace
 ​```
 
 - **commit-message** — enables semantic commit messages
@@ -54,6 +55,7 @@ Prompt the user for the project name before continuing.
 - **pinia-style-guide** — Pinia store conventions
 - **vue-scss-setup** — configures Sass/SCSS with global variables and mixins via Vite
 - **api-client-conventions** — typed axios/fetch wrapper, error normalisation, service modules, and Vue 3 composables
+- **vue-component-docs** — JSDoc conventions and Vue Styleguidist site for component library documentation
 
 ## 5. Install npm packages
 
@@ -61,11 +63,13 @@ Run the following after the project scaffolding and plugin installation:
 
 ```bash
 npm install axios
-npm install -D sass-embedded
+npm install -D sass-embedded vue-styleguidist vue-docgen-api webpack webpack-dev-server css-loader style-loader vue-loader ts-loader
 ```
 
 - **axios** — HTTP client used by `api-client-conventions` (`src/lib/http.ts`)
 - **sass-embedded** — modern Dart Sass implementation required by `vue-scss-setup`; use this instead of `sass` to avoid the legacy-JS-API deprecation warning under Vite
+- **vue-styleguidist** + **vue-docgen-api** — powers the live component documentation site (`npm run styleguide`)
+- **webpack**, **webpack-dev-server**, **css-loader**, **style-loader**, **vue-loader**, **ts-loader** — webpack peer dependencies required by Vue Styleguidist in a Vite-only project
 
 ## 6. Show a summary
 
@@ -82,5 +86,7 @@ Once everything is finished, show the user a bullet list with emojis and short d
 - 🍍 **pinia-style-guide** — Pinia store conventions installed
 - 🎨 **vue-scss-setup** — Sass/SCSS configured with global variables and mixins
 - 🌐 **api-client-conventions** — typed API client with error normalisation, service modules, and composables
+- 📚 **vue-component-docs** — JSDoc conventions and Styleguidist site for component library documentation
 - 📦 **axios** — HTTP client installed for the API service layer
 - 📦 **sass-embedded** — Dart Sass installed for SCSS compilation
+- 📦 **vue-styleguidist + deps** — Styleguidist and webpack peer dependencies installed for component docs
