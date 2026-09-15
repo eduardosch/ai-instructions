@@ -9,16 +9,19 @@ Instructions for scaffolding a new Vue project.
 
 ## 1. Create the project
 
-Run the following command directly without asking the user — all options are pre-selected:
+`create-vue` requires a valid package name as the positional argument — passing `.` triggers an interactive prompt. Run the command from the **parent directory**, using the current folder name as the project name:
 
 ```bash
-npm create vue@latest -- . --typescript --jsx --router --pinia --playwright --eslint --prettier --devtools --force
+# from the parent directory (e.g. cd ..)
+npx create-vue@latest <project-folder-name> --typescript --jsx --router --pinia --playwright --eslint --prettier --force
 ```
+
+Then change back into the project directory before running the remaining steps.
 
 ## 2. Install npm packages
 
 ```bash
-npm install
+npm install --legacy-peer-deps
 npm install axios
 npm install -D sass-embedded vue-styleguidist vue-docgen-api webpack webpack-dev-server css-loader style-loader vue-loader ts-loader
 ```
@@ -60,7 +63,6 @@ Once everything is finished, show the user a bullet list with emojis and short d
 - ⚡ **Vue project created** — scaffolded with TypeScript, JSX, Router, and Pinia
 - 🧪 **Playwright** — end-to-end testing solution added
 - 🧹 **ESLint + Prettier** — code quality and formatting configured
-- 🛠️ **Vue DevTools** — enabled for debugging
 - 📝 **Commit-message plugin** — semantic commit messages enabled
 - 🔖 **Versioning plugin** — automatic app versioning and `CHANGELOG.md` generation
 - 🎨 **vue-style-guide** — Vue style guide rules installed

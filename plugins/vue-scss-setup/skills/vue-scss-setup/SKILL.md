@@ -77,7 +77,6 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        api: 'modern-compiler',
         additionalData: `
           @use "@/assets/styles/variables" as *;
           @use "@/assets/styles/mixins" as *;
@@ -88,8 +87,6 @@ export default defineConfig({
 })
 ```
 
-- `api: 'modern-compiler'` silences the remaining legacy-API warnings under
-  `sass-embedded`.
 - `additionalData` is prepended to every SCSS-compiled block in the project
   (including `<style lang="scss">` in `.vue` files), so the `@use ... as *`
   only needs to be written once, here.
