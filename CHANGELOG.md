@@ -1,5 +1,11 @@
 # Changelog
 
+## v10.1.0 — 2026-09-15
+
+### Features
+
+- add api-client-conventions plugin to setup flow
+
 ## v10.0.0 — 2026-09-14
 
 ### Features
