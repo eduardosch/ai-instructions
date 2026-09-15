@@ -1,18 +1,18 @@
-# firebase-setup
+# `firebase-setup` Claude Skill
 
 Installs and configures Firebase in the current project. Asks which services are needed, scaffolds typed service modules, and wires Firebase config through environment variables. Firebase credentials can be filled in later or passed as parameters.
 
-## Install
-
-```bash
-/plugin install firebase-setup@eduardosch-marketplace
-```
+> **One-shot setup skill** — run once per project. No persistent installation needed.
 
 ## Usage
+
+In your project directory, open Claude Code and run:
 
 ```
 /firebase-setup
 ```
+
+Claude Code will fetch this skill from the marketplace on demand and execute it without adding it to your permanent settings.
 
 ## What it does
 

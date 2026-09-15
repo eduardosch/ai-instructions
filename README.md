@@ -42,6 +42,14 @@ Scaffolds a new Vue 3 project with an opinionated stack: TypeScript, JSX, Vue Ro
 
 ---
 
+### 🔥 `firebase-setup`
+
+Installs and configures Firebase in any TypeScript project — asks which services to enable (Firestore, Authentication, Realtime Database, Storage, Cloud Functions, Hosting), scaffolds typed service modules under `src/lib/`, and wires all Firebase config through environment variables. Credentials can be provided upfront or filled in later via `.env.example`. Integrates with `env-validation` when present.
+
+**Usage:** `/firebase-setup`
+
+---
+
 ## Plugins
 
 ### <img src="icons/github.svg" height="20" valign="middle"> `commit-message`
@@ -193,18 +201,6 @@ Installs and configures Element Plus in a Vue 3 + Vite project — sets up auto-
 ```
 
 **Usage:** `/element-plus-setup`
-
----
-
-### 🔥 `firebase-setup`
-
-Installs and configures Firebase in any TypeScript project — asks which services to enable (Firestore, Authentication, Realtime Database, Storage, Cloud Functions, Hosting), scaffolds typed service modules under `src/lib/`, and wires all Firebase config through environment variables. Credentials can be provided upfront or filled in later via `.env.example`. Integrates with `env-validation` when present.
-
-```bash
-/plugin install firebase-setup@eduardosch-marketplace
-```
-
-**Usage:** `/firebase-setup`
 
 ---
 
