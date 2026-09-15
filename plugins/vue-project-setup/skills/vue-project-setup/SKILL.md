@@ -31,21 +31,32 @@ npm install -D sass-embedded vue-styleguidist vue-docgen-api webpack webpack-dev
 - **vue-styleguidist** + **vue-docgen-api** — powers the live component documentation site (`npm run styleguide`)
 - **webpack**, **webpack-dev-server**, **css-loader**, **style-loader**, **vue-loader**, **ts-loader** — webpack peer dependencies required by Vue Styleguidist in a Vite-only project
 
-## 3. Install additional plugins
+## 3. Wire the plugins
 
-Install plugins last so they are never overwritten by the scaffolding or npm steps above.
+The `/plugin install` slash commands do not run reliably inside a skill. Instead, directly create the project's `.claude/settings.json` so Claude Code picks up all plugins when the project is opened:
 
-​```
-1. /plugin marketplace add eduardosch/ai-instructions
-2. /plugin install commit-message@eduardosch-marketplace
-3. /plugin install versioning@eduardosch-marketplace
-4. /plugin install vue-style-guide@eduardosch-marketplace
-5. /plugin install vue-ts-style-guide@eduardosch-marketplace
-6. /plugin install pinia-style-guide@eduardosch-marketplace
-7. /plugin install vue-scss-setup@eduardosch-marketplace
-8. /plugin install api-client-conventions@eduardosch-marketplace
-9. /plugin install vue-component-docs@eduardosch-marketplace
-​```
+```json
+{
+  "enabledPlugins": {
+    "commit-message@eduardosch-marketplace": true,
+    "versioning@eduardosch-marketplace": true,
+    "vue-style-guide@eduardosch-marketplace": true,
+    "vue-ts-style-guide@eduardosch-marketplace": true,
+    "pinia-style-guide@eduardosch-marketplace": true,
+    "vue-scss-setup@eduardosch-marketplace": true,
+    "api-client-conventions@eduardosch-marketplace": true,
+    "vue-component-docs@eduardosch-marketplace": true
+  }
+}
+```
+
+Write this file to `.claude/settings.json` inside the project directory (create the `.claude` folder if it does not exist).
+
+Then register the marketplace so Claude Code can resolve the plugin source:
+
+```
+/plugin marketplace add eduardosch/ai-instructions
+```
 
 - **commit-message** — enables semantic commit messages
 - **versioning** — keeps control of the app version and automatically generates a `CHANGELOG.md`
