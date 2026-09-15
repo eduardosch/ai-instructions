@@ -1,5 +1,11 @@
 # Changelog
 
+## v12.0.2 — 2026-09-15
+
+### Fixes
+
+- add base components step with interactive checklist
+
 ## v12.0.1 — 2026-09-15
 
 ### Fixes
