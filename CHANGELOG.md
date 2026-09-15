@@ -1,5 +1,11 @@
 # Changelog
 
+## v11.0.6 — 2026-09-15
+
+### Fixes
+
+- handle missing @vue/tsconfig/tsconfig.dom.json after create-vue scaffold
+
 ## v11.0.5 — 2026-09-15
 
 ### Fixes
