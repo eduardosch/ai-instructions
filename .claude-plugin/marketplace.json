@@ -299,6 +299,34 @@
       },
       "license": "MIT",
       "category": "vue"
+    },
+    {
+      "name": "firebase-setup",
+      "description": "Installs and configures Firebase in any TypeScript project — asks which services to enable (Firestore, Authentication, Realtime Database, Storage, Functions, Hosting), scaffolds typed service modules, and wires Firebase config through environment variables",
+      "version": "1.0.0",
+      "source": "./plugins/firebase-setup",
+      "strict": false,
+      "skills": [
+        "./skills/firebase-setup"
+      ],
+      "keywords": [
+        "firebase",
+        "firestore",
+        "authentication",
+        "storage",
+        "realtime-database",
+        "cloud-functions",
+        "hosting",
+        "google",
+        "typescript",
+        "env"
+      ],
+      "author": {
+        "name": "Eduardo Schroder",
+        "email": "dudu.schroder@gmail.com"
+      },
+      "license": "MIT",
+      "category": "backend"
     }
   ]
 }

@@ -182,6 +182,18 @@ Documents Vue 3 reusable components with JSDoc-style comments and generates a li
 
 ---
 
+### 🔥 `firebase-setup`
+
+Installs and configures Firebase in any TypeScript project — asks which services to enable (Firestore, Authentication, Realtime Database, Storage, Cloud Functions, Hosting), scaffolds typed service modules under `src/lib/`, and wires all Firebase config through environment variables. Credentials can be provided upfront or filled in later via `.env.example`. Integrates with `env-validation` when present.
+
+```bash
+/plugin install firebase-setup@eduardosch-marketplace
+```
+
+**Usage:** `/firebase-setup`
+
+---
+
 ## Uninstalling
 
 ```bash
