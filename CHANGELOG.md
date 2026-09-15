@@ -1,5 +1,11 @@
 # Changelog
 
+## v11.0.0 — 2026-09-15
+
+### Features
+
+- add Firebase setup plugin
+
 ## v10.3.0 — 2026-09-15
 
 ### Features
