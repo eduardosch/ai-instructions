@@ -103,7 +103,7 @@
     },
     {
       "name": "vue-project-setup",
-      "description": "Scaffolds a new Vue 3 project with TypeScript, JSX, Router, Pinia, Playwright, ESLint, and Prettier, then installs the companion style-guide plugins",
+      "description": "Scaffolds a new Vue 3 project with TypeScript, JSX, Router, Pinia, Playwright, ESLint, and Prettier, then installs the companion style-guide and api-client-conventions plugins",
       "version": "1.0.0",
       "source": "./plugins/vue-project-setup",
       "strict": false,
