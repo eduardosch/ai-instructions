@@ -1,5 +1,11 @@
 # Changelog
 
+## v10.2.0 — 2026-09-15
+
+### Features
+
+- add npm install step for axios and sass-embedded
+
 ## v10.1.0 — 2026-09-15
 
 ### Features
