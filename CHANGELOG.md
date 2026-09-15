@@ -1,5 +1,11 @@
 # Changelog
 
+## v11.0.1 — 2026-09-15
+
+### Fixes
+
+- use non-interactive scaffolding command
+
 ## v11.0.0 — 2026-09-15
 
 ### Features
