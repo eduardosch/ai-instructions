@@ -38,6 +38,81 @@
       "category": "vue"
     },
     {
+      "name": "setup-scss",
+      "description": "Configures Sass/SCSS in a Vue 3 + Vite project — installs sass-embedded, creates global variable partials (colors, fonts, breakpoints) and mixin partials, and wires them into every component automatically via vite.config.ts additionalData",
+      "version": "1.0.0",
+      "source": "./plugins/setup-scss",
+      "strict": false,
+      "oneshot": true,
+      "skills": [
+        "./skills/setup-scss"
+      ],
+      "keywords": ["vue", "scss", "sass", "vite", "styling", "setup"],
+      "author": { "name": "Eduardo Schroder", "email": "dudu.schroder@gmail.com" },
+      "license": "MIT",
+      "category": "vue"
+    },
+    {
+      "name": "setup-zod",
+      "description": "Installs Zod and creates a validated environment variable gateway in src/env.ts — the app throws at startup on missing or malformed config. Also creates .env.example and wires the fail-fast import into main.ts",
+      "version": "1.0.0",
+      "source": "./plugins/setup-zod",
+      "strict": false,
+      "oneshot": true,
+      "skills": [
+        "./skills/setup-zod"
+      ],
+      "keywords": ["zod", "env", "environment-variables", "validation", "typescript", "setup"],
+      "author": { "name": "Eduardo Schroder", "email": "dudu.schroder@gmail.com" },
+      "license": "MIT",
+      "category": "configuration"
+    },
+    {
+      "name": "setup-axios",
+      "description": "Creates the typed axios HTTP client module (src/lib/http.ts) with a base URL, auth token interceptor, and error normalisation, plus shared API types in src/types/api.ts",
+      "version": "1.0.0",
+      "source": "./plugins/setup-axios",
+      "strict": false,
+      "oneshot": true,
+      "skills": [
+        "./skills/setup-axios"
+      ],
+      "keywords": ["axios", "http-client", "api", "typescript", "setup"],
+      "author": { "name": "Eduardo Schroder", "email": "dudu.schroder@gmail.com" },
+      "license": "MIT",
+      "category": "vue"
+    },
+    {
+      "name": "setup-docgen",
+      "description": "Installs vue-styleguidist and vue-docgen-api, creates styleguide.config.js, adds npm scripts, and optionally configures GitHub Pages CI",
+      "version": "1.0.0",
+      "source": "./plugins/setup-docgen",
+      "strict": false,
+      "oneshot": true,
+      "skills": [
+        "./skills/setup-docgen"
+      ],
+      "keywords": ["vue", "styleguidist", "docgen", "documentation", "component-library", "setup"],
+      "author": { "name": "Eduardo Schroder", "email": "dudu.schroder@gmail.com" },
+      "license": "MIT",
+      "category": "vue"
+    },
+    {
+      "name": "setup-i18n",
+      "description": "Installs and bootstraps vue-i18n v9 in a Vue 3 project — installs the package, creates src/i18n.ts, creates src/locales/en.json, wires the plugin into main.ts, and configures the i18n Ally VS Code extension",
+      "version": "1.0.0",
+      "source": "./plugins/setup-i18n",
+      "strict": false,
+      "oneshot": true,
+      "skills": [
+        "./skills/setup-i18n"
+      ],
+      "keywords": ["vue", "i18n", "vue-i18n", "internationalization", "setup"],
+      "author": { "name": "Eduardo Schroder", "email": "dudu.schroder@gmail.com" },
+      "license": "MIT",
+      "category": "i18n"
+    },
+    {
       "name": "rules-versioning",
       "description": "Run automated semantic versioning via release.mjs — reads commit history, bumps MAJOR/MINOR/PATCH, updates package.json, prepends CHANGELOG.md, and creates a release commit + git tag",
       "version": "1.0.0",

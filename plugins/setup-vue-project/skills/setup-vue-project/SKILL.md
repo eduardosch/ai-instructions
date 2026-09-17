@@ -98,12 +98,12 @@ Always replace `tsconfig.app.json` with the following inline configuration — `
 
 After the base project is created and packages are installed, read and follow each sub-skill file in order by reading them from the plugin directory:
 
-1. Read `plugins/setup-vue-project/skills/setup-scss/SKILL.md` and follow all its instructions.
-2. Read `plugins/setup-vue-project/skills/setup-zod/SKILL.md` and follow all its instructions.
-3. Read `plugins/setup-vue-project/skills/setup-axios/SKILL.md` and follow all its instructions.
-4. Read `plugins/setup-vue-project/skills/setup-docgen/SKILL.md` and follow all its instructions.
+1. Read `plugins/setup-scss/skills/setup-scss/SKILL.md` and follow all its instructions.
+2. Read `plugins/setup-zod/skills/setup-zod/SKILL.md` and follow all its instructions.
+3. Read `plugins/setup-axios/skills/setup-axios/SKILL.md` and follow all its instructions.
+4. Read `plugins/setup-docgen/skills/setup-docgen/SKILL.md` and follow all its instructions.
 
-`setup-i18n` is optional — read and follow `plugins/setup-vue-project/skills/setup-i18n/SKILL.md` only if the project requires internationalization.
+`setup-i18n` is optional — read and follow `plugins/setup-i18n/skills/setup-i18n/SKILL.md` only if the project requires internationalization.
 
 `setup-element-plus` and `setup-firebase` are separate standalone plugins — the user must call them explicitly after the project is created.
 
