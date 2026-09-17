@@ -10,33 +10,47 @@
   },
   "plugins": [
     {
-      "name": "commit-message",
-      "description": "Generates semantic git commit messages based on staged changes",
+      "name": "setup-vue-project",
+      "description": "Scaffolds a new Vue 3 project and runs all setup sub-skills (scss, zod, axios, docgen, i18n, element-plus, firebase) then installs all rules plugins",
       "version": "1.0.0",
-      "source": "./plugins/commit-message",
+      "source": "./plugins/setup-vue-project",
       "strict": false,
+      "oneshot": true,
       "skills": [
-        "./skills/commit-message"
+        "./skills/setup-vue-project",
+        "./skills/setup-scss",
+        "./skills/setup-i18n",
+        "./skills/setup-zod",
+        "./skills/setup-docgen",
+        "./skills/setup-axios",
+        "./skills/setup-element-plus",
+        "./skills/setup-firebase"
       ],
       "keywords": [
-        "git",
-        "git-commit",
-        "commit-message",
-        "conventional-commits",
-        "version-control"
+        "vue",
+        "scaffolding",
+        "project-setup",
+        "vite",
+        "typescript",
+        "scss",
+        "zod",
+        "axios",
+        "element-plus",
+        "firebase",
+        "i18n"
       ],
       "author": {
         "name": "Eduardo Schroder",
         "email": "dudu.schroder@gmail.com"
       },
       "license": "MIT",
-      "category": "version-control"
+      "category": "vue"
     },
     {
-      "name": "versioning",
-      "description": "Automated semantic versioning via release.mjs — reads commit history, bumps MAJOR/MINOR/PATCH, updates package.json, and creates a release commit + git tag",
+      "name": "rules-versioning",
+      "description": "Run automated semantic versioning via release.mjs — reads commit history, bumps MAJOR/MINOR/PATCH, updates package.json, prepends CHANGELOG.md, and creates a release commit + git tag",
       "version": "1.0.0",
-      "source": "./plugins/versioning",
+      "source": "./plugins/rules-versioning",
       "strict": false,
       "skills": [
         "./skills"
@@ -56,13 +70,36 @@
       "category": "version-control"
     },
     {
-      "name": "vue-style-guide",
-      "description": "Enforces the official Vue.js style guide for naming and structuring Vue components, composables, and code, organized by priority",
+      "name": "rules-commit",
+      "description": "Generates semantic git commit messages based on staged changes with git emoji support",
       "version": "1.0.0",
-      "source": "./plugins/vue-style-guide",
+      "source": "./plugins/rules-commit",
       "strict": false,
       "skills": [
-        "./skills/vue-style-guide"
+        "./skills/rules-commit"
+      ],
+      "keywords": [
+        "git",
+        "git-commit",
+        "commit-message",
+        "conventional-commits",
+        "version-control"
+      ],
+      "author": {
+        "name": "Eduardo Schroder",
+        "email": "dudu.schroder@gmail.com"
+      },
+      "license": "MIT",
+      "category": "version-control"
+    },
+    {
+      "name": "rules-vue-code",
+      "description": "Enforces the official Vue.js style guide for naming and structuring Vue components, composables, and code, organized by priority",
+      "version": "1.0.0",
+      "source": "./plugins/rules-vue-code",
+      "strict": false,
+      "skills": [
+        "./skills/rules-vue-code"
       ],
       "keywords": [
         "vue",
@@ -79,13 +116,13 @@
       "category": "vue"
     },
     {
-      "name": "vue-ts-style-guide",
+      "name": "rules-ts",
       "description": "Enforces Vue 3 + TypeScript Composition API conventions — typed props, emits, refs, reactive state, event handlers, provide/inject, and custom directives",
       "version": "1.0.0",
-      "source": "./plugins/vue-ts-style-guide",
+      "source": "./plugins/rules-ts",
       "strict": false,
       "skills": [
-        "./skills/vue-ts-style-guide"
+        "./skills/rules-ts"
       ],
       "keywords": [
         "vue",
@@ -102,37 +139,13 @@
       "category": "vue"
     },
     {
-      "name": "vue-project-setup",
-      "description": "Scaffolds a new Vue 3 project with TypeScript, JSX, Router, Pinia, Playwright, ESLint, and Prettier, then installs the companion style-guide and api-client-conventions plugins",
-      "version": "1.0.0",
-      "source": "./plugins/vue-project-setup",
-      "strict": false,
-      "oneshot": true,
-      "skills": [
-        "./skills/vue-project-setup"
-      ],
-      "keywords": [
-        "vue",
-        "scaffolding",
-        "project-setup",
-        "vite",
-        "typescript"
-      ],
-      "author": {
-        "name": "Eduardo Schroder",
-        "email": "dudu.schroder@gmail.com"
-      },
-      "license": "MIT",
-      "category": "vue"
-    },
-    {
-      "name": "pinia-style-guide",
+      "name": "rules-pinia",
       "description": "Enforces conventions for writing Pinia stores with the Composition API — naming, typed state, async actions, getters, persistence, and testing",
       "version": "1.0.0",
-      "source": "./plugins/pinia-style-guide",
+      "source": "./plugins/rules-pinia",
       "strict": false,
       "skills": [
-        "./skills/pinia-style-guide"
+        "./skills/rules-pinia"
       ],
       "keywords": [
         "vue",
@@ -149,13 +162,37 @@
       "category": "vue"
     },
     {
-      "name": "vue-i18n",
-      "description": "Enforces internationalization best practices in Vue.js + vue-i18n projects, fully compatible with the i18n Ally VS Code extension",
+      "name": "rules-vue-scss",
+      "description": "SCSS coding conventions for Vue 3 + Vite projects — lang=\"scss\" on all style blocks, global variables and mixins, BEM naming, no inline styles, mobile-first responsive design",
       "version": "1.0.0",
-      "source": "./plugins/vue-i18n",
+      "source": "./plugins/rules-vue-scss",
       "strict": false,
       "skills": [
-        "./skills/vue-i18n"
+        "./skills/rules-vue-scss"
+      ],
+      "keywords": [
+        "vue",
+        "scss",
+        "sass",
+        "styling",
+        "conventions",
+        "bem"
+      ],
+      "author": {
+        "name": "Eduardo Schroder",
+        "email": "dudu.schroder@gmail.com"
+      },
+      "license": "MIT",
+      "category": "vue"
+    },
+    {
+      "name": "rules-i18n",
+      "description": "Enforces internationalization conventions in Vue.js + vue-i18n projects, compatible with the i18n Ally VS Code extension — key naming, no hardcoded strings, audit missing keys",
+      "version": "1.0.0",
+      "source": "./plugins/rules-i18n",
+      "strict": false,
+      "skills": [
+        "./skills/rules-i18n"
       ],
       "keywords": [
         "vue",
@@ -172,21 +209,71 @@
       "category": "i18n"
     },
     {
-      "name": "vue-scss-setup",
-      "description": "Configures Sass/SCSS in a Vue 3 + Vite project — installs sass-embedded, creates global variable and mixin partials, and wires them into every component via vite.config.ts additionalData",
+      "name": "rules-zod",
+      "description": "Enforces Zod usage conventions — always consume env variables through the src/env.ts gateway, never read import.meta.env directly, schema conventions, and testing patterns",
       "version": "1.0.0",
-      "source": "./plugins/vue-scss-setup",
+      "source": "./plugins/rules-zod",
       "strict": false,
-      "oneshot": true,
       "skills": [
-        "./skills/vue-scss-setup"
+        "./skills/rules-zod"
+      ],
+      "keywords": [
+        "zod",
+        "env",
+        "environment-variables",
+        "validation",
+        "typescript",
+        "configuration"
+      ],
+      "author": {
+        "name": "Eduardo Schroder",
+        "email": "dudu.schroder@gmail.com"
+      },
+      "license": "MIT",
+      "category": "configuration"
+    },
+    {
+      "name": "rules-testing",
+      "description": "House style guide for Vitest unit/component tests and Playwright e2e tests — file layout, naming, Page Object Models, mocking, and auth fixtures for Vue 3 + TypeScript projects",
+      "version": "1.0.0",
+      "source": "./plugins/rules-testing",
+      "strict": false,
+      "skills": [
+        "./skills/rules-testing"
+      ],
+      "keywords": [
+        "testing",
+        "vitest",
+        "playwright",
+        "unit-testing",
+        "e2e",
+        "vue",
+        "typescript",
+        "conventions"
+      ],
+      "author": {
+        "name": "Eduardo Schroder",
+        "email": "dudu.schroder@gmail.com"
+      },
+      "license": "MIT",
+      "category": "testing"
+    },
+    {
+      "name": "rules-documentation",
+      "description": "Enforces JSDoc-style comments on Vue 3 reusable components — component description with @displayName, every prop, emit, slot, and exposed member documented, plus example files",
+      "version": "1.0.0",
+      "source": "./plugins/rules-documentation",
+      "strict": false,
+      "skills": [
+        "./skills/rules-documentation"
       ],
       "keywords": [
         "vue",
-        "scss",
-        "sass",
-        "vite",
-        "styling"
+        "documentation",
+        "jsdoc",
+        "vue-styleguidist",
+        "vue-docgen-api",
+        "component-library"
       ],
       "author": {
         "name": "Eduardo Schroder",
@@ -196,18 +283,17 @@
       "category": "vue"
     },
     {
-      "name": "api-client-conventions",
-      "description": "Style guide for structuring API calls and services — typed axios/fetch wrapper, error normalisation, service modules, and Vue 3 composables",
+      "name": "rules-client-api",
+      "description": "Style guide for structuring API calls — never call axios/fetch in components, typed service modules per domain, composables own loading/error state, typed ApiError from interceptor",
       "version": "1.0.0",
-      "source": "./plugins/api-client-conventions",
+      "source": "./plugins/rules-client-api",
       "strict": false,
       "skills": [
-        "./skills/api-client-conventions"
+        "./skills/rules-client-api"
       ],
       "keywords": [
         "api",
         "axios",
-        "fetch",
         "http-client",
         "typescript",
         "error-handling",
@@ -221,142 +307,6 @@
       },
       "license": "MIT",
       "category": "vue"
-    },
-    {
-      "name": "testing-conventions",
-      "description": "House style guide for Vitest unit/component tests and Playwright e2e tests — file layout, naming, Page Object Models, mocking, and auth fixtures for Vue 3 + TypeScript projects.",
-      "version": "1.0.0",
-      "source": "./plugins/testing-conventions",
-      "strict": false,
-      "skills": [
-        "./skills/testing-conventions"
-      ],
-      "keywords": [
-        "testing",
-        "vitest",
-        "playwright",
-        "unit-testing",
-        "e2e",
-        "vue",
-        "typescript",
-        "page-object-model",
-        "conventions"
-      ],
-      "author": {
-        "name": "Eduardo Schroder",
-        "email": "dudu.schroder@gmail.com"
-      },
-      "license": "MIT",
-      "category": "testing"
-    },
-    {
-      "name": "env-validation",
-      "description": "Enforces .env schema validation with Zod — single typed gateway file, fail-fast startup, .env.example parity, and Vitest-safe stubs for Vue/Vite and Node projects",
-      "version": "1.0.0",
-      "source": "./plugins/env-validation",
-      "strict": false,
-      "skills": [
-        "./skills/env-validation"
-      ],
-      "keywords": [
-        "env",
-        "environment-variables",
-        "zod",
-        "validation",
-        "typescript",
-        "vite",
-        "node",
-        "configuration",
-        "fail-fast"
-      ],
-      "author": {
-        "name": "Eduardo Schroder",
-        "email": "dudu.schroder@gmail.com"
-      },
-      "license": "MIT",
-      "category": "configuration"
-    },
-    {
-      "name": "vue-component-docs",
-      "description": "Documents Vue 3 reusable components with JSDoc-style comments and generates a live Vue Styleguidist site powered by vue-docgen-api",
-      "version": "1.0.0",
-      "source": "./plugins/vue-component-docs",
-      "strict": false,
-      "skills": [
-        "./skills/vue-component-docs"
-      ],
-      "keywords": [
-        "vue",
-        "documentation",
-        "jsdoc",
-        "vue-styleguidist",
-        "vue-docgen-api",
-        "component-library",
-        "styleguide",
-        "typescript"
-      ],
-      "author": {
-        "name": "Eduardo Schroder",
-        "email": "dudu.schroder@gmail.com"
-      },
-      "license": "MIT",
-      "category": "vue"
-    },
-    {
-      "name": "element-plus-setup",
-      "description": "Installs and configures Element Plus in a Vue 3 + Vite project — sets up auto-import, enables optional dark mode via VueUse useDark with moon/sun toggle, aligns theming with existing SCSS variables or Element Plus defaults, optionally installs the icons package, and scaffolds an optional app structure with auth pages and a chosen navigation layout using the project folder name as the brand",
-      "version": "1.0.0",
-      "source": "./plugins/element-plus-setup",
-      "strict": false,
-      "oneshot": true,
-      "skills": [
-        "./skills/element-plus-setup"
-      ],
-      "keywords": [
-        "vue",
-        "element-plus",
-        "ui-library",
-        "dark-mode",
-        "theming",
-        "layout",
-        "authentication",
-        "vite"
-      ],
-      "author": {
-        "name": "Eduardo Schroder",
-        "email": "dudu.schroder@gmail.com"
-      },
-      "license": "MIT",
-      "category": "vue"
-    },
-    {
-      "name": "firebase-setup",
-      "description": "Installs and configures Firebase in any TypeScript project — asks which services to enable (Firestore, Authentication, Realtime Database, Storage, Functions, Hosting), scaffolds typed service modules, and wires Firebase config through environment variables",
-      "version": "1.0.0",
-      "source": "./plugins/firebase-setup",
-      "strict": false,
-      "oneshot": true,
-      "skills": [
-        "./skills/firebase-setup"
-      ],
-      "keywords": [
-        "firebase",
-        "firestore",
-        "authentication",
-        "storage",
-        "realtime-database",
-        "cloud-functions",
-        "hosting",
-        "google",
-        "typescript",
-        "env"
-      ],
-      "author": {
-        "name": "Eduardo Schroder",
-        "email": "dudu.schroder@gmail.com"
-      },
-      "license": "MIT",
-      "category": "backend"
     }
   ]
 }

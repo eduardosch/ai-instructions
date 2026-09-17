@@ -28,169 +28,169 @@ Install any plugin individually:
 
 ---
 
-## Setup Skills
+## Setup Plugin
 
-These are **one-shot skills** — run them once per project directly from Claude Code without installing. They scaffold or configure your project and don't persist in your Claude Code settings.
+### <img src="icons/vue.svg" height="20" valign="middle"> `setup-vue-project`
 
----
+Scaffolds a new Vue 3 project with an opinionated stack — TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, Prettier — then runs all setup sub-skills (SCSS, Zod, Axios, Docgen, i18n) and installs all rules plugins so the project is ready from the first commit.
 
-### <img src="icons/vue.svg" height="20" valign="middle"> `vue-project-setup`
+Sub-skills available standalone:
 
-Scaffolds a new Vue 3 project with an opinionated stack: TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, Prettier, and Vue DevTools — then automatically installs the `commit-message`, `versioning`, `vue-style-guide`, `vue-ts-style-guide`, and `pinia-style-guide` plugins so the project is ready to go from the first commit.
-
-**Usage:** `/vue-project-setup`
-
----
-
-### 🔥 `firebase-setup`
-
-Installs and configures Firebase in any TypeScript project — asks which services to enable (Firestore, Authentication, Realtime Database, Storage, Cloud Functions, Hosting), scaffolds typed service modules under `src/lib/`, and wires all Firebase config through environment variables. Credentials can be provided upfront or filled in later via `.env.example`. Integrates with `env-validation` when present.
-
-**Usage:** `/firebase-setup`
-
----
-
-### 🎨 `vue-scss-setup`
-
-Configures Sass/SCSS in a Vue 3 + Vite project — installs `sass-embedded`, creates global variable partials (colors, fonts, breakpoints) and mixin partials (px-to-rem, responsive, truncate), and wires them into every component automatically via `vite.config.ts` `additionalData`.
-
-**Usage:** `/vue-scss-setup`
-
----
-
-### 🧩 `element-plus-setup`
-
-Installs and configures Element Plus in a Vue 3 + Vite project — sets up auto-import, enables optional dark mode via VueUse `useDark()` with a moon/sun toggle in the header, aligns theming with existing SCSS variables or Element Plus defaults, optionally installs the icons package, and scaffolds an optional app structure with authentication pages and a chosen navigation layout (top-bar only, top-bar + sidebar, two-level sidebar). Uses the project folder name as the brand label.
-
-**Usage:** `/element-plus-setup`
-
----
-
-## Plugins
-
-### <img src="icons/github.svg" height="20" valign="middle"> `commit-message`
-
-Generates semantic git commit messages based on your staged changes, following the Conventional Commits format with emoji support. Handles branch creation, push confirmation, and breaking change detection.
+| Sub-skill | What it does |
+|---|---|
+| `setup-scss` | Installs sass-embedded, global variable + mixin partials, wires vite.config.ts |
+| `setup-zod` | Installs Zod, creates `src/env.ts` gateway, fail-fast import |
+| `setup-axios` | Creates `src/lib/http.ts` typed wrapper + `src/types/api.ts` |
+| `setup-docgen` | Installs Vue Styleguidist, creates `styleguide.config.js` |
+| `setup-i18n` | Installs vue-i18n, creates config + locale files, wires i18n Ally |
+| `setup-element-plus` | Installs Element Plus with auto-import, dark mode, theming, layouts |
+| `setup-firebase` | Installs Firebase, scaffolds typed service modules per selected service |
 
 ```bash
-/plugin install commit-message@eduardosch-marketplace
+/plugin install setup-vue-project@eduardosch-marketplace
 ```
 
-**Usage:** `/commit-message`
+**Usage:** `/setup-vue-project` — or individual sub-skills like `/setup-element-plus`, `/setup-firebase`
 
 ---
 
-### 📖 `versioning`
+## Rules Plugins
 
-Automated semantic versioning — reads commit history since the last git tag, decides the correct MAJOR/MINOR/PATCH bump, prepends a `CHANGELOG.md` entry, and creates a release commit + annotated git tag. Works in any git repo; updates `package.json` too when present.
+Rules plugins enforce coding conventions. They are automatically installed into new projects by `setup-vue-project`, or can be installed individually.
 
-> Requires commits to follow [Conventional Commits](https://www.conventionalcommits.org/) — use `commit-message` to enforce this automatically.
+---
+
+### <img src="icons/github.svg" height="20" valign="middle"> `rules-commit`
+
+Generates semantic git commit messages based on staged changes, following the Conventional Commits format with emoji support.
 
 ```bash
-/plugin install versioning@eduardosch-marketplace
+/plugin install rules-commit@eduardosch-marketplace
 ```
 
-**Usage:** `/versioning` to set up a project, then `node release.mjs` (or `npm run release`) to cut a release.
+**Usage:** `/rules-commit`
 
 ---
 
-### <img src="icons/pinia.svg" height="20" valign="middle"> `pinia-style-guide`
+### 📖 `rules-versioning`
 
-Enforces conventions for writing Pinia stores with the Composition API — setup syntax, naming, folder structure, typed state, async actions with loading/error state, computed getters, persistence, testing, and correct usage inside components with `storeToRefs()`.
+Automated semantic versioning — reads commit history since the last git tag, decides the correct MAJOR/MINOR/PATCH bump, prepends a `CHANGELOG.md` entry, and creates a release commit + annotated git tag.
+
+> Requires commits to follow [Conventional Commits](https://www.conventionalcommits.org/) — use `rules-commit` to enforce this.
 
 ```bash
-/plugin install pinia-style-guide@eduardosch-marketplace
+/plugin install rules-versioning@eduardosch-marketplace
 ```
 
-**Usage:** `/pinia-style-guide`
+**Usage:** `/rules-versioning`, then `node release.mjs` to cut a release.
 
 ---
 
-### <img src="icons/vue-i18n.svg" height="20" valign="middle"> `vue-i18n`
+### <img src="icons/vue.svg" height="20" valign="middle"> `rules-vue-code`
 
-Enforces internationalization best practices in Vue.js + vue-i18n projects, fully compatible with the i18n Ally VS Code extension. Covers i18n Ally config, key naming conventions, creating keys across all locale files, auditing missing/unused keys, and ensuring all user-facing strings go through `$t()`/`t()` instead of being hardcoded.
+Enforces the official Vue.js style guide for naming and structuring components, composables, and code — organized by priority (Essential / Strongly recommended / Recommended).
 
 ```bash
-/plugin install vue-i18n@eduardosch-marketplace
+/plugin install rules-vue-code@eduardosch-marketplace
 ```
 
-**Usage:** `/vue-i18n`
+**Usage:** `/rules-vue-code`
 
 ---
 
-### <img src="icons/vue.svg" height="20" valign="middle"> `vue-style-guide`
+### <img src="icons/vue.svg" height="20" valign="middle"> `rules-ts`
 
-A comprehensive Vue style guide skill covering naming conventions, component structure, and code patterns — organized by priority (Essential / Strongly recommended / Recommended) so teams know what's negotiable and what isn't.
+Enforces Vue 3 + TypeScript Composition API conventions — typed props, emits, refs, reactive state, event handlers, provide/inject, and custom directives. Mandates `<script setup lang="ts">` and explicit named types.
 
 ```bash
-/plugin install vue-style-guide@eduardosch-marketplace
+/plugin install rules-ts@eduardosch-marketplace
 ```
 
-**Usage:** `/vue-style-guide`
+**Usage:** `/rules-ts`
 
 ---
 
-### <img src="icons/vue.svg" height="20" valign="middle"> `vue-ts-style-guide`
+### <img src="icons/pinia.svg" height="20" valign="middle"> `rules-pinia`
 
-Enforces Vue 3 + TypeScript conventions for Composition API codebases — props, emits, refs, reactive state, event handlers, provide/inject, and custom directives. Mandates `<script setup lang="ts">` and explicit named types throughout. Based on the [official Vue.js TypeScript guide](https://vuejs.org/guide/typescript/composition-api.html).
+Enforces conventions for writing Pinia stores with the Composition API — setup syntax, naming, typed state, async actions with loading/error state, computed getters, persistence, and `storeToRefs()` usage.
 
 ```bash
-/plugin install vue-ts-style-guide@eduardosch-marketplace
+/plugin install rules-pinia@eduardosch-marketplace
 ```
 
-**Usage:** `/vue-ts-style-guide`
+**Usage:** `/rules-pinia`
 
 ---
 
-### 🔌 `api-client-conventions`
+### 🎨 `rules-vue-scss`
 
-Style guide for structuring API calls and services with full TypeScript coverage — singleton axios wrapper with interceptors, typed service modules, normalised `ApiError`, `PaginatedResponse<T>`, and Vue 3 composables with `isLoading`/`error` state. Pairs with `vue-ts-style-guide`.
-
-> Style guide for structuring API calls and services — typed axios/fetch wrapper, error normalisation, service modules, and Vue 3 composables
+SCSS coding conventions for Vue 3 + Vite projects — `lang="scss"` on all style blocks, global variables and mixins, BEM-inspired naming, no inline styles, mobile-first responsive design. Requires `setup-scss`.
 
 ```bash
-/plugin install api-client-conventions@eduardosch-marketplace
+/plugin install rules-vue-scss@eduardosch-marketplace
 ```
 
-**Usage:** `/api-client-conventions`
+**Usage:** `/rules-vue-scss`
 
 ---
 
-### 🔌 `testing-conventions`
+### <img src="icons/vue-i18n.svg" height="20" valign="middle"> `rules-i18n`
+
+Enforces internationalization conventions in Vue + vue-i18n projects, compatible with the i18n Ally VS Code extension — key naming, no hardcoded strings, creating keys across all locale files, and auditing missing keys. Requires `setup-i18n`.
+
+```bash
+/plugin install rules-i18n@eduardosch-marketplace
+```
+
+**Usage:** `/rules-i18n`
+
+---
+
+### 🔒 `rules-zod`
+
+Enforces Zod usage conventions — always consume env variables through `src/env.ts`, never read `import.meta.env` directly, schema conventions, testing patterns, and optional ESLint enforcement. Requires `setup-zod`.
+
+```bash
+/plugin install rules-zod@eduardosch-marketplace
+```
+
+**Usage:** `/rules-zod`
+
+---
+
+### 🔌 `rules-client-api`
+
+Style guide for structuring API calls — never call axios/fetch in components, typed service modules per domain, composables own loading/error state, typed `ApiError` from interceptor. Requires `setup-axios`.
+
+```bash
+/plugin install rules-client-api@eduardosch-marketplace
+```
+
+**Usage:** `/rules-client-api`
+
+---
+
+### 🧪 `rules-testing`
 
 House style guide for Vitest unit/component tests and Playwright e2e tests — file layout, naming, Page Object Models, mocking, and auth fixtures for Vue 3 + TypeScript projects.
 
-> Pairs with `vue-project-setup` (which scaffolds Playwright) and `vue-ts-style-guide`.
-
 ```bash
-/plugin install testing-conventions@eduardosch-marketplace
+/plugin install rules-testing@eduardosch-marketplace
 ```
 
-**Usage:** `/testing-conventions`
+**Usage:** `/rules-testing`
 
 ---
 
-### 🔒 `env-validation`
+### 📚 `rules-documentation`
 
-Enforces `.env` schema validation with Zod so projects fail fast on missing or malformed config — never silently at runtime. Covers a single typed gateway file (`src/env.ts`), fail-fast startup import, `.env.example` parity, boolean coercion, and Vitest-safe environment stubs. Works with Vite/Vue and Node/Express projects.
-
-```bash
-/plugin install env-validation@eduardosch-marketplace
-```
-
-**Usage:** `/env-validation`
-
----
-
-### <img src="icons/vue.svg" height="20" valign="middle"> `vue-component-docs`
-
-Documents Vue 3 reusable components with JSDoc-style comments and generates a live, browsable style guide with Vue Styleguidist powered by `vue-docgen-api`. Covers component-level JSDoc, typed prop annotations, emit payloads, slot documentation, side-car `.examples.md` files, and Styleguidist config with sections and webpack setup.
+Enforces JSDoc-style comments on Vue 3 reusable components — component description with `@displayName`, every prop/emit/slot documented, side-car `.examples.md` files, and auditing missing documentation. Requires `setup-docgen`.
 
 ```bash
-/plugin install vue-component-docs@eduardosch-marketplace
+/plugin install rules-documentation@eduardosch-marketplace
 ```
 
-**Usage:** `/vue-component-docs`
+**Usage:** `/rules-documentation`
 
 ---
 
