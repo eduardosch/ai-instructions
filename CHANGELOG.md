@@ -1,5 +1,11 @@
 # Changelog
 
+## v19.0.0 — 2026-09-17
+
+### Features
+
+- include rules-vue-router in default plugin set
+
 ## v18.0.0 — 2026-09-17
 
 ### Features
