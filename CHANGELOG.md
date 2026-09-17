@@ -1,5 +1,11 @@
 # Changelog
 
+## v15.1.0 — 2026-09-17
+
+### Features
+
+- hide sub-skills from slash command menu
+
 ## v15.0.0 — 2026-09-17
 
 ### Features
