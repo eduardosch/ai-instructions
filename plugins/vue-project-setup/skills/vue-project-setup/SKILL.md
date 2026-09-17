@@ -64,15 +64,9 @@ npm install -D sass-embedded vue-styleguidist vue-docgen-api webpack webpack-dev
 - **vue-styleguidist** + **vue-docgen-api** — powers the live component documentation site (`npm run styleguide`)
 - **webpack**, **webpack-dev-server**, **css-loader**, **style-loader**, **vue-loader**, **ts-loader** — webpack peer dependencies required by Vue Styleguidist in a Vite-only project
 
-## 3. Fix tsconfig.app.json (if needed)
+## 3. Fix tsconfig.app.json
 
-After `npm install`, verify that `@vue/tsconfig/tsconfig.dom.json` exists:
-
-```bash
-node -e "require.resolve('@vue/tsconfig/tsconfig.dom.json')" 2>&1
-```
-
-If the command **fails** (file not found), replace the contents of `tsconfig.app.json` with the following inline configuration — this is equivalent to what `@vue/tsconfig/tsconfig.dom.json` provides but without the broken extends:
+Always replace `tsconfig.app.json` with the following inline configuration — `@vue/tsconfig/tsconfig.dom.json` is frequently missing from the installed package, so the extends is inlined instead:
 
 ```json
 {
