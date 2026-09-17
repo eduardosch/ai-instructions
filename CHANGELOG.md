@@ -1,5 +1,11 @@
 # Changelog
 
+## v13.2.5 — 2026-09-17
+
+### Fixes
+
+- remove deprecated baseUrl from tsconfig.app.json
+
 ## v13.2.4 — 2026-09-17
 
 ### Fixes
