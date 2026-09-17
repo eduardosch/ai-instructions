@@ -20,10 +20,15 @@ Then change back into the project directory before running the remaining steps.
 
 ## 1.5 Strip examples
 
-Delete all example files that `create-vue` generates:
+Delete all example files that `create-vue` generates (run inside the project directory):
 
 ```bash
-# Remove example components and views (run inside the project directory)
+# macOS / Linux
+rm -rf src/components src/views/HomeView.vue src/views/AboutView.vue
+```
+
+```powershell
+# Windows (PowerShell)
 Remove-Item -Recurse -Force src/components
 Remove-Item -Force src/views/HomeView.vue, src/views/AboutView.vue
 ```
