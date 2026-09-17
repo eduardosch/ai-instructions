@@ -1,5 +1,11 @@
 # Changelog
 
+## v13.2.0 — 2026-09-17
+
+### Features
+
+- make blank mode always-on, remove full/ask option
+
 ## v13.1.0 — 2026-09-17
 
 ### Features
