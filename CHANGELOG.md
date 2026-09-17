@@ -1,5 +1,11 @@
 # Changelog
 
+## v19.0.3 — 2026-09-17
+
+### Fixes
+
+- invoke sub-skills by name instead of reading files by path
+
 ## v19.0.2 — 2026-09-17
 
 ### Other
