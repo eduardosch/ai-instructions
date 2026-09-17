@@ -403,6 +403,31 @@
       "category": "backend"
     },
     {
+      "name": "rules-vue-router",
+      "description": "Enforces Vue Router best practices — lazy-loaded routes, file-based routing conventions, Composition API usage, data fetching patterns, and v-slot for transitions and multi-route layouts",
+      "version": "1.0.0",
+      "source": "./plugins/rules-vue-router",
+      "strict": false,
+      "skills": [
+        "./skills/rules-vue-router"
+      ],
+      "keywords": [
+        "vue",
+        "vue-router",
+        "routing",
+        "lazy-loading",
+        "composition-api",
+        "data-fetching",
+        "conventions"
+      ],
+      "author": {
+        "name": "Eduardo Schroder",
+        "email": "dudu.schroder@gmail.com"
+      },
+      "license": "MIT",
+      "category": "vue"
+    },
+    {
       "name": "rules-client-api",
       "description": "Style guide for structuring API calls — never call axios/fetch in components, typed service modules per domain, composables own loading/error state, typed ApiError from interceptor",
       "version": "1.0.0",

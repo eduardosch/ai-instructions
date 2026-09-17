@@ -182,6 +182,18 @@ Enforces Zod usage conventions — always consume env variables through `src/env
 
 ---
 
+### <img src="icons/vue.svg" height="20" valign="middle"> `rules-vue-router`
+
+Enforces Vue Router best practices — lazy-loaded routes, file-based routing conventions, Composition API usage (`useRouter`, `useRoute`, `onBeforeRouteLeave`), data fetching patterns (render-first vs guard-first), and `v-slot` for transitions, Suspense, and KeepAlive on shared layouts.
+
+```bash
+/plugin install rules-vue-router@eduardosch-marketplace
+```
+
+**Usage:** `/rules-vue-router`
+
+---
+
 ### 🔌 `rules-client-api`
 
 Style guide for structuring API calls — never call axios/fetch in components, typed service modules per domain, composables own loading/error state, typed `ApiError` from interceptor. Requires `setup-axios`.
