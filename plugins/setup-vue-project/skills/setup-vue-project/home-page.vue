@@ -47,7 +47,7 @@ const iconMap: Record<string, Component> = {
 
     <section class="hero">
       <span class="badge">Project scaffolded</span>
-      <h1>{{ appTitle }} is ready.</h1>
+      <h1>Your Vue project is ready.</h1>
       <p class="subtitle">
         This project was scaffolded with <strong>setup-vue-project</strong> —
         TypeScript and project tooling are wired up and ready for
