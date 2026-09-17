@@ -1,5 +1,15 @@
 # Changelog
 
+## v13.0.0 — 2026-09-17
+
+### Features
+
+- convert vue-project-setup, firebase-setup, vue-scss-setup, element-plus-setup to one-shot setup skills
+- convert to one-shot setup skill
+- convert to one-shot setup skill
+- convert to one-shot setup skill
+- convert to one-shot setup skill
+
 ## v12.0.3 — 2026-09-15
 
 ### Fixes
