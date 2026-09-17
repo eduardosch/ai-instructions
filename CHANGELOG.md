@@ -1,5 +1,11 @@
 # Changelog
 
+## v13.2.4 — 2026-09-17
+
+### Fixes
+
+- always replace tsconfig.app.json unconditionally
+
 ## v13.2.3 — 2026-09-17
 
 ### Fixes
