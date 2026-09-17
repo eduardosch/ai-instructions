@@ -96,16 +96,16 @@ Always replace `tsconfig.app.json` with the following inline configuration — `
 
 ## 4. Run setup sub-skills
 
-After the base project is created and packages are installed, load and follow each sub-skill in order:
+After the base project is created and packages are installed, read and follow each sub-skill file in order by reading them from the plugin directory:
 
-1. **`setup-scss`** — installs sass-embedded, copies global SCSS partials, wires `vite.config.ts`
-2. **`setup-zod`** — installs Zod, creates `src/env.ts` gateway, adds fail-fast import to `main.ts`
-3. **`setup-axios`** — creates `src/lib/http.ts` typed axios wrapper and `src/types/api.ts`
-4. **`setup-docgen`** — installs Vue Styleguidist, creates `styleguide.config.js`, adds npm scripts
+1. Read `plugins/setup-vue-project/skills/setup-scss/SKILL.md` and follow all its instructions.
+2. Read `plugins/setup-vue-project/skills/setup-zod/SKILL.md` and follow all its instructions.
+3. Read `plugins/setup-vue-project/skills/setup-axios/SKILL.md` and follow all its instructions.
+4. Read `plugins/setup-vue-project/skills/setup-docgen/SKILL.md` and follow all its instructions.
 
-`setup-i18n` is optional — run it only if the project requires internationalization.
+`setup-i18n` is optional — read and follow `plugins/setup-vue-project/skills/setup-i18n/SKILL.md` only if the project requires internationalization.
 
-`setup-element-plus` and `setup-firebase` are separate standalone plugins — run them on demand after the project is created, not as part of this flow.
+`setup-element-plus` and `setup-firebase` are separate standalone plugins — the user must call them explicitly after the project is created.
 
 ## 5. Wire the plugins
 

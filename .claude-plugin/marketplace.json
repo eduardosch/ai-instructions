@@ -17,12 +17,7 @@
       "strict": false,
       "oneshot": true,
       "skills": [
-        "./skills/setup-vue-project",
-        "./skills/setup-scss",
-        "./skills/setup-i18n",
-        "./skills/setup-zod",
-        "./skills/setup-docgen",
-        "./skills/setup-axios"
+        "./skills/setup-vue-project"
       ],
       "keywords": [
         "vue",
