@@ -1,5 +1,11 @@
 # Changelog
 
+## v16.0.0 — 2026-09-17
+
+### Features
+
+- extract as standalone plugins
+
 ## v15.1.0 — 2026-09-17
 
 ### Features
