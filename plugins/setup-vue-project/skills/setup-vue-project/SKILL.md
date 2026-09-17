@@ -51,9 +51,44 @@ const router = createRouter({
 export default router
 ```
 
-Replace `src/App.vue` with the landing page template. Read the file `home-page.vue` located in the same directory as this skill file and copy its contents to `src/App.vue`, then substitute every occurrence of `<project-name>` with the actual project folder name.
+Replace `src/App.vue` with the landing page template. Read the file `home-page.vue` located in the same directory as this skill file and copy its contents to `src/App.vue`.
 
-Also create the icons directory and copy the bundled SVG assets. Read the files `vue-logo.svg`, `icon-terminal.svg`, `icon-folder.svg`, and `icon-help.svg` from the same directory as this skill file, then write each one to `src/assets/icons/` (create the directory first).
+Also create the icons directory and copy the bundled SVG assets. Read the files `vue-logo.svg`, `icon-terminal.svg`, `icon-folder.svg`, `icon-help.svg`, `icon-contact.svg`, `icon-check-circle.svg`, `icon-code.svg`, `icon-drop.svg`, `icon-shield.svg`, `icon-globe.svg`, and `icon-document.svg` from the same directory as this skill file, then write each one to `src/assets/icons/` (create the directory first).
+
+Copy the component templates to `src/components/` (create the directory first). Read each file from the `components/` subdirectory next to this skill file and write it to `src/components/`:
+- `TheHeader.vue`
+- `TheFooter.vue`
+- `AppButton.vue`
+- `AppCard.vue`
+- `AppTag.vue`
+- `HomeRulesList.vue`
+- `HomeRulesListItem.vue`
+
+Copy the store template to `src/stores/`. Read `stores/useHomeStore.ts` from the same directory as this skill file and write it to `src/stores/useHomeStore.ts`.
+
+Copy the favicon files to `public/`. Read each file from the `favicons/` subdirectory next to this skill file and write it to `public/`:
+- `favicon.ico`
+- `favicon-16x16.png`
+- `favicon-32x32.png`
+- `favicon-48x48.png`
+- `apple-touch-icon.png`
+- `android-chrome-192x192.png`
+- `android-chrome-512x512.png`
+- `site.webmanifest` — substitute every occurrence of `<project-name>` with the actual project folder name before writing
+
+Update `index.html` in the project root:
+1. Replace `<title>Vite App</title>` with `<title>%VITE_APP_TITLE%</title>`
+2. Add the following favicon links inside `<head>`, after the existing `<link rel="icon" ...>` tag (replace it):
+
+```html
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+```
+
+Add `VITE_APP_TITLE=<project-folder-name>` to `.env.example` (substituting the actual project folder name).
 
 ## 2. Install npm packages
 
@@ -187,6 +222,9 @@ Then register the marketplace so Claude Code can resolve the plugin source:
 Once everything is finished, show the user a bullet list with emojis and short descriptions of what was done, e.g.:
 
 - ⚡ **Vue project created** — scaffolded with TypeScript, JSX, Router, and Pinia; example files stripped, custom App.vue landing page applied
+- 🧩 **Components** — `TheHeader`, `TheFooter`, `AppButton`, `AppCard`, `AppTag`, `HomeRulesList`, `HomeRulesListItem` created in `src/components/`
+- 🍍 **Home store** — `useHomeStore` created in `src/stores/` with cards, setupCards, ruleRows, and tags
+- 🎨 **Favicons** — favicon set copied to `public/`, `index.html` updated with favicon links and `%VITE_APP_TITLE%`
 - 🧪 **Playwright** — end-to-end testing solution added
 - 🧹 **ESLint + Prettier** — code quality and formatting configured
 - 🎨 **setup-scss** — Sass/SCSS configured with global variables and mixins

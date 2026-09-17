@@ -1,29 +1,53 @@
 <script setup lang="ts">
-import VueLogo from '@/assets/icons/vue-logo.svg?component'
+import type { Component } from 'vue'
+import { storeToRefs } from 'pinia'
+
+import TheHeader from '@/components/TheHeader.vue'
+import TheFooter from '@/components/TheFooter.vue'
+import AppButton from '@/components/AppButton.vue'
+import AppCard from '@/components/AppCard.vue'
+import AppTag from '@/components/AppTag.vue'
+import HomeRulesList from '@/components/HomeRulesList.vue'
+
 import IconTerminal from '@/assets/icons/icon-terminal.svg?component'
 import IconFolder from '@/assets/icons/icon-folder.svg?component'
-import IconHelp from '@/assets/icons/icon-help.svg?component'
+import IconContact from '@/assets/icons/icon-contact.svg?component'
+import IconCheckCircle from '@/assets/icons/icon-check-circle.svg?component'
+import IconCode from '@/assets/icons/icon-code.svg?component'
+import IconDrop from '@/assets/icons/icon-drop.svg?component'
+import IconShield from '@/assets/icons/icon-shield.svg?component'
+import IconGlobe from '@/assets/icons/icon-globe.svg?component'
+import IconDocument from '@/assets/icons/icon-document.svg?component'
 
-const projectName = '<project-name>'
+import { useHomeStore } from '@/stores/useHomeStore'
+
+const homeStore = useHomeStore()
+const { cards, setupCards, tags } = storeToRefs(homeStore)
+
+const appTitle = import.meta.env.VITE_APP_TITLE as string
+
+const iconMap: Record<string, Component> = {
+  terminal: IconTerminal,
+  folder: IconFolder,
+  contact: IconContact,
+  'check-circle': IconCheckCircle,
+  code: IconCode,
+  drop: IconDrop,
+  shield: IconShield,
+  globe: IconGlobe,
+  document: IconDocument,
+}
 </script>
 
 <template>
   <div class="page">
     <div class="glow" />
 
-    <nav class="nav">
-      <div class="nav-inner">
-        <div class="logo">
-          <VueLogo />
-          <span class="app-name">{{ projectName }}</span>
-        </div>
-        <a href="https://github.com/eduardosch" class="nav-link" target="_blank" rel="noopener">github.com/eduardosch ↗</a>
-      </div>
-    </nav>
+    <TheHeader />
 
     <section class="hero">
       <span class="badge">Project scaffolded</span>
-      <h1>Your Vue app is ready.</h1>
+      <h1>{{ appTitle }} is ready.</h1>
       <p class="subtitle">
         This project was scaffolded with <strong>setup-vue-project</strong> —
         TypeScript and project tooling are wired up and ready for
@@ -34,42 +58,94 @@ const projectName = '<project-name>'
         <div><span class="prompt">$</span> npm run dev</div>
       </div>
       <div class="actions">
-        <a href="https://vuejs.org" class="btn-primary" target="_blank" rel="noopener">Read the Vue docs</a>
-        <a href="https://github.com/eduardosch" class="btn-ghost" target="_blank" rel="noopener">View the plugin</a>
+        <AppButton
+          href="https://vuejs.org"
+          variant="primary"
+          target="_blank"
+        >
+          Read the Vue docs
+        </AppButton>
+        <AppButton
+          href="https://github.com/eduardosch"
+          variant="ghost"
+          target="_blank"
+        >
+          View the plugin
+        </AppButton>
       </div>
     </section>
 
     <section class="cards">
-      <div class="card">
-        <IconTerminal />
-        <h3>Start the dev server</h3>
-        <p>Run <code>npm run dev</code> and open the local URL printed in your terminal.</p>
+      <AppCard
+        v-for="card in cards"
+        :key="card.title"
+        :title="card.title"
+        :text="card.text"
+      >
+        <template #icon>
+          <component
+            :is="iconMap[card.iconName]"
+            width="22"
+            height="22"
+            class="card-icon"
+          />
+        </template>
+      </AppCard>
+    </section>
+
+    <section class="setup">
+      <div class="setup__header">
+        <span class="setup__label">Configured automatically</span>
+        <h2 class="setup__heading">Everything is already wired up</h2>
+        <p class="setup__desc">
+          The plugin installed and configured the following as part of scaffolding this project.
+        </p>
       </div>
-      <div class="card">
-        <IconFolder />
-        <h3>Explore the structure</h3>
-        <p>Components and views go under <code>src/</code>, following the plugin's conventions.</p>
-      </div>
-      <div class="card">
-        <IconHelp />
-        <h3>Get support</h3>
-        <p>Questions or issues with the plugin go to <a href="https://github.com/eduardosch" class="accent-link" target="_blank" rel="noopener">github.com/eduardosch</a>.</p>
+      <div class="setup__grid">
+        <AppCard
+          v-for="card in setupCards"
+          :key="card.title"
+          :title="card.title"
+          :text="card.text"
+          size="compact"
+        >
+          <template #icon>
+            <component
+              :is="iconMap[card.iconName]"
+              width="20"
+              height="20"
+              class="card-icon"
+            />
+          </template>
+        </AppCard>
       </div>
     </section>
 
-    <footer class="footer">
-      <div class="footer-inner">
-        <span>Scaffolded with <em>setup-vue-project</em> — a plugin by Eduardo Schröder</span>
-        <a href="https://github.com/eduardosch" class="accent-link" target="_blank" rel="noopener">github.com/eduardosch</a>
+    <HomeRulesList />
+
+    <section class="tags">
+      <span class="tags__label">Also installed</span>
+      <div class="tags__list">
+        <AppTag
+          v-for="tag in tags"
+          :key="tag.label"
+          :label="tag.label"
+        />
       </div>
-    </footer>
+    </section>
+
+    <TheFooter />
   </div>
 </template>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
-*, *::before, *::after { box-sizing: border-box; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -78,7 +154,9 @@ body {
   font-family: 'IBM Plex Sans', system-ui, sans-serif;
 }
 
-a { text-decoration: none; }
+a {
+  text-decoration: none;
+}
 </style>
 
 <style scoped>
@@ -98,35 +176,11 @@ a { text-decoration: none; }
   width: 760px;
   height: 760px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(66,184,131,0.16) 0%, rgba(66,184,131,0) 68%);
+  background: radial-gradient(circle, rgba(66, 184, 131, 0.16) 0%, rgba(66, 184, 131, 0) 68%);
   pointer-events: none;
 }
 
-.nav { width: 100%; position: relative; }
-
-.nav-inner {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 32px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo { display: flex; align-items: center; gap: 12px; }
-
-.app-name {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 600;
-  font-size: 18px;
-  letter-spacing: -0.01em;
-}
-
-.nav-link {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
-  color: #a9b5ac;
-}
+/* ── Hero ── */
 
 .hero {
   max-width: 720px;
@@ -143,11 +197,11 @@ a { text-decoration: none; }
 .badge {
   font-family: 'JetBrains Mono', monospace;
   font-size: 13px;
-  color: #42B883;
+  color: #42b883;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 6px 14px;
-  border: 1px solid rgba(66,184,131,0.35);
+  border: 1px solid rgba(66, 184, 131, 0.35);
   border-radius: 999px;
 }
 
@@ -168,18 +222,22 @@ h1 {
   color: #a9b5ac;
 }
 
-.subtitle strong { color: #f2f5f2; font-weight: 500; }
+.subtitle strong {
+  color: #f2f5f2;
+  font-weight: 500;
+}
 
-.subtitle code, p code {
+.subtitle code,
+p code {
   font-family: 'JetBrains Mono', monospace;
-  color: #42B883;
+  color: #42b883;
 }
 
 .terminal {
   width: 100%;
   max-width: 420px;
   background: #16201c;
-  border: 1px solid rgba(66,184,131,0.25);
+  border: 1px solid rgba(66, 184, 131, 0.25);
   border-radius: 14px;
   padding: 20px 24px;
   text-align: left;
@@ -188,33 +246,21 @@ h1 {
   line-height: 1.9;
 }
 
-.prompt { color: #5c6b60; }
-
-.actions { display: flex; gap: 14px; margin-top: 4px; }
-
-.btn-primary {
-  background: #42B883;
-  color: #0f1412;
-  font-weight: 600;
-  font-size: 15px;
-  padding: 12px 22px;
-  border-radius: 10px;
+.prompt {
+  color: #5c6b60;
 }
 
-.btn-ghost {
-  border: 1px solid rgba(242,245,242,0.2);
-  color: #f2f5f2;
-  font-weight: 500;
-  font-size: 15px;
-  padding: 12px 22px;
-  border-radius: 10px;
+.actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 4px;
 }
 
-.btn-ghost:hover { background: rgba(66,184,131,0.1); }
+/* ── Cards ── */
 
 .cards {
   max-width: 1120px;
-  margin: 72px auto 88px;
+  margin: 72px auto 0;
   padding: 0 40px;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -222,53 +268,80 @@ h1 {
   position: relative;
 }
 
-.card {
-  background: #141a17;
-  border: 1px solid rgba(242,245,242,0.08);
-  border-radius: 14px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.card-icon {
+  color: #42b883;
 }
 
-.card:hover { border-color: rgba(66,184,131,0.45); }
+/* ── Setup section ── */
 
-.card h3 {
-  margin: 0;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.card p {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.6;
-  color: #a9b5ac;
-}
-
-.accent-link { color: #42B883; }
-.accent-link:hover { text-decoration: underline; }
-
-.footer {
-  margin-top: auto;
-  border-top: 1px solid rgba(242,245,242,0.08);
+.setup {
+  max-width: 1120px;
+  width: 100%;
+  margin: 104px auto 0;
+  padding: 0 40px;
+  box-sizing: border-box;
   position: relative;
 }
 
-.footer-inner {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 26px 40px;
+.setup__header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  font-size: 13px;
-  color: #6b7770;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 32px;
 }
 
-.footer-inner em { color: #a9b5ac; font-style: normal; }
+.setup__label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #42b883;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.setup__heading {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+}
+
+.setup__desc {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #a9b5ac;
+  max-width: 640px;
+}
+
+.setup__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* ── Tags ── */
+
+.tags {
+  max-width: 1120px;
+  width: 100%;
+  margin: 56px auto 88px;
+  padding: 0 40px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.tags__label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #6b7770;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.tags__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 </style>
