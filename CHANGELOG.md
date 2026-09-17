@@ -1,5 +1,11 @@
 # Changelog
 
+## v13.2.3 — 2026-09-17
+
+### Fixes
+
+- strip Vite default assets to prevent #app width/centering conflict
+
 ## v13.2.2 — 2026-09-17
 
 ### Other
