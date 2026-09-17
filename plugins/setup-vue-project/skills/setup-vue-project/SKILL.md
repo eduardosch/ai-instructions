@@ -166,16 +166,18 @@ Always replace `tsconfig.app.json` with the following inline configuration — `
 
 ## 4. Run setup sub-skills
 
-After the base project is created and packages are installed, read and follow each sub-skill file in order by reading them from the plugin directory:
+Do NOT stop or summarise here — continue running all steps in this section without pausing.
 
-1. Read `plugins/setup-scss/skills/setup-scss/SKILL.md` and follow all its instructions.
-2. Read `plugins/setup-zod/skills/setup-zod/SKILL.md` and follow all its instructions.
-3. Read `plugins/setup-axios/skills/setup-axios/SKILL.md` and follow all its instructions.
-4. Read `plugins/setup-docgen/skills/setup-docgen/SKILL.md` and follow all its instructions.
+Invoke each sub-skill in order using the Skill tool and follow all of its instructions before moving to the next one:
 
-`setup-i18n` is optional — read and follow `plugins/setup-i18n/skills/setup-i18n/SKILL.md` only if the project requires internationalization.
+1. Invoke the `setup-scss` skill and follow all its instructions.
+2. Invoke the `setup-zod` skill and follow all its instructions.
+3. Invoke the `setup-axios` skill and follow all its instructions.
+4. Invoke the `setup-docgen` skill and follow all its instructions.
 
-`setup-element-plus` and `setup-firebase` are separate standalone plugins — the user must call them explicitly after the project is created.
+`setup-i18n` is optional — invoke the `setup-i18n` skill only if the project requires internationalization.
+
+`setup-element-plus` and `setup-firebase` are separate standalone plugins — the user must invoke them explicitly after the project is created.
 
 ## 4.5 Create .env.development.local
 
