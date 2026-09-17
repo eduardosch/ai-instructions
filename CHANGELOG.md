@@ -1,5 +1,11 @@
 # Changelog
 
+## v18.0.0 — 2026-09-17
+
+### Features
+
+- add Vue Router rules plugin
+
 ## v17.0.1 — 2026-09-17
 
 ### Other
