@@ -1,18 +1,11 @@
 ---
 name: vue-project-setup
-description: Scaffolds a new Vue 3 project with TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, Prettier, and Vue DevTools, then installs the commit-message, versioning, vue-style-guide, vue-ts-style-guide, pinia-style-guide, vue-scss-setup, api-client-conventions, and vue-component-docs plugins. Use when starting a new Vue 3 project. Supports a blank mode that strips example files and replaces App.vue with a clean landing page.
+description: Scaffolds a new Vue 3 project with TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, Prettier, and Vue DevTools, then installs the commit-message, versioning, vue-style-guide, vue-ts-style-guide, pinia-style-guide, vue-scss-setup, api-client-conventions, and vue-component-docs plugins. Always strips example files and replaces App.vue with a clean landing page. Use when starting a new Vue 3 project.
 ---
 
 # Vue Project Setup
 
 Instructions for scaffolding a new Vue project.
-
-## 0. Determine project mode
-
-Ask the user (or infer from their request) which mode they want:
-
-- **Full** (default) — keeps the example components and views `create-vue` generates
-- **Blank** — removes all example files and replaces `App.vue` with a minimal landing page design
 
 ## 1. Create the project
 
@@ -25,9 +18,7 @@ npx create-vue@latest <project-folder-name> --typescript --jsx --router --pinia 
 
 Then change back into the project directory before running the remaining steps.
 
-## 1.5 Strip examples — blank project only
-
-Skip this entire section for the **full** mode.
+## 1.5 Strip examples
 
 Delete all example files that `create-vue` generates:
 
@@ -427,7 +418,7 @@ Then register the marketplace so Claude Code can resolve the plugin source:
 
 Once everything is finished, show the user a bullet list with emojis and short descriptions of what was done, e.g.:
 
-- ⚡ **Vue project created** — scaffolded with TypeScript, JSX, Router, and Pinia (blank mode: example files stripped, custom App.vue applied)
+- ⚡ **Vue project created** — scaffolded with TypeScript, JSX, Router, and Pinia; example files stripped, custom App.vue landing page applied
 - 🧪 **Playwright** — end-to-end testing solution added
 - 🧹 **ESLint + Prettier** — code quality and formatting configured
 - 📝 **Commit-message plugin** — semantic commit messages enabled
