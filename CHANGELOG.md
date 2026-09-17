@@ -1,5 +1,11 @@
 # Changelog
 
+## v17.0.0 — 2026-09-17
+
+### Features
+
+- add component structure, home store, and favicon setup
+
 ## v16.2.0 — 2026-09-17
 
 ### Features
