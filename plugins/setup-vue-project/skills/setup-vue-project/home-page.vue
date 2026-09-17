@@ -2,8 +2,6 @@
 import type { Component } from 'vue'
 import { storeToRefs } from 'pinia'
 
-import TheHeader from '@/components/TheHeader.vue'
-import TheFooter from '@/components/TheFooter.vue'
 import AppButton from '@/components/AppButton.vue'
 import AppCard from '@/components/AppCard.vue'
 import AppTag from '@/components/AppTag.vue'
@@ -42,8 +40,6 @@ const iconMap: Record<string, Component> = {
 <template>
   <div class="page">
     <div class="glow" />
-
-    <TheHeader />
 
     <section class="hero">
       <span class="badge">Project scaffolded</span>
@@ -133,33 +129,10 @@ const iconMap: Record<string, Component> = {
         />
       </div>
     </section>
-
-    <TheFooter />
   </div>
 </template>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  background: #0f1412;
-  color: #f2f5f2;
-  font-family: 'IBM Plex Sans', system-ui, sans-serif;
-}
-
-a {
-  text-decoration: none;
-}
-</style>
-
-<style scoped>
+<style lang="scss" scoped>
 .page {
   min-height: 100vh;
   display: flex;

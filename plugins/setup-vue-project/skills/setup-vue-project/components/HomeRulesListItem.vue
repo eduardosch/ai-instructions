@@ -30,7 +30,7 @@ defineProps<Props>()
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .home-rules-list-item {
   display: flex;
   align-items: flex-start;

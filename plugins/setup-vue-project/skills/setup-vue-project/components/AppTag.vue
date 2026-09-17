@@ -10,7 +10,7 @@ defineProps<Props>()
   <span class="app-tag">{{ label }}</span>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .app-tag {
   font-family: 'JetBrains Mono', monospace;
   font-size: 13px;

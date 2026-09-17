@@ -20,7 +20,7 @@ withDefaults(defineProps<Props>(), {
   </article>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .app-card {
   background: #141a17;
   border: 1px solid rgba(242, 245, 242, 0.08);

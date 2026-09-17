@@ -24,7 +24,7 @@ const { ruleRows } = storeToRefs(homeStore)
   </section>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .home-rules-list {
   max-width: 1120px;
   width: 100%;

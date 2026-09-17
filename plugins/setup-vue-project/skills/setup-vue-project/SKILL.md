@@ -35,7 +35,11 @@ Remove-Item -Force src/views/HomeView.vue, src/views/AboutView.vue
 Remove-Item -Force src/stores/counter.ts
 ```
 
-Also remove the CSS import from `src/main.ts` — delete the line `import './assets/main.css'` (or `import './assets/base.css'` — whichever `create-vue` generated).
+Also remove the CSS import from `src/main.ts` — delete the line `import './assets/main.css'` (or `import './assets/base.css'` — whichever `create-vue` generated), then add the global stylesheet import in its place:
+
+```ts
+import '@/assets/styles/global.scss'
+```
 
 Then clear the router so the deleted views no longer cause TypeScript errors.
 Replace the contents of `src/router/index.ts` with:
@@ -45,13 +49,23 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [],
+  routes: [
+    {
+      path: '/',
+      name: 'Home',
+      component: () => import('@/pages/index.vue'),
+    },
+  ],
 })
 
 export default router
 ```
 
-Replace `src/App.vue` with the landing page template. Read the file `home-page.vue` located in the same directory as this skill file and copy its contents to `src/App.vue`.
+Replace `src/App.vue` with the layout shell. Read the file `App.vue` located in the same directory as this skill file and copy its contents to `src/App.vue`.
+
+Create the pages directory and copy the home page template. Read the file `home-page.vue` located in the same directory as this skill file and copy its contents to `src/pages/index.vue` (create `src/pages/` first).
+
+Create `src/assets/styles/` and copy the global stylesheet. Read the file `global.scss` from the same directory as this skill file and write it to `src/assets/styles/global.scss`.
 
 Also create the icons directory and copy the bundled SVG assets. Read the files `vue-logo.svg`, `icon-terminal.svg`, `icon-folder.svg`, `icon-help.svg`, `icon-contact.svg`, `icon-check-circle.svg`, `icon-code.svg`, `icon-drop.svg`, `icon-shield.svg`, `icon-globe.svg`, and `icon-document.svg` from the same directory as this skill file, then write each one to `src/assets/icons/` (create the directory first).
 

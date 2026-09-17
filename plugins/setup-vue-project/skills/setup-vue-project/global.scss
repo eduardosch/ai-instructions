@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0f1412;
+  color: #f2f5f2;
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}

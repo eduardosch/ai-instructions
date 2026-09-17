@@ -33,7 +33,7 @@ withDefaults(defineProps<Props>(), {
   </button>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .app-button {
   display: inline-flex;
   align-items: center;

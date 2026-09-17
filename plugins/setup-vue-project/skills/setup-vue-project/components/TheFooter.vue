@@ -17,7 +17,7 @@
   </footer>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .the-footer {
   margin-top: auto;
   border-top: 1px solid rgba(242, 245, 242, 0.08);

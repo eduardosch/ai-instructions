@@ -23,7 +23,7 @@ const appTitle = import.meta.env.VITE_APP_TITLE as string
   </header>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .the-header {
   width: 100%;
   position: relative;
