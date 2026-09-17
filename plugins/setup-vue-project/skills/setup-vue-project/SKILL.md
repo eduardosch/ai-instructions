@@ -53,18 +53,37 @@ export default router
 
 Replace `src/App.vue` with the landing page template. Read the file `home-page.vue` located in the same directory as this skill file and copy its contents to `src/App.vue`, then substitute every occurrence of `<project-name>` with the actual project folder name.
 
+Also create the icons directory and copy the bundled SVG assets. Read the files `vue-logo.svg`, `icon-terminal.svg`, `icon-folder.svg`, and `icon-help.svg` from the same directory as this skill file, then write each one to `src/assets/icons/` (create the directory first).
+
 ## 2. Install npm packages
 
 ```bash
 npm install --legacy-peer-deps
 npm install axios
-npm install -D sass-embedded vue-styleguidist vue-docgen-api webpack webpack-dev-server css-loader style-loader vue-loader ts-loader
+npm install -D sass-embedded vue-styleguidist vue-docgen-api webpack webpack-dev-server css-loader style-loader vue-loader ts-loader vite-svg-loader
 ```
 
 - **axios** — HTTP client used by `setup-axios` (`src/lib/http.ts`)
 - **sass-embedded** — modern Dart Sass implementation required by `setup-scss`; use this instead of `sass` to avoid the legacy-JS-API deprecation warning under Vite
 - **vue-styleguidist** + **vue-docgen-api** — powers the live component documentation site (`npm run styleguide`)
 - **webpack**, **webpack-dev-server**, **css-loader**, **style-loader**, **vue-loader**, **ts-loader** — webpack peer dependencies required by Vue Styleguidist in a Vite-only project
+- **vite-svg-loader** — imports SVG files as Vue components via the `?component` query suffix
+
+## 2.5 Configure vite-svg-loader
+
+Open `vite.config.ts` and add the import at the top after the existing imports:
+
+```ts
+import svgLoader from 'vite-svg-loader'
+```
+
+Then add `svgLoader()` to the `plugins` array alongside the existing plugins (e.g. `vue()`, `vueJsx()`, `vueDevTools()`).
+
+Open `env.d.ts` and add the type reference on a new line after the existing `/// <reference types="vite/client" />` line:
+
+```ts
+/// <reference types="vite-svg-loader" />
+```
 
 ## 3. Fix tsconfig.app.json
 
@@ -187,3 +206,4 @@ Once everything is finished, show the user a bullet list with emojis and short d
 - 📦 **axios** — HTTP client installed
 - 📦 **sass-embedded** — Dart Sass installed
 - 📦 **vue-styleguidist + deps** — Styleguidist and webpack peer dependencies installed
+- 📦 **vite-svg-loader** — SVG-as-component support configured

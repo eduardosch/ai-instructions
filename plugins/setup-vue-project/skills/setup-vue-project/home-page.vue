@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import VueLogo from '@/assets/icons/vue-logo.svg?component'
+import IconTerminal from '@/assets/icons/icon-terminal.svg?component'
+import IconFolder from '@/assets/icons/icon-folder.svg?component'
+import IconHelp from '@/assets/icons/icon-help.svg?component'
+
 const projectName = '<project-name>'
 </script>
 
@@ -9,10 +14,7 @@ const projectName = '<project-name>'
     <nav class="nav">
       <div class="nav-inner">
         <div class="logo">
-          <svg width="30" height="30" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-            <path d="M6 10 L24 40 L42 10" stroke="#42B883" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M15 10 L24 25 L33 10" stroke="#f2f5f2" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+          <VueLogo />
           <span class="app-name">{{ projectName }}</span>
         </div>
         <a href="https://github.com/eduardosch" class="nav-link" target="_blank" rel="noopener">github.com/eduardosch ↗</a>
@@ -39,26 +41,17 @@ const projectName = '<project-name>'
 
     <section class="cards">
       <div class="card">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#42B883" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <rect x="3" y="4" width="18" height="16" rx="2"/>
-          <path d="M7 9l3 3-3 3"/><path d="M13 15h4"/>
-        </svg>
+        <IconTerminal />
         <h3>Start the dev server</h3>
         <p>Run <code>npm run dev</code> and open the local URL printed in your terminal.</p>
       </div>
       <div class="card">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#42B883" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-        </svg>
+        <IconFolder />
         <h3>Explore the structure</h3>
         <p>Components and views go under <code>src/</code>, following the plugin's conventions.</p>
       </div>
       <div class="card">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#42B883" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="9"/>
-          <path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.9.4-1.5 1-1.5 2.2"/>
-          <circle cx="12" cy="17" r=".6" fill="#42B883" stroke="none"/>
-        </svg>
+        <IconHelp />
         <h3>Get support</h3>
         <p>Questions or issues with the plugin go to <a href="https://github.com/eduardosch" class="accent-link" target="_blank" rel="noopener">github.com/eduardosch</a>.</p>
       </div>
