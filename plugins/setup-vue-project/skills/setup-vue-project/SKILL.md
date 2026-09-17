@@ -107,6 +107,22 @@ After the base project is created and packages are installed, read and follow ea
 
 `setup-element-plus` and `setup-firebase` are separate standalone plugins — the user must call them explicitly after the project is created.
 
+## 4.5 Create .env.development.local
+
+Copy `.env.example` to `.env.development.local` so Vite can load environment variables on `npm run dev`:
+
+```bash
+# macOS / Linux
+cp .env.example .env.development.local
+```
+
+```powershell
+# Windows (PowerShell)
+Copy-Item .env.example .env.development.local
+```
+
+> Without this file the app will fail to load because `setup-zod` validates env vars at startup and `.env.example` is not loaded by Vite automatically.
+
 ## 5. Wire the plugins
 
 Create the project's `.claude/settings.json` so Claude Code picks up all rules plugins when the project is opened:
@@ -154,6 +170,7 @@ Once everything is finished, show the user a bullet list with emojis and short d
 - 🧹 **ESLint + Prettier** — code quality and formatting configured
 - 🎨 **setup-scss** — Sass/SCSS configured with global variables and mixins
 - 🔒 **setup-zod** — environment variable validation with Zod gateway
+- 📄 **.env.development.local** — copied from `.env.example` so Vite loads env vars on dev
 - 🌐 **setup-axios** — typed axios wrapper with error normalisation, service modules, and composables
 - 📚 **setup-docgen** — Vue Styleguidist configured for component library documentation
 - 📝 **rules-commit** — semantic commit messages enabled
