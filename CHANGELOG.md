@@ -1,5 +1,11 @@
 # Changelog
 
+## v13.2.2 — 2026-09-17
+
+### Other
+
+- extract App.vue template to separate file
+
 ## v13.2.1 — 2026-09-17
 
 ### Other
