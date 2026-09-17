@@ -28,13 +28,13 @@ Install any plugin individually:
 
 ---
 
-## Setup Plugin
+## Setup Plugins
 
 ### <img src="icons/vue.svg" height="20" valign="middle"> `setup-vue-project`
 
-Scaffolds a new Vue 3 project with an opinionated stack — TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, Prettier — then runs all setup sub-skills (SCSS, Zod, Axios, Docgen, i18n) and installs all rules plugins so the project is ready from the first commit.
+Scaffolds a new Vue 3 project with an opinionated stack — TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, Prettier — then runs the core setup sub-skills (SCSS, Zod, Axios, Docgen) and installs all rules plugins so the project is ready from the first commit.
 
-Sub-skills available standalone:
+Core sub-skills (run automatically):
 
 | Sub-skill | What it does |
 |---|---|
@@ -42,15 +42,39 @@ Sub-skills available standalone:
 | `setup-zod` | Installs Zod, creates `src/env.ts` gateway, fail-fast import |
 | `setup-axios` | Creates `src/lib/http.ts` typed wrapper + `src/types/api.ts` |
 | `setup-docgen` | Installs Vue Styleguidist, creates `styleguide.config.js` |
-| `setup-i18n` | Installs vue-i18n, creates config + locale files, wires i18n Ally |
-| `setup-element-plus` | Installs Element Plus with auto-import, dark mode, theming, layouts |
-| `setup-firebase` | Installs Firebase, scaffolds typed service modules per selected service |
+| `setup-i18n` | Installs vue-i18n, creates config + locale files, wires i18n Ally *(optional)* |
 
 ```bash
 /plugin install setup-vue-project@eduardosch-marketplace
 ```
 
-**Usage:** `/setup-vue-project` — or individual sub-skills like `/setup-element-plus`, `/setup-firebase`
+**Usage:** `/setup-vue-project`
+
+---
+
+### 🧩 `setup-element-plus`
+
+Installs and configures Element Plus in an existing Vue 3 + Vite project — auto-import, optional dark mode via VueUse `useDark()`, theming against existing SCSS variables or Element Plus defaults, optional icons package, reusable App* wrapper components, and an optional app structure with authentication pages and a chosen navigation layout.
+
+Run after `/setup-vue-project` has created the base project.
+
+```bash
+/plugin install setup-element-plus@eduardosch-marketplace
+```
+
+**Usage:** `/setup-element-plus`
+
+---
+
+### 🔥 `setup-firebase`
+
+Installs and configures Firebase in an existing TypeScript project — asks which services to enable (Firestore, Authentication, Realtime Database, Storage, Cloud Functions, Hosting), scaffolds typed service modules under `src/lib/`, and wires all Firebase config through environment variables. Integrates with `setup-zod` when present.
+
+```bash
+/plugin install setup-firebase@eduardosch-marketplace
+```
+
+**Usage:** `/setup-firebase`
 
 ---
 

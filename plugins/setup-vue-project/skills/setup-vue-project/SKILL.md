@@ -1,6 +1,6 @@
 ---
 name: setup-vue-project
-description: Scaffolds a new Vue 3 project with TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, Prettier, and Vue DevTools, then runs all setup sub-skills (setup-scss, setup-zod, setup-axios, setup-docgen, setup-i18n) and installs the rules plugins. Always strips example files and replaces App.vue with a clean landing page. Use when starting a new Vue 3 project.
+description: Scaffolds a new Vue 3 project with TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, Prettier, and Vue DevTools, then runs the core setup sub-skills (setup-scss, setup-zod, setup-axios, setup-docgen) and installs all rules plugins. Always strips example files and replaces App.vue with a clean landing page. Use when starting a new Vue 3 project.
 ---
 
 # Vue Project Setup
@@ -105,7 +105,7 @@ After the base project is created and packages are installed, load and follow ea
 
 `setup-i18n` is optional — run it only if the project requires internationalization.
 
-`setup-element-plus` and `setup-firebase` are optional and run on demand when the user asks for them.
+`setup-element-plus` and `setup-firebase` are separate standalone plugins — run them on demand after the project is created, not as part of this flow.
 
 ## 5. Wire the plugins
 

@@ -22,9 +22,7 @@
         "./skills/setup-i18n",
         "./skills/setup-zod",
         "./skills/setup-docgen",
-        "./skills/setup-axios",
-        "./skills/setup-element-plus",
-        "./skills/setup-firebase"
+        "./skills/setup-axios"
       ],
       "keywords": [
         "vue",
@@ -35,8 +33,6 @@
         "scss",
         "zod",
         "axios",
-        "element-plus",
-        "firebase",
         "i18n"
       ],
       "author": {
@@ -281,6 +277,60 @@
       },
       "license": "MIT",
       "category": "vue"
+    },
+    {
+      "name": "setup-element-plus",
+      "description": "Installs and configures Element Plus in an existing Vue 3 + Vite project — auto-import, optional dark mode via VueUse useDark, theming, optional icons, reusable App* wrapper components, and optional auth pages + navigation layout",
+      "version": "1.0.0",
+      "source": "./plugins/setup-element-plus",
+      "strict": false,
+      "oneshot": true,
+      "skills": [
+        "./skills/setup-element-plus"
+      ],
+      "keywords": [
+        "vue",
+        "element-plus",
+        "ui-library",
+        "dark-mode",
+        "theming",
+        "layout",
+        "authentication",
+        "vite"
+      ],
+      "author": {
+        "name": "Eduardo Schroder",
+        "email": "dudu.schroder@gmail.com"
+      },
+      "license": "MIT",
+      "category": "vue"
+    },
+    {
+      "name": "setup-firebase",
+      "description": "Installs and configures Firebase in any TypeScript project — asks which services to enable (Firestore, Authentication, Realtime Database, Storage, Cloud Functions, Hosting), scaffolds typed service modules, and wires Firebase config through environment variables",
+      "version": "1.0.0",
+      "source": "./plugins/setup-firebase",
+      "strict": false,
+      "oneshot": true,
+      "skills": [
+        "./skills/setup-firebase"
+      ],
+      "keywords": [
+        "firebase",
+        "firestore",
+        "authentication",
+        "storage",
+        "realtime-database",
+        "cloud-functions",
+        "google",
+        "typescript"
+      ],
+      "author": {
+        "name": "Eduardo Schroder",
+        "email": "dudu.schroder@gmail.com"
+      },
+      "license": "MIT",
+      "category": "backend"
     },
     {
       "name": "rules-client-api",
