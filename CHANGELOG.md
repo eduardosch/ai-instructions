@@ -1,5 +1,11 @@
 # Changelog
 
+## v19.0.2 — 2026-09-17
+
+### Other
+
+- introduce App.vue layout shell with router-view
+
 ## v19.0.1 — 2026-09-17
 
 ### Other
