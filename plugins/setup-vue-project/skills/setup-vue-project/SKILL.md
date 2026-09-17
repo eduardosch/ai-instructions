@@ -194,7 +194,8 @@ Create the project's `.claude/settings.json` so Claude Code picks up all rules p
     "rules-vue-scss@eduardosch-marketplace": true,
     "rules-client-api@eduardosch-marketplace": true,
     "rules-documentation@eduardosch-marketplace": true,
-    "rules-zod@eduardosch-marketplace": true
+    "rules-zod@eduardosch-marketplace": true,
+    "rules-vue-router@eduardosch-marketplace": true
   }
 }
 ```
@@ -216,6 +217,7 @@ Then register the marketplace so Claude Code can resolve the plugin source:
 - **rules-client-api** — typed API client conventions
 - **rules-documentation** — JSDoc and component documentation conventions
 - **rules-zod** — Zod usage patterns and env validation rules
+- **rules-vue-router** — Vue Router conventions (lazy loading, file-based routing, Composition API, data fetching)
 
 ## 6. Show a summary
 
@@ -241,6 +243,7 @@ Once everything is finished, show the user a bullet list with emojis and short d
 - 🌐 **rules-client-api** — API client conventions installed
 - 📚 **rules-documentation** — component documentation rules installed
 - 🔒 **rules-zod** — Zod usage rules installed
+- 🛣️ **rules-vue-router** — Vue Router conventions installed
 - 📦 **axios** — HTTP client installed
 - 📦 **sass-embedded** — Dart Sass installed
 - 📦 **vue-styleguidist + deps** — Styleguidist and webpack peer dependencies installed
