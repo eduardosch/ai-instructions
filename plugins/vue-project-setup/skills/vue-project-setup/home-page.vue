@@ -78,14 +78,8 @@ const projectName = '<project-name>'
 
 *, *::before, *::after { box-sizing: border-box; }
 
-html, body, #app {
-  height: 100%;
-  margin: 0;
-  max-width: none;
-  padding: 0;
-}
-
 body {
+  margin: 0;
   background: #0f1412;
   color: #f2f5f2;
   font-family: 'IBM Plex Sans', system-ui, sans-serif;
@@ -96,7 +90,7 @@ a { text-decoration: none; }
 
 <style scoped>
 .page {
-  min-height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   position: relative;

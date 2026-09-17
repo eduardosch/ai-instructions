@@ -24,14 +24,16 @@ Delete all example files that `create-vue` generates (run inside the project dir
 
 ```bash
 # macOS / Linux
-rm -rf src/components src/views/HomeView.vue src/views/AboutView.vue
+rm -rf src/components src/views/HomeView.vue src/views/AboutView.vue src/assets
 ```
 
 ```powershell
 # Windows (PowerShell)
-Remove-Item -Recurse -Force src/components
+Remove-Item -Recurse -Force src/components, src/assets
 Remove-Item -Force src/views/HomeView.vue, src/views/AboutView.vue
 ```
+
+Also remove the CSS import from `src/main.ts` — delete the line `import './assets/main.css'` (or `import './assets/base.css'` — whichever `create-vue` generated).
 
 Then clear the router so the deleted views no longer cause TypeScript errors.
 Replace the contents of `src/router/index.ts` with:
