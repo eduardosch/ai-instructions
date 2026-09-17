@@ -107,6 +107,7 @@
       "version": "1.0.0",
       "source": "./plugins/vue-project-setup",
       "strict": false,
+      "oneshot": true,
       "skills": [
         "./skills/vue-project-setup"
       ],
@@ -176,6 +177,7 @@
       "version": "1.0.0",
       "source": "./plugins/vue-scss-setup",
       "strict": false,
+      "oneshot": true,
       "skills": [
         "./skills/vue-scss-setup"
       ],
@@ -306,6 +308,7 @@
       "version": "1.0.0",
       "source": "./plugins/element-plus-setup",
       "strict": false,
+      "oneshot": true,
       "skills": [
         "./skills/element-plus-setup"
       ],
@@ -332,6 +335,7 @@
       "version": "1.0.0",
       "source": "./plugins/firebase-setup",
       "strict": false,
+      "oneshot": true,
       "skills": [
         "./skills/firebase-setup"
       ],
