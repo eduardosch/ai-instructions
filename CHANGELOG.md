@@ -1,5 +1,11 @@
 # Changelog
 
+## v13.2.1 — 2026-09-17
+
+### Other
+
+- make example file removal cross-platform (bash + PowerShell)
+
 ## v13.2.0 — 2026-09-17
 
 ### Features
