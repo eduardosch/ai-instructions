@@ -1,5 +1,11 @@
 # Changelog
 
+## v17.0.1 — 2026-09-17
+
+### Other
+
+- replace dynamic app title with static text in hero heading
+
 ## v17.0.0 — 2026-09-17
 
 ### Features
