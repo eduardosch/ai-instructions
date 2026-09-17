@@ -1,5 +1,11 @@
 # Changelog
 
+## v16.2.0 — 2026-09-17
+
+### Features
+
+- use vite-svg-loader for reusable SVG components
+
 ## v16.1.1 — 2026-09-17
 
 ### Fixes
