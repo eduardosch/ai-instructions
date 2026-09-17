@@ -23,7 +23,7 @@ const client = axios.create({ baseURL: env.VITE_API_URL })
 const client = axios.create({ baseURL: import.meta.env.VITE_API_URL })
 ```
 
-The only file allowed to read `import.meta.env` or `process.env` is `src/env.ts` itself.
+The only file allowed to read `import.meta.env` or `process.env` is `src/env.ts` itself. Never export anything from `src/env.ts` other than `env`.
 
 ---
 
@@ -58,10 +58,30 @@ VITE_STRIPE_KEY=pk_test_...
 - Use `.default()` for optional vars with sensible fallbacks.
 - Prefer `.optional()` over omitting a field when a variable can legitimately be absent.
 - Avoid `.nullable()` — env vars are either present (string) or absent (use `.optional()`).
+- Use `safeParse` (not `parse`) so all field errors are logged before throwing, rather than stopping at the first failure.
+- In Node/Express projects use `process.exit(1)` on validation failure — a server should never start with broken config.
 
 ---
 
-## 4. Testing env.ts
+## 4. `.env.example` maintenance
+
+`.env.example` is the source of truth for onboarding — every variable in `src/env.ts` must have a matching entry there.
+
+- Every new variable requires a `.env.example` update in the same PR.
+- Comments must explain the purpose and whether the variable is required or optional.
+- Never put real secrets (tokens, passwords, keys) in `.env.example` — use placeholder values only.
+
+```dotenv
+# Required — base URL of the backend API
+VITE_API_URL=https://api.example.com
+
+# Optional — enables the beta dashboard (default: false)
+VITE_FEATURE_FLAG=false
+```
+
+---
+
+## 5. Testing env.ts
 
 ### Provide test values in Vitest config
 
@@ -117,7 +137,7 @@ Use dynamic `import()` in env spec tests so the module re-evaluates with the stu
 
 ---
 
-## 5. ESLint enforcement (optional)
+## 6. ESLint enforcement (optional)
 
 Prevent direct `import.meta.env` access outside `src/env.ts`:
 
@@ -144,7 +164,9 @@ export default [
 ## Quick checklist
 
 - [ ] All code reads from `env.*`, never from `import.meta.env` / `process.env`
-- [ ] New variables are added to the schema in `src/env.ts` and to `.env.example`
+- [ ] `src/env.ts` exports only `env` — nothing else
+- [ ] New variables are added to the schema in `src/env.ts` and to `.env.example` in the same PR
+- [ ] `.env.example` entries have comments explaining purpose and required/optional status
 - [ ] Boolean env vars use `.transform()`, not manual string comparison
 - [ ] Vitest config provides test values so tests don't fail on missing env
 - [ ] (Optional) ESLint rule blocks direct `import.meta.env` access

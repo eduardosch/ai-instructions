@@ -24,7 +24,7 @@ No extra packages needed. Avoid `@t3-oss/env-core` unless the project already de
 
 ## Part 2 — The env gateway file
 
-Create a single file that parses and exports all env variables. Nothing else in the app reads `import.meta.env` or `process.env` directly.
+Create `src/env.ts` — the single file allowed to read `import.meta.env` or `process.env`. Everything else in the app imports from this file.
 
 ### 2.1 Vite / Vue projects — `src/env.ts`
 
@@ -46,12 +46,6 @@ if (!parsed.success) {
 
 export const env = parsed.data
 ```
-
-Rules:
-- The file is named `env.ts` and lives at the root of `src/`.
-- Use `safeParse` so you can log all field errors at once before throwing, rather than stopping at the first failure.
-- Transform boolean-like strings (`'true'` / `'false'`) with `.transform()` — Vite injects all variables as strings.
-- Never export anything from this file other than `env`.
 
 ### 2.2 Node / Express projects — `src/env.ts`
 
@@ -75,11 +69,6 @@ if (!parsed.success) {
 
 export const env = parsed.data
 ```
-
-Rules:
-- Use `process.exit(1)` in Node servers — they should not start with broken config.
-- Use `z.coerce.number()` for numeric env vars — `process.env` values are always strings.
-- Provide `.default()` for optional vars with sensible fallbacks (e.g. `PORT: 3000`).
 
 ---
 
@@ -119,9 +108,7 @@ app.listen(env.PORT, () => console.log(`Server on port ${env.PORT}`))
 .env.test          ← committed only when it contains non-secret values
 ```
 
-### `.env.example` shape
-
-Every variable in `src/env.ts` must have a matching entry in `.env.example` with a placeholder or documented default:
+Create `.env.example` with a matching entry for every variable in `src/env.ts`:
 
 ```dotenv
 # Required — base URL of the backend API
@@ -133,11 +120,6 @@ VITE_APP_TITLE=My App
 # Optional — enables the beta dashboard (default: false)
 VITE_FEATURE_FLAG=false
 ```
-
-Rules:
-- `.env.example` is the source of truth for onboarding. Every new variable requires a `.env.example` update in the same PR.
-- Comments explain the purpose and whether the variable is required or optional.
-- Never put real secrets (tokens, passwords, keys) in `.env.example`.
 
 ---
 
