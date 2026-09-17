@@ -1,5 +1,11 @@
 # Changelog
 
+## v13.1.0 — 2026-09-17
+
+### Features
+
+- add blank project mode with landing page App.vue
+
 ## v13.0.0 — 2026-09-17
 
 ### Features
