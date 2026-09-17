@@ -1,5 +1,11 @@
 # Changelog
 
+## v14.0.0 — 2026-09-17
+
+### Features
+
+- separate setup from rules, consolidate all setups into setup-vue-project
+
 ## v13.2.5 — 2026-09-17
 
 ### Fixes
