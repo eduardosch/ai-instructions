@@ -1,5 +1,11 @@
 # Changelog
 
+## v19.0.1 — 2026-09-17
+
+### Other
+
+- move usage rules out of setup-zod into rules-zod
+
 ## v19.0.0 — 2026-09-17
 
 ### Features
