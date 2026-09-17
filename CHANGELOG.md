@@ -1,5 +1,11 @@
 # Changelog
 
+## v16.1.0 — 2026-09-17
+
+### Features
+
+- copy .env.example to .env.development.local after setup
+
 ## v16.0.0 — 2026-09-17
 
 ### Features
