@@ -31,7 +31,9 @@ warning under Vite.
 ### 2. Copy the style partials
 
 Copy the `assets/styles/` folder from this skill into the target project at
-`src/assets/styles/`, preserving structure:
+`src/assets/styles/`, preserving structure. **For each file, check whether it
+already exists in the target location. If it does, skip it — do not overwrite.**
+Only write files that are not yet present.
 
 ```
 src/assets/styles/

@@ -1,29 +1,56 @@
-// -----------------------------------------------------------------------------
-// Color tokens
-// Edit these to match your design system / Figma palette.
-// -----------------------------------------------------------------------------
+// Brand colors — same in both themes; kept as SCSS variables so they work
+// with SCSS color functions like rgba($color-primary, 0.45).
+$color-primary:         #42b983;
+$color-primary-light:   #6fcf9e;
+$color-primary-dark:    #2f8f63;
 
-// Brand
-$color-primary: #42b983 !default;
-$color-primary-light: #6fcf9e !default;
-$color-primary-dark: #2f8f63 !default;
+$color-secondary:       #35495e;
+$color-secondary-light: #4a6178;
+$color-secondary-dark:  #23313f;
 
-$color-secondary: #35495e !default;
-$color-secondary-light: #4a6178 !default;
-$color-secondary-dark: #23313f !default;
+// Feedback colors — same in both themes
+$color-success: #22c55e;
+$color-warning: #f59e0b;
+$color-error:   #ef4444;
+$color-info:    #3b82f6;
 
-// Text
-$color-text: #1f2937 !default;
-$color-text-light: #6b7280 !default;
-$color-text-inverse: #ffffff !default;
+// Theme-dependent tokens — light (default)
+:root {
+  --color-background:     #ffffff;
+  --color-surface:        #f9fafb;
+  --color-surface-raised: #f3f4f6;
 
-// Surfaces
-$color-background: #ffffff !default;
-$color-surface: #f9fafb !default;
-$color-border: #e5e7eb !default;
+  --color-text:           #1f2937;
+  --color-text-muted:     #6b7280;
+  --color-text-dim:       #9ca3af;
+  --color-text-faint:     #d1d5db;
 
-// Feedback
-$color-success: #22c55e !default;
-$color-warning: #f59e0b !default;
-$color-error: #ef4444 !default;
-$color-info: #3b82f6 !default;
+  --color-border:         rgba(31, 41, 55, 0.10);
+  --color-border-medium:  rgba(31, 41, 55, 0.22);
+}
+
+// Dark theme — useDark() adds .dark to <html>
+:root.dark {
+  --color-background:     #1a1a2e;
+  --color-surface:        #16213e;
+  --color-surface-raised: #0f3460;
+
+  --color-text:           #e8e8e8;
+  --color-text-muted:     #a8a8b3;
+  --color-text-dim:       #6b6b7b;
+  --color-text-faint:     #4a4a5a;
+
+  --color-border:         rgba(232, 232, 232, 0.08);
+  --color-border-medium:  rgba(232, 232, 232, 0.20);
+}
+
+// SCSS variable mappings → CSS custom properties for theme-dependent tokens
+$color-background:      var(--color-background);
+$color-surface:         var(--color-surface);
+$color-surface-raised:  var(--color-surface-raised);
+$color-text:            var(--color-text);
+$color-text-muted:      var(--color-text-muted);
+$color-text-dim:        var(--color-text-dim);
+$color-text-faint:      var(--color-text-faint);
+$color-border:          var(--color-border);
+$color-border-medium:   var(--color-border-medium);

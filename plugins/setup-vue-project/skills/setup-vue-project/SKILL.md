@@ -39,7 +39,7 @@ Unless verbose mode is active, run in quiet mode for the entire skill:
 | 3 | `[██████████░░░░░░░░░░]` | 50% | `Fixing TypeScript config` |
 | 4 | `[████████████░░░░░░░░]` | 62% | `Wiring plugins & marketplace` |
 | 4.5 | `[███████████████░░░░░]` | 75% | `Running setup sub-skills` |
-| 4.75 | `[█████████████████░░░]` | 87% | `Creating env files` |
+| 4.75 | `[██████████████████░░]` | 90% | `Creating env files` |
 | 6 | `[████████████████████]` | 100% | `All done!` |
 
    Format each line as:
@@ -353,24 +353,6 @@ Follow each skill's full instructions before moving to the next one.
 
 > **Log entry (if --log):** append `{ "step": "4.5. Run setup sub-skills", "completedAt": "...", "details": { "skillsInvoked": ["setup-scss (inline)", "setup-zod (inline)", "setup-axios (inline)", "setup-docgen (inline)"] } }`. All sub-skills are always run inline in this step — the `(inline)` suffix is correct and expected, not a fallback.
 
-## 4.6 Apply dark theme tokens
-
-After `setup-scss` has created `src/assets/styles/variables/`, re-run the zip extraction to overwrite the light-theme defaults with the project's dark palette. Use the same `<skill-dir>` path from step 1.5:
-
-```powershell
-# Windows (PowerShell)
-Expand-Archive -Path "<skill-dir>/template.zip" -DestinationPath "." -Force
-```
-
-```bash
-# macOS / Linux
-unzip -o "<skill-dir>/template.zip" -d .
-```
-
-This overwrites `src/assets/styles/variables/_colors.scss` and `_fonts.scss` with the dark theme versions (and harmlessly refreshes other template files). The correct font family tokens (`$font-family-heading`, `$font-family-mono`, etc.) needed by all template components are restored.
-
-> **Log entry (if --log):** append `{ "step": "4.6. Apply dark theme tokens", "completedAt": "...", "details": { "filesWritten": ["src/assets/styles/variables/_colors.scss", "src/assets/styles/variables/_fonts.scss"] } }`.
-
 ## 4.75 Create .env.development.local
 
 Copy `.env.example` to `.env.development.local` so Vite can load environment variables on `pnpm run dev`:
@@ -423,7 +405,7 @@ Once everything is finished, show the user a bullet list with emojis and short d
 - 🎨 **Favicons** — favicon set copied to `public/`, `index.html` updated with favicon links and `%VITE_APP_TITLE%`
 - 🧪 **Playwright** — end-to-end testing solution added
 - 🧹 **ESLint + Prettier** — code quality and formatting configured
-- 🎨 **setup-scss** — Sass/SCSS configured with global variables and mixins
+- 🎨 **setup-scss** — Sass/SCSS configured with dual-theme CSS custom properties (light/dark) and global mixins
 - 🔒 **setup-zod** — environment variable validation with Zod gateway
 - 📄 **.env.development.local** — copied from `.env.example` so Vite loads env vars on dev
 - 🌐 **setup-axios** — typed axios wrapper with error normalisation, service modules, and composables
