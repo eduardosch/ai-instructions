@@ -1,5 +1,11 @@
 # Changelog
 
+## v19.8.5 — 2026-09-18
+
+### Other
+
+- note skill works without package.json
+
 ## v19.8.4 — 2026-09-18
 
 ### Other
