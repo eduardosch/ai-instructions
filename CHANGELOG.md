@@ -1,5 +1,15 @@
 # Changelog
 
+## v19.1.0 — 2026-09-18
+
+### Features
+
+- add styleguide skill to serve or build docs
+
+### Other
+
+- use src/views/ and PascalCase filenames in routing convention
+
 ## v19.0.5 — 2026-09-18
 
 ### Other
