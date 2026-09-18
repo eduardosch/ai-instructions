@@ -223,16 +223,13 @@ Add `VITE_APP_TITLE=<project-folder-name>` to `.env.example` (substituting the a
 
 ## 2. Install packages
 
-Before installing, patch `pnpm-workspace.yaml` to pre-allow build scripts for the packages that are known to require them (pnpm v9+ raises `ERR_PNPM_IGNORED_BUILDS` for any package with a build script that is not explicitly listed). This prevents the error and avoids a second install pass.
-
-If `pnpm-workspace.yaml` already exists in the project root, merge the blocks below into it; otherwise create the file with the following content:
+Before running any install command, create `pnpm-workspace.yaml` in the project root with exactly this content:
 
 ```yaml
 allowBuilds:
+  '@parcel/watcher': true
   core-js: true
   vue-inbrowser-compiler-demi: true
-  '@parcel/watcher': true
-  esbuild: true
 onlyBuiltDependencies:
   - core-js
   - vue-inbrowser-compiler-demi
