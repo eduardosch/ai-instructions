@@ -1,5 +1,11 @@
 # Changelog
 
+## v19.7.0 — 2026-09-18
+
+### Features
+
+- log errors, warnings, and recoveries to issues array in setup log
+
 ## v19.6.2 — 2026-09-18
 
 ### Other
