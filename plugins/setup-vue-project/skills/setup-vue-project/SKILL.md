@@ -7,6 +7,38 @@ description: Scaffolds a new Vue 3 project with TypeScript, JSX, Vue Router, Pin
 
 Instructions for scaffolding a new Vue project.
 
+## 0. Logging (`--log` flag)
+
+Check whether the user passed `--log` when invoking this skill (e.g. `/setup-vue-project --log`).
+
+**If `--log` was NOT passed**, skip all log-writing steps and proceed normally.
+
+**If `--log` was passed**, create the `.claude/` directory inside the project folder if it does not exist, then create `.claude/setup.log.json` with the skeleton below before running any other step. Update the file by appending a new entry to `steps` as each numbered section completes — write partial progress so the log survives an interrupted run. Finalize it in step 6.
+
+```json
+{
+  "plugin": "setup-vue-project",
+  "project": "<project-folder-name>",
+  "startedAt": "<ISO-8601 timestamp>",
+  "completedAt": null,
+  "steps": []
+}
+```
+
+Each step entry shape:
+
+```json
+{
+  "step": "<section number and title, e.g. '1. Create the project'>",
+  "completedAt": "<ISO-8601 timestamp>",
+  "details": {}
+}
+```
+
+Populate `details` with the relevant facts for that step (see per-step notes below). Use `null` for any field that is not applicable.
+
+---
+
 ## 1. Create the project
 
 `create-vue` requires a valid package name as the positional argument — passing `.` triggers an interactive prompt. Run the command from the **parent directory**, using the current folder name as the project name:
@@ -17,6 +49,8 @@ pnpm create vue@latest <project-folder-name> --typescript --jsx --router --pinia
 ```
 
 Then change back into the project directory before running the remaining steps.
+
+> **Log entry (if --log):** append `{ "step": "1. Create the project", "completedAt": "...", "details": { "command": "pnpm create vue@latest <name> --typescript --jsx --router --pinia --playwright --eslint --prettier --force" } }`.
 
 ## 1.5 Strip examples
 
@@ -105,6 +139,8 @@ Update `index.html` in the project root:
 
 Add `VITE_APP_TITLE=<project-folder-name>` to `.env.example` (substituting the actual project folder name).
 
+> **Log entry (if --log):** append `{ "step": "1.5. Strip examples", "completedAt": "...", "details": { "removed": ["src/components", "src/views/HomeView.vue", "src/views/AboutView.vue", "src/assets", "src/stores/counter.ts"], "filesWritten": ["src/router/index.ts", "src/App.vue", "src/assets/styles/global.scss", "src/assets/icons/*", "src/components/*", "src/views/HomeModule/*", "src/stores/useHomeStore.ts", "public/favicons", "index.html", ".env.example"] } }`.
+
 ## 2. Install packages
 
 ```bash
@@ -134,6 +170,8 @@ Open `env.d.ts` and add the type reference on a new line after the existing `///
 ```ts
 /// <reference types="vite-svg-loader" />
 ```
+
+> **Log entry (if --log):** append `{ "step": "2-2.5. Install packages + vite-svg-loader", "completedAt": "...", "details": { "packagesAdded": ["axios"], "devPackagesAdded": ["sass-embedded", "vue-styleguidist", "vue-docgen-api", "webpack", "webpack-dev-server", "css-loader", "style-loader", "vue-loader", "ts-loader", "vite-svg-loader"], "filesModified": ["vite.config.ts", "env.d.ts"] } }`.
 
 ## 3. Fix tsconfig.app.json
 
@@ -165,6 +203,8 @@ Always replace `tsconfig.app.json` with the following inline configuration — `
 }
 ```
 
+> **Log entry (if --log):** append `{ "step": "3. Fix tsconfig.app.json", "completedAt": "...", "details": { "filesModified": ["tsconfig.app.json"] } }`.
+
 ## 4. Register marketplace and wire plugins
 
 Register the marketplace so Claude Code can resolve the sub-skill and rules plugins:
@@ -194,6 +234,8 @@ Create the project's `.claude/settings.json` so Claude Code picks up all rules p
 
 Write this file to `.claude/settings.json` inside the project directory (create the `.claude` folder if it does not exist).
 
+> **Log entry (if --log):** append `{ "step": "4. Register marketplace and wire plugins", "completedAt": "...", "details": { "marketplace": "eduardosch/ai-instructions", "filesWritten": [".claude/settings.json"], "pluginsEnabled": ["rules-commit", "rules-versioning", "rules-vue-code", "rules-ts", "rules-pinia", "rules-vue-scss", "rules-client-api", "rules-documentation", "rules-zod", "rules-vue-router"] } }`.
+
 ## 4.5 Run setup sub-skills
 
 Do NOT stop or summarise here — continue running all steps in this section without pausing.
@@ -208,6 +250,8 @@ Invoke each sub-skill in order using the Skill tool and follow all of its instru
 `setup-i18n` is optional — invoke the `setup-i18n` skill only if the project requires internationalization.
 
 `setup-element-plus` and `setup-firebase` are separate standalone plugins — the user must invoke them explicitly after the project is created.
+
+> **Log entry (if --log):** append `{ "step": "4.5. Run setup sub-skills", "completedAt": "...", "details": { "skillsInvoked": ["setup-scss", "setup-zod", "setup-axios", "setup-docgen"] } }`.
 
 ## 4.75 Create .env.development.local
 
@@ -225,6 +269,8 @@ Copy-Item .env.example .env.development.local
 
 > Without this file the app will fail to load because `setup-zod` validates env vars at startup and `.env.example` is not loaded by Vite automatically.
 
+> **Log entry (if --log):** append `{ "step": "4.75. Create .env.development.local", "completedAt": "...", "details": { "filesWritten": [".env.development.local"] } }`.
+
 ## 5. Plugin descriptions
 
 - **rules-commit** — semantic commit messages
@@ -239,6 +285,8 @@ Copy-Item .env.example .env.development.local
 - **rules-vue-router** — Vue Router conventions (lazy loading, file-based routing, Composition API, data fetching)
 
 ## 6. Show a summary
+
+**If `--log` was passed**, set `completedAt` to the current ISO-8601 timestamp in `.claude/setup.log.json`, then tell the user: `📋 Setup log written to .claude/setup.log.json`.
 
 Once everything is finished, show the user a bullet list with emojis and short descriptions of what was done, e.g.:
 
