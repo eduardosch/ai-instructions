@@ -1,5 +1,12 @@
 # Changelog
 
+## v19.6.2 — 2026-09-18
+
+### Other
+
+- add unique identifier guidance to v-for key rule
+- use string + index keys in v-for loops
+
 ## v19.6.1 — 2026-09-18
 
 ### Other
