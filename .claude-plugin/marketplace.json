@@ -331,7 +331,8 @@
       "source": "./plugins/rules-documentation",
       "strict": false,
       "skills": [
-        "./skills/rules-documentation"
+        "./skills/rules-documentation",
+        "./skills/styleguide"
       ],
       "keywords": [
         "vue",
