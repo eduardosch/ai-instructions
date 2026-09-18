@@ -7,7 +7,52 @@ description: Scaffolds a new Vue 3 project with TypeScript, JSX, Vue Router, Pin
 
 Instructions for scaffolding a new Vue project.
 
-## 0. Logging (`--log` flag)
+## 0. Flags (`--log`, `--quiet`)
+
+Check which flags the user passed when invoking this skill. Both flags are independent and can be combined (e.g. `/setup-vue-project --log --quiet`).
+
+---
+
+### `--quiet` flag
+
+**If `--quiet` was passed**, activate quiet mode for the entire run:
+
+1. **Before any step**, output exactly this opening message (pick one randomly to keep it fun):
+   - `☕ Grab a coffee — we're setting up your Vue project!`
+   - `🎧 Put on some music — your project is being wired up!`
+   - `🍕 Perfect time for a snack — we'll handle the scaffolding!`
+   - `🛋️ Sit back and relax — your Vue app is being born!`
+
+2. **Suppress all narration** — do not output explanatory prose between steps. Just execute each step silently (file reads/writes, shell commands, sub-skill invocations) and then output the progress line below.
+
+3. **After each step completes**, output exactly one progress line using the table below. Use `█` for filled blocks and `░` for empty blocks (bar is 20 chars wide):
+
+| After step | Bar | % | Label |
+|---|---|---|---|
+| 1 | `[███░░░░░░░░░░░░░░░░░]` | 12% | `Creating project scaffold` |
+| 1.5 | `[█████░░░░░░░░░░░░░░░]` | 25% | `Stripping example files` |
+| 2–2.5 | `[███████░░░░░░░░░░░░░]` | 37% | `Installing packages` |
+| 3 | `[██████████░░░░░░░░░░]` | 50% | `Fixing TypeScript config` |
+| 4 | `[████████████░░░░░░░░]` | 62% | `Wiring plugins & marketplace` |
+| 4.5 | `[███████████████░░░░░]` | 75% | `Running setup sub-skills` |
+| 4.75 | `[█████████████████░░░]` | 87% | `Creating env files` |
+| 6 | `[████████████████████]` | 100% | `All done!` |
+
+   Format each line as:
+   ```
+   <bar>  <percent>  <label>
+   ```
+   Example: `[███░░░░░░░░░░░░░░░░░]  12%  Creating project scaffold`
+
+4. **At step 6**, after the 100% line output the closing summary:
+   ```
+   ✅ Your Vue project is ready!
+   ```
+   Then show the bullet summary as usual (step 6 instructions apply regardless of quiet mode).
+
+---
+
+### `--log` flag
 
 Check whether the user passed `--log` when invoking this skill (e.g. `/setup-vue-project --log`).
 
