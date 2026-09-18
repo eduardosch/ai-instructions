@@ -53,7 +53,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'Home',
-      component: () => import('@/pages/index.vue'),
+      component: () => import('@/views/HomeView.vue'),
     },
   ],
 })
@@ -63,7 +63,10 @@ export default router
 
 Replace `src/App.vue` with the layout shell. Read the file `App.vue` located in the same directory as this skill file and copy its contents to `src/App.vue`.
 
-Create the pages directory and copy the home page template. Read the file `home-page.vue` located in the same directory as this skill file and copy its contents to `src/pages/index.vue` (create `src/pages/` first).
+Copy the home view and its page-specific subcomponents to `src/views/` (create the directory if it does not exist). Read the files from the `views/` subdirectory next to this skill file and write each one to `src/views/`:
+- `HomeView.vue`
+- `HomeViewRulesList.vue`
+- `HomeViewRulesListItem.vue`
 
 Create `src/assets/styles/` and copy the global stylesheet. Read the file `global.scss` from the same directory as this skill file and write it to `src/assets/styles/global.scss`.
 
@@ -75,8 +78,6 @@ Copy the component templates to `src/components/` (create the directory first). 
 - `AppButton.vue`
 - `AppCard.vue`
 - `AppTag.vue`
-- `HomeRulesList.vue`
-- `HomeRulesListItem.vue`
 
 Copy the store template to `src/stores/`. Read `stores/useHomeStore.ts` from the same directory as this skill file and write it to `src/stores/useHomeStore.ts`.
 
@@ -242,7 +243,7 @@ Copy-Item .env.example .env.development.local
 Once everything is finished, show the user a bullet list with emojis and short descriptions of what was done, e.g.:
 
 - ⚡ **Vue project created** — scaffolded with TypeScript, JSX, Router, and Pinia; example files stripped, custom App.vue landing page applied
-- 🧩 **Components** — `TheHeader`, `TheFooter`, `AppButton`, `AppCard`, `AppTag`, `HomeRulesList`, `HomeRulesListItem` created in `src/components/`
+- 🧩 **Components** — `TheHeader`, `TheFooter`, `AppButton`, `AppCard`, `AppTag` created in `src/components/`; `HomeView`, `HomeViewRulesList`, `HomeViewRulesListItem` created in `src/views/`
 - 🍍 **Home store** — `useHomeStore` created in `src/stores/` with cards, setupCards, ruleRows, and tags
 - 🎨 **Favicons** — favicon set copied to `public/`, `index.html` updated with favicon links and `%VITE_APP_TITLE%`
 - 🧪 **Playwright** — end-to-end testing solution added

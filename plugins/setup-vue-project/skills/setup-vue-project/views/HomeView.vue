@@ -5,7 +5,7 @@ import { storeToRefs } from 'pinia'
 import AppButton from '@/components/AppButton.vue'
 import AppCard from '@/components/AppCard.vue'
 import AppTag from '@/components/AppTag.vue'
-import HomeRulesList from '@/components/HomeRulesList.vue'
+import HomeViewRulesList from './HomeViewRulesList.vue'
 
 import IconTerminal from '@/assets/icons/icon-terminal.svg?component'
 import IconFolder from '@/assets/icons/icon-folder.svg?component'
@@ -117,7 +117,7 @@ const iconMap: Record<string, Component> = {
       </div>
     </section>
 
-    <HomeRulesList />
+    <HomeViewRulesList />
 
     <section class="tags">
       <span class="tags__label">Also installed</span>
