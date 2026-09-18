@@ -1,5 +1,11 @@
 # Changelog
 
+## v19.2.0 — 2026-09-18
+
+### Features
+
+- move home page to views/ with proper naming
+
 ## v19.1.3 — 2026-09-18
 
 ### Other
