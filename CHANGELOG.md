@@ -1,5 +1,11 @@
 # Changelog
 
+## v19.3.0 — 2026-09-18
+
+### Features
+
+- introduce module folder pattern for views
+
 ## v19.2.0 — 2026-09-18
 
 ### Features
