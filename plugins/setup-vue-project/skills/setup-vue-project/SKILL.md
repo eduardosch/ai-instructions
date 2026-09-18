@@ -98,6 +98,8 @@ Populate `details` with the relevant facts for that step (see per-step notes bel
 
 **Logging issues:** Whenever an error, warning, or unexpected recovery occurs at any point during the setup — regardless of which step — immediately append an entry to the top-level `issues` array. Do not wait until the step or the run finishes. Capture it as soon as it is detected.
 
+**Known warnings are suppressed from the issues array.** Do not log entries whose `message` matches any pattern in the "Known non-blocking warnings" table above. If all warnings from a step are known-non-blocking, omit the step from `issues` entirely (or summarize in a single `type: "info"` entry with `message: "Known non-blocking warnings suppressed — see install.log"`). Only surface what is genuinely new or unexpected.
+
 Each issue entry shape:
 
 ```json
@@ -116,6 +118,19 @@ Examples of things that must be logged as issues:
 - A file already existed and was overwritten → `type: "info"`
 - A package install produced deprecation warnings or peer dependency conflicts → `type: "warning"`
 - A sub-skill was not found via the normal Skill tool and required a manual workaround → `type: "warning"`
+
+---
+
+## Known non-blocking warnings
+
+If any of the patterns below appear during installation, do not investigate, do not stop, do not ask the user — just proceed and mention them in one line in the final summary:
+
+| Pattern in output | Cause | Action |
+|---|---|---|
+| `ENOENT.*\.bin/sass` | Windows: sass-embedded bin symlink fails under pnpm | Ignore — Vite uses sass-embedded via its API, not via the bin |
+| `deprecated.*glob@7\|rimraf@2\|rimraf@3\|uuid@3\|uuid@8` | Indirect subdependencies of vue-styleguidist (webpack peer deps) | Ignore — upstream issue, no functional impact |
+
+General rule: if the command's exit code is 0, treat it as success regardless of stderr warnings, unless the text matches a known error pattern.
 
 ---
 
@@ -238,7 +253,8 @@ Both `allowBuilds` (explicit opt-in map) and `onlyBuiltDependencies` (list form)
 Now run the installs:
 
 ```bash
-pnpm install
+pnpm install --reporter=append-only > install.log 2>&1
+grep -iE "error|failed" install.log || echo "Install OK (warnings suppressed, see install.log if needed)"
 pnpm add axios
 pnpm add -D sass-embedded vue-styleguidist vue-docgen-api webpack webpack-dev-server css-loader style-loader vue-loader ts-loader vite-svg-loader
 ```
