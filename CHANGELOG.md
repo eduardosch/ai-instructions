@@ -1,5 +1,11 @@
 # Changelog
 
+## v19.1.2 — 2026-09-18
+
+### Fixes
+
+- replace outDir with styleguideDir in config
+
 ## v19.1.1 — 2026-09-18
 
 ### Fixes
