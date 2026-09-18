@@ -1,5 +1,11 @@
 # Changelog
 
+## v19.8.0 — 2026-09-18
+
+### Features
+
+- align all template files with rules plugins
+
 ## v19.7.1 — 2026-09-18
 
 ### Fixes
