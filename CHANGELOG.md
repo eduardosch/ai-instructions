@@ -1,5 +1,11 @@
 # Changelog
 
+## v19.0.5 — 2026-09-18
+
+### Other
+
+- migrate all plugins from npm to pnpm
+
 ## v19.0.4 — 2026-09-18
 
 ### Fixes
