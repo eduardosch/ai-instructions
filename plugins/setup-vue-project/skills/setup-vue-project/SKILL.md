@@ -334,24 +334,24 @@ Write this file to `.claude/settings.json` inside the project directory (create 
 
 Do NOT stop or summarise here — continue running all steps in this section without pausing.
 
-These are **separate marketplace plugins**, not sub-commands of `setup-vue-project`. Their bare skill names are `setup-scss`, `setup-zod`, `setup-axios`, and `setup-docgen`. **Do NOT prefix them with `setup-vue-project:` — that format is wrong and will always fail.**
+These are **separate marketplace plugins** — `setup-scss`, `setup-zod`, `setup-axios`, and `setup-docgen`. Because the marketplace is registered in step 4 of this same session, the Skill tool's cache will never contain these skills in time — **do not attempt to invoke them via the Skill tool**. Go directly to inline execution:
 
-Invoke each sub-skill in order using the Skill tool and follow all of its instructions before moving to the next one:
+For each sub-skill, find the `ai-instructions` marketplace root (the local clone Claude Code pulled when the marketplace was registered — typically `~/.claude/plugins/<marketplace-id>/ai-instructions` or the equivalent path on the current platform), then:
 
-1. Invoke the `setup-scss` skill and follow all its instructions.
-2. Invoke the `setup-zod` skill and follow all its instructions.
-3. Invoke the `setup-axios` skill and follow all its instructions.
-4. Invoke the `setup-docgen` skill and follow all its instructions.
+1. Read `plugins/setup-scss/skills/setup-scss/SKILL.md` and execute every instruction it contains.
+2. Read `plugins/setup-zod/skills/setup-zod/SKILL.md` and execute every instruction it contains.
+3. Read `plugins/setup-axios/skills/setup-axios/SKILL.md` and execute every instruction it contains.
+4. Read `plugins/setup-docgen/skills/setup-docgen/SKILL.md` and execute every instruction it contains.
 
-**If the Skill tool cannot find a skill by its bare name** (e.g. the marketplace did not finish caching in this session), try the marketplace-qualified name instead: `setup-scss@eduardosch-marketplace`, `setup-zod@eduardosch-marketplace`, etc.
+Follow each skill's full instructions before moving to the next one.
 
-**If the qualified name also fails**, do NOT skip the step. Instead, locate the skill's SKILL.md at `plugins/<skill-name>/skills/<skill-name>/SKILL.md` relative to the `ai-instructions` marketplace root, read it, and execute every instruction it contains manually. Log this as a `"warning"` issue in the setup log so it can be tracked.
+**If a SKILL.md file cannot be found at the expected path**, log it as a `"warning"` issue and try resolving the marketplace root via `glob **/setup-scss/SKILL.md` under the Claude plugins directory.
 
 `setup-i18n` is optional — invoke the `setup-i18n` skill only if the project requires internationalization.
 
 `setup-element-plus` and `setup-firebase` are separate standalone plugins — the user must invoke them explicitly after the project is created.
 
-> **Log entry (if --log):** append `{ "step": "4.5. Run setup sub-skills", "completedAt": "...", "details": { "skillsInvoked": ["setup-scss", "setup-zod", "setup-axios", "setup-docgen"] } }`. If any skill was run inline instead of via the Skill tool, list it as `"setup-scss (inline)"` so the log accurately reflects what happened.
+> **Log entry (if --log):** append `{ "step": "4.5. Run setup sub-skills", "completedAt": "...", "details": { "skillsInvoked": ["setup-scss (inline)", "setup-zod (inline)", "setup-axios (inline)", "setup-docgen (inline)"] } }`. All sub-skills are always run inline in this step — the `(inline)` suffix is correct and expected, not a fallback.
 
 ## 4.6 Apply dark theme tokens
 
