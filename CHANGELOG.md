@@ -1,5 +1,11 @@
 # Changelog
 
+## v19.0.4 — 2026-09-18
+
+### Fixes
+
+- register marketplace before invoking sub-skills
+
 ## v19.0.3 — 2026-09-17
 
 ### Fixes
