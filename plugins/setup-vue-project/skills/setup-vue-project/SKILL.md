@@ -164,38 +164,13 @@ Always replace `tsconfig.app.json` with the following inline configuration — `
 }
 ```
 
-## 4. Run setup sub-skills
+## 4. Register marketplace and wire plugins
 
-Do NOT stop or summarise here — continue running all steps in this section without pausing.
+Register the marketplace so Claude Code can resolve the sub-skill and rules plugins:
 
-Invoke each sub-skill in order using the Skill tool and follow all of its instructions before moving to the next one:
-
-1. Invoke the `setup-scss` skill and follow all its instructions.
-2. Invoke the `setup-zod` skill and follow all its instructions.
-3. Invoke the `setup-axios` skill and follow all its instructions.
-4. Invoke the `setup-docgen` skill and follow all its instructions.
-
-`setup-i18n` is optional — invoke the `setup-i18n` skill only if the project requires internationalization.
-
-`setup-element-plus` and `setup-firebase` are separate standalone plugins — the user must invoke them explicitly after the project is created.
-
-## 4.5 Create .env.development.local
-
-Copy `.env.example` to `.env.development.local` so Vite can load environment variables on `npm run dev`:
-
-```bash
-# macOS / Linux
-cp .env.example .env.development.local
 ```
-
-```powershell
-# Windows (PowerShell)
-Copy-Item .env.example .env.development.local
+/plugin marketplace add eduardosch/ai-instructions
 ```
-
-> Without this file the app will fail to load because `setup-zod` validates env vars at startup and `.env.example` is not loaded by Vite automatically.
-
-## 5. Wire the plugins
 
 Create the project's `.claude/settings.json` so Claude Code picks up all rules plugins when the project is opened:
 
@@ -218,11 +193,38 @@ Create the project's `.claude/settings.json` so Claude Code picks up all rules p
 
 Write this file to `.claude/settings.json` inside the project directory (create the `.claude` folder if it does not exist).
 
-Then register the marketplace so Claude Code can resolve the plugin source:
+## 4.5 Run setup sub-skills
 
+Do NOT stop or summarise here — continue running all steps in this section without pausing.
+
+Invoke each sub-skill in order using the Skill tool and follow all of its instructions before moving to the next one:
+
+1. Invoke the `setup-scss` skill and follow all its instructions.
+2. Invoke the `setup-zod` skill and follow all its instructions.
+3. Invoke the `setup-axios` skill and follow all its instructions.
+4. Invoke the `setup-docgen` skill and follow all its instructions.
+
+`setup-i18n` is optional — invoke the `setup-i18n` skill only if the project requires internationalization.
+
+`setup-element-plus` and `setup-firebase` are separate standalone plugins — the user must invoke them explicitly after the project is created.
+
+## 4.75 Create .env.development.local
+
+Copy `.env.example` to `.env.development.local` so Vite can load environment variables on `npm run dev`:
+
+```bash
+# macOS / Linux
+cp .env.example .env.development.local
 ```
-/plugin marketplace add eduardosch/ai-instructions
+
+```powershell
+# Windows (PowerShell)
+Copy-Item .env.example .env.development.local
 ```
+
+> Without this file the app will fail to load because `setup-zod` validates env vars at startup and `.env.example` is not loaded by Vite automatically.
+
+## 5. Plugin descriptions
 
 - **rules-commit** — semantic commit messages
 - **rules-versioning** — automatic app versioning and `CHANGELOG.md` generation
