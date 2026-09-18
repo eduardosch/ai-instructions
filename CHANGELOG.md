@@ -1,5 +1,11 @@
 # Changelog
 
+## v21.0.1 — 2026-09-18
+
+### Fixes
+
+- suppress known non-blocking install warnings
+
 ## v21.0.0 — 2026-09-18
 
 ### Features
