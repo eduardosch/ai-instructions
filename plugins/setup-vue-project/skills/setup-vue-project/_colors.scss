@@ -1,0 +1,32 @@
+// Dark theme color tokens for this project.
+// Replaces the light-theme defaults installed by setup-scss.
+
+// Brand / accent — Vue green
+$color-primary:         #42b883;
+$color-primary-light:   #6fcf9e;
+$color-primary-dark:    #2f8f63;
+
+$color-secondary:       #35495e;
+$color-secondary-light: #4a6178;
+$color-secondary-dark:  #23313f;
+
+// Surfaces
+$color-background:      #0f1412;
+$color-surface:         #141a17;
+$color-surface-raised:  #16201c;
+
+// Text
+$color-text:            #f2f5f2;
+$color-text-muted:      #a9b5ac;
+$color-text-dim:        #6b7770;
+$color-text-faint:      #5c6b60;
+
+// Borders
+$color-border:          rgba(242, 245, 242, 0.08);
+$color-border-medium:   rgba(242, 245, 242, 0.20);
+
+// Feedback
+$color-success:         #22c55e;
+$color-warning:         #f59e0b;
+$color-error:           #ef4444;
+$color-info:            #3b82f6;

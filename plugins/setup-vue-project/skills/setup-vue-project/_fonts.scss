@@ -1,0 +1,23 @@
+@use "../mixins/rem" as *;
+
+$font-family-base:    'IBM Plex Sans', system-ui, sans-serif !default;
+$font-family-heading: 'Space Grotesk', 'Inter', system-ui, sans-serif !default;
+$font-family-mono:    'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace !default;
+
+$font-size-xs:    rem(12px) !default;
+$font-size-sm:    rem(14px) !default;
+$font-size-base:  rem(16px) !default;
+$font-size-lg:    rem(18px) !default;
+$font-size-xl:    rem(20px) !default;
+$font-size-2xl:   rem(24px) !default;
+$font-size-3xl:   rem(32px) !default;
+$font-size-4xl:   rem(40px) !default;
+
+$font-weight-regular:  400 !default;
+$font-weight-medium:   500 !default;
+$font-weight-semibold: 600 !default;
+$font-weight-bold:     700 !default;
+
+$line-height-tight:   1.2 !default;
+$line-height-base:    1.5 !default;
+$line-height-relaxed: 1.75 !default;

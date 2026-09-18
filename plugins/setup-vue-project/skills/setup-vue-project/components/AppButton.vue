@@ -38,10 +38,10 @@ withDefaults(defineProps<Props>(), {
   display: inline-flex;
   align-items: center;
   font-family: inherit;
-  font-weight: 500;
-  font-size: 15px;
-  padding: 12px 22px;
-  border-radius: 10px;
+  font-weight: $font-weight-medium;
+  font-size: rem(15);
+  padding: rem(12) rem(22);
+  border-radius: rem(10);
   cursor: pointer;
   border: none;
   text-decoration: none;
@@ -49,22 +49,22 @@ withDefaults(defineProps<Props>(), {
 }
 
 .app-button--primary {
-  background: #42b883;
-  color: #0f1412;
-  font-weight: 600;
+  background: $color-primary;
+  color: $color-background;
+  font-weight: $font-weight-semibold;
 }
 
 .app-button--primary:hover {
-  background: #38a876;
+  background: $color-primary-dark;
 }
 
 .app-button--ghost {
   background: transparent;
-  border: 1px solid rgba(242, 245, 242, 0.2);
-  color: #f2f5f2;
+  border: 1px solid $color-border-medium;
+  color: $color-text;
 }
 
 .app-button--ghost:hover {
-  background: rgba(66, 184, 131, 0.1);
+  background: rgba($color-primary, 0.1);
 }
 </style>

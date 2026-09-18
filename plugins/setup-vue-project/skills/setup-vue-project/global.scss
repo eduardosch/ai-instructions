@@ -8,9 +8,9 @@
 
 body {
   margin: 0;
-  background: #0f1412;
-  color: #f2f5f2;
-  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  background: $color-background;
+  color: $color-text;
+  font-family: $font-family-base;
 }
 
 a {

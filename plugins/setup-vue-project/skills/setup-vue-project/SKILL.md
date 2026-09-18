@@ -333,6 +333,17 @@ Invoke each sub-skill in order using the Skill tool and follow all of its instru
 
 > **Log entry (if --log):** append `{ "step": "4.5. Run setup sub-skills", "completedAt": "...", "details": { "skillsInvoked": ["setup-scss", "setup-zod", "setup-axios", "setup-docgen"] } }`.
 
+## 4.6 Apply dark theme tokens
+
+After `setup-scss` has created `src/assets/styles/variables/`, overwrite the two variable files with the project's dark theme versions. Read each file from the same directory as this skill file and write it to the path shown:
+
+- Read `_colors.scss` → write to `src/assets/styles/variables/_colors.scss`
+- Read `_fonts.scss` → write to `src/assets/styles/variables/_fonts.scss`
+
+These replace the light-theme defaults from `setup-scss` with the dark palette and the correct font family tokens (`$font-family-heading`, `$font-family-mono`, etc.) used by all template components.
+
+> **Log entry (if --log):** append `{ "step": "4.6. Apply dark theme tokens", "completedAt": "...", "details": { "filesWritten": ["src/assets/styles/variables/_colors.scss", "src/assets/styles/variables/_fonts.scss"] } }`.
+
 ## 4.75 Create .env.development.local
 
 Copy `.env.example` to `.env.development.local` so Vite can load environment variables on `pnpm run dev`:

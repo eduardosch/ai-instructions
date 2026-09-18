@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import VueLogo from '@/assets/icons/vue-logo.svg?component'
+import { env } from '@/env'
 
-const appTitle = import.meta.env.VITE_APP_TITLE as string
+const appTitle = env.VITE_APP_TITLE
 </script>
 
 <template>
@@ -30,9 +31,9 @@ const appTitle = import.meta.env.VITE_APP_TITLE as string
 }
 
 .the-header__inner {
-  max-width: 1120px;
+  max-width: rem(1120);
   margin: 0 auto;
-  padding: 32px 40px;
+  padding: rem(32) rem(40);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -41,20 +42,20 @@ const appTitle = import.meta.env.VITE_APP_TITLE as string
 .the-header__logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: rem(12);
 }
 
 .the-header__name {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 600;
-  font-size: 18px;
+  font-family: $font-family-heading;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-lg;
   letter-spacing: -0.01em;
 }
 
 .the-header__link {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
-  color: #a9b5ac;
+  font-family: $font-family-mono;
+  font-size: rem(13);
+  color: $color-text-muted;
   text-decoration: none;
 }
 </style>

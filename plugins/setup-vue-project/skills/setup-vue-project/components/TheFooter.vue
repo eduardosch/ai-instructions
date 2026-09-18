@@ -20,30 +20,30 @@
 <style lang="scss" scoped>
 .the-footer {
   margin-top: auto;
-  border-top: 1px solid rgba(242, 245, 242, 0.08);
+  border-top: 1px solid $color-border;
   position: relative;
 }
 
 .the-footer__inner {
-  max-width: 1120px;
+  max-width: rem(1120);
   margin: 0 auto;
-  padding: 26px 40px;
+  padding: rem(26) rem(40);
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 8px;
-  font-size: 13px;
-  color: #6b7770;
+  gap: rem(8);
+  font-size: rem(13);
+  color: $color-text-dim;
 }
 
 .the-footer__inner em {
-  color: #a9b5ac;
+  color: $color-text-muted;
   font-style: normal;
 }
 
 .the-footer__link {
-  color: #42b883;
+  color: $color-primary;
   text-decoration: none;
 }
 

@@ -26,10 +26,10 @@ const { ruleRows } = storeToRefs(homeStore)
 
 <style lang="scss" scoped>
 .home-view-rules-list {
-  max-width: 1120px;
+  max-width: rem(1120);
   width: 100%;
-  margin: 64px auto 0;
-  padding: 0 40px;
+  margin: rem(64) auto 0;
+  padding: 0 rem(40);
   box-sizing: border-box;
   position: relative;
 }
@@ -37,28 +37,28 @@ const { ruleRows } = storeToRefs(homeStore)
 .home-view-rules-list__header {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  margin-bottom: 24px;
+  gap: rem(6);
+  margin-bottom: rem(24);
 }
 
 .home-view-rules-list__label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  color: #42b883;
+  font-family: $font-family-mono;
+  font-size: $font-size-xs;
+  color: $color-primary;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .home-view-rules-list__heading {
   margin: 0;
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 600;
-  font-size: 24px;
+  font-family: $font-family-heading;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-2xl;
 }
 
 .home-view-rules-list__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  gap: rem(12);
 }
 </style>

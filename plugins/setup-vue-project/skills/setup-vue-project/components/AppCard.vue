@@ -22,9 +22,9 @@ withDefaults(defineProps<Props>(), {
 
 <style lang="scss" scoped>
 .app-card {
-  background: #141a17;
-  border: 1px solid rgba(242, 245, 242, 0.08);
-  border-radius: 14px;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: rem(14);
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -32,45 +32,45 @@ withDefaults(defineProps<Props>(), {
 }
 
 .app-card:hover {
-  border-color: rgba(66, 184, 131, 0.45);
+  border-color: rgba($color-primary, 0.45);
 }
 
 .app-card--default {
-  padding: 24px;
-  gap: 10px;
+  padding: rem(24);
+  gap: rem(10);
 }
 
 .app-card--compact {
-  padding: 22px;
-  gap: 8px;
+  padding: rem(22);
+  gap: rem(8);
 }
 
 .app-card__title {
   margin: 0;
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 600;
+  font-family: $font-family-heading;
+  font-weight: $font-weight-semibold;
 }
 
 .app-card--default .app-card__title {
-  font-size: 16px;
+  font-size: $font-size-base;
 }
 
 .app-card--compact .app-card__title {
-  font-size: 15px;
+  font-size: rem(15);
 }
 
 .app-card__text {
   margin: 0;
-  line-height: 1.6;
-  color: #a9b5ac;
+  line-height: $line-height-relaxed;
+  color: $color-text-muted;
 }
 
 .app-card--default .app-card__text {
-  font-size: 14px;
+  font-size: $font-size-sm;
 }
 
 .app-card--compact .app-card__text {
-  font-size: 13.5px;
+  font-size: rem(13.5);
   line-height: 1.55;
 }
 </style>
