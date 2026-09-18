@@ -14,6 +14,7 @@ When this skill is invoked for the first time in a project (i.e. `release.mjs` d
 1. Copy the `release.mjs` file from the skill directory into the project root.
 2. If the project has a `package.json`, add `"release": "node release.mjs"` to its `"scripts"` section.
 3. Confirm to the user: "Versioning is set up. Run `node release.mjs` (or `pnpm run release`) on `master` to cut a release."
+4. If the project does not have a `package.json`, the skill will still work, but the version number will only be stored in git tags and `CHANGELOG.md`.
 
 ## Usage
 
