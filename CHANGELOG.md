@@ -1,5 +1,11 @@
 # Changelog
 
+## v19.4.0 — 2026-09-18
+
+### Features
+
+- add --log flag to write setup.log.json during project creation
+
 ## v19.3.0 — 2026-09-18
 
 ### Features
