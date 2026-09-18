@@ -53,19 +53,19 @@ const routes = [
 
 ## 2. File-based routing conventions
 
-Organise route components under `src/pages/` (or `src/views/`) following the file-based routing naming convention so the folder layout mirrors the URL structure.
+Organise route components under `src/views/` following the file-based routing naming convention so the folder layout mirrors the URL structure.
 
 ```
 src/
-  pages/
-    index.vue             → /
-    about.vue             → /about
+  views/
+    Index.vue             → /
+    About.vue             → /about
     users/
-      index.vue           → /users
+      Index.vue           → /users
       [id].vue            → /users/:id
       [id]/
-        index.vue         → /users/:id
-        edit.vue          → /users/:id/edit
+        Index.vue         → /users/:id
+        Edit.vue          → /users/:id/edit
     [...path].vue         → /* (catch-all / 404)
 ```
 
@@ -73,7 +73,7 @@ Naming rules:
 
 | Pattern | Route |
 |---|---|
-| `index.vue` | `/` of parent segment |
+| `Index.vue` | `/` of parent segment |
 | `[param].vue` | Dynamic segment `:param` |
 | `[[param]].vue` | Optional param `:param?` |
 | `[...rest].vue` | Catch-all `/:rest*` |
@@ -248,8 +248,8 @@ Always name every route. Navigate using `{ name }` objects, never hardcoded path
 
 ```ts
 const routes = [
-  { path: '/', name: 'Home', component: () => import('./pages/index.vue') },
-  { path: '/users/:id', name: 'UserProfile', component: () => import('./pages/users/[id].vue') }
+  { path: '/', name: 'Home', component: () => import('./views/Index.vue') },
+  { path: '/users/:id', name: 'UserProfile', component: () => import('./views/users/[id].vue') }
 ]
 
 // ✅ Good
