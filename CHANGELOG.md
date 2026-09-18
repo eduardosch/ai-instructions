@@ -1,5 +1,11 @@
 # Changelog
 
+## v19.8.2 — 2026-09-18
+
+### Fixes
+
+- prevent log overwrite and pnpm build errors
+
 ## v19.8.1 — 2026-09-18
 
 ### Fixes
