@@ -1,5 +1,11 @@
 # Changelog
 
+## v19.7.1 — 2026-09-18
+
+### Fixes
+
+- load appTitle from env gateway instead of import.meta.env directly
+
 ## v19.7.0 — 2026-09-18
 
 ### Features
