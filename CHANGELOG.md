@@ -1,5 +1,11 @@
 # Changelog
 
+## v20.0.0 — 2026-09-18
+
+### Features
+
+- bundle template files into zip for faster setup
+
 ## v19.8.6 — 2026-09-18
 
 ### Other
