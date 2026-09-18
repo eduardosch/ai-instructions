@@ -15,13 +15,13 @@ Pairs naturally with [[setup-vue-project]] and [[rules-documentation]] (JSDoc co
 ## Part 1 — Installation
 
 ```bash
-npm install --save-dev vue-styleguidist vue-docgen-api
+pnpm add -D vue-styleguidist vue-docgen-api
 ```
 
 Vue Styleguidist uses webpack internally. If the project is Vite-only, install the peer deps it needs:
 
 ```bash
-npm install --save-dev webpack webpack-dev-server css-loader style-loader vue-loader ts-loader
+pnpm add -D webpack webpack-dev-server css-loader style-loader vue-loader ts-loader
 ```
 
 Add scripts to `package.json`:
@@ -104,10 +104,10 @@ Rules:
 
 ```bash
 # Start dev server (live reload)
-npm run styleguide
+pnpm run styleguide
 
 # Build static docs
-npm run styleguide:build
+pnpm run styleguide:build
 ```
 
 The dev server runs on `http://localhost:6060` by default. Adjust the port in `styleguide.config.js`:
@@ -141,8 +141,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm ci
-      - run: npm run styleguide:build
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run styleguide:build
       - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

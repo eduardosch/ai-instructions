@@ -15,7 +15,7 @@ Pairs naturally with [[setup-vue-project]], [[setup-zod]] (env gateway), and [[r
 ## Step 1 — Install
 
 ```bash
-npm install axios
+pnpm add axios
 ```
 
 ---

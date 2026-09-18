@@ -10,7 +10,7 @@
  * when a package.json is present.
  *
  * Usage: node release.mjs
- *        npm run release   (if a package.json with a "release" script exists)
+ *        pnpm run release  (if a package.json with a "release" script exists)
  */
 import { execSync } from 'node:child_process'
 import { readFileSync, writeFileSync, existsSync } from 'node:fs'
@@ -121,7 +121,7 @@ else newVersion = `${major}.${minor}.${patch + 1}`
 const pkgPath = 'package.json'
 const hasPkg = existsSync(pkgPath)
 if (hasPkg) {
-  run(`npm version ${newVersion} --no-git-tag-version --allow-same-version`)
+  run(`pnpm version ${newVersion} --no-git-tag-version --allow-same-version`)
 }
 
 // --- 7. Build and prepend CHANGELOG.md entry ---------------------------

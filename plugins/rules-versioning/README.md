@@ -38,12 +38,12 @@ Invoke the skill to set up versioning in a project for the first time:
 /versioning
 ```
 
-It will copy `release.mjs` into the project root and wire up the npm script if a `package.json` exists. To cut a release afterwards:
+It will copy `release.mjs` into the project root and wire up the release script if a `package.json` exists. To cut a release afterwards:
 
 ```bash
 node release.mjs
 # or, if package.json has a "release" script:
-npm run release
+pnpm run release
 ```
 
 Then push:

@@ -15,7 +15,7 @@ Pairs naturally with [[setup-vue-project]] and [[rules-i18n]] (key naming and us
 ## Step 1 — Install
 
 ```bash
-npm install vue-i18n
+pnpm add vue-i18n
 ```
 
 Also recommend the VS Code extension to the user:

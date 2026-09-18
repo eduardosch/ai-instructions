@@ -16,7 +16,7 @@ Claude Code will fetch this skill from the marketplace on demand and execute it 
 
 ## What it does
 
-1. Creates a Vue 3 project via `npm create vue@latest` with TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, and Prettier enabled.
+1. Creates a Vue 3 project via `pnpm create vue@latest` with TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, and Prettier enabled.
 
 2. Installs Vue DevTools for development.
 

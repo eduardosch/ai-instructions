@@ -15,7 +15,7 @@ Pairs naturally with [[setup-vue-project]], [[setup-axios]], and [[rules-zod]] (
 ## Part 1 — Installation
 
 ```bash
-npm install zod
+pnpm add zod
 ```
 
 No extra packages needed. Avoid `@t3-oss/env-core` unless the project already depends on it — raw Zod is simpler and has no transitive deps.

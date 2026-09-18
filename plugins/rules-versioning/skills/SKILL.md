@@ -13,11 +13,11 @@ When this skill is invoked for the first time in a project (i.e. `release.mjs` d
 
 1. Copy the `release.mjs` file from the skill directory into the project root.
 2. If the project has a `package.json`, add `"release": "node release.mjs"` to its `"scripts"` section.
-3. Confirm to the user: "Versioning is set up. Run `node release.mjs` (or `npm run release`) on `master` to cut a release."
+3. Confirm to the user: "Versioning is set up. Run `node release.mjs` (or `pnpm run release`) on `master` to cut a release."
 
 ## Usage
 
-- To cut a release: `node release.mjs` (or `npm run release` if a `package.json` with a `release` script is present). It reads every commit since the last `vX.Y.Z` git tag, decides the bump, prepends a `CHANGELOG.md` entry, and creates a release commit + annotated git tag. If a `package.json` exists it is updated too. Then `git push && git push --tags` and deploy as usual.
+- To cut a release: `node release.mjs` (or `pnpm run release` if a `package.json` with a `release` script is present). It reads every commit since the last `vX.Y.Z` git tag, decides the bump, prepends a `CHANGELOG.md` entry, and creates a release commit + annotated git tag. If a `package.json` exists it is updated too. Then `git push && git push --tags` and deploy as usual.
 - The script only runs on `main` or `master` — it checks the current branch and refuses to run anywhere else, so feature branches never get a version bump before their changes are merged.
 
 ## Bump Rules

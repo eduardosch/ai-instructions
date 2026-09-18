@@ -47,11 +47,11 @@ const iconMap: Record<string, Component> = {
       <p class="subtitle">
         This project was scaffolded with <strong>setup-vue-project</strong> —
         TypeScript and project tooling are wired up and ready for
-        <code>npm run dev</code>.
+        <code>pnpm run dev</code>.
       </p>
       <div class="terminal">
-        <div><span class="prompt">$</span> npm install</div>
-        <div><span class="prompt">$</span> npm run dev</div>
+        <div><span class="prompt">$</span> pnpm install</div>
+        <div><span class="prompt">$</span> pnpm run dev</div>
       </div>
       <div class="actions">
         <AppButton

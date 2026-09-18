@@ -12,7 +12,7 @@ can use `$color-primary`, `@include respond-to('md') { ... }`,
 
 ## When to use this
 
-- Right after `npm create vue@latest` scaffolds a new project.
+- Right after `pnpm create vue@latest` scaffolds a new project.
 - Any time the user asks to "add Sass", "set up global SCSS variables and
   mixins", or similar, in a Vue + Vite project.
 
@@ -21,7 +21,7 @@ can use `$color-primary`, `@include respond-to('md') { ... }`,
 ### 1. Install Sass
 
 ```bash
-npm install -D sass-embedded
+pnpm add -D sass-embedded
 ```
 
 Always use `sass-embedded`, not the plain `sass` package — it's the modern,
@@ -113,7 +113,7 @@ component's `<style>` block, e.g.:
 </style>
 ```
 
-Run `npm run dev` and confirm there are no Sass compile errors before
+Run `pnpm run dev` and confirm there are no Sass compile errors before
 considering the task done.
 
 ## Notes

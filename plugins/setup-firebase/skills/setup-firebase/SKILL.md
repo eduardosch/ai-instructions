@@ -59,7 +59,7 @@ If the user is working on a Node project (no Vite), use `FIREBASE_*` without the
 Always install the core Firebase SDK:
 
 ```bash
-npm install firebase
+pnpm add firebase
 ```
 
 Install extra packages based on selected services:

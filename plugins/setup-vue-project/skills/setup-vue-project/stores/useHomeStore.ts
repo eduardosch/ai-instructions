@@ -22,7 +22,7 @@ export const useHomeStore = defineStore('home', () => {
     {
       iconName: 'terminal',
       title: 'Start the dev server',
-      text: 'Run npm run dev and open the local URL printed in your terminal.',
+      text: 'Run pnpm run dev and open the local URL printed in your terminal.',
     },
     {
       iconName: 'folder',

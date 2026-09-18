@@ -13,7 +13,7 @@ Instructions for scaffolding a new Vue project.
 
 ```bash
 # from the parent directory (e.g. cd ..)
-npx create-vue@latest <project-folder-name> --typescript --jsx --router --pinia --playwright --eslint --prettier --force
+pnpm create vue@latest <project-folder-name> --typescript --jsx --router --pinia --playwright --eslint --prettier --force
 ```
 
 Then change back into the project directory before running the remaining steps.
@@ -104,17 +104,17 @@ Update `index.html` in the project root:
 
 Add `VITE_APP_TITLE=<project-folder-name>` to `.env.example` (substituting the actual project folder name).
 
-## 2. Install npm packages
+## 2. Install packages
 
 ```bash
-npm install --legacy-peer-deps
-npm install axios
-npm install -D sass-embedded vue-styleguidist vue-docgen-api webpack webpack-dev-server css-loader style-loader vue-loader ts-loader vite-svg-loader
+pnpm install
+pnpm add axios
+pnpm add -D sass-embedded vue-styleguidist vue-docgen-api webpack webpack-dev-server css-loader style-loader vue-loader ts-loader vite-svg-loader
 ```
 
 - **axios** — HTTP client used by `setup-axios` (`src/lib/http.ts`)
 - **sass-embedded** — modern Dart Sass implementation required by `setup-scss`; use this instead of `sass` to avoid the legacy-JS-API deprecation warning under Vite
-- **vue-styleguidist** + **vue-docgen-api** — powers the live component documentation site (`npm run styleguide`)
+- **vue-styleguidist** + **vue-docgen-api** — powers the live component documentation site (`pnpm run styleguide`)
 - **webpack**, **webpack-dev-server**, **css-loader**, **style-loader**, **vue-loader**, **ts-loader** — webpack peer dependencies required by Vue Styleguidist in a Vite-only project
 - **vite-svg-loader** — imports SVG files as Vue components via the `?component` query suffix
 
@@ -210,7 +210,7 @@ Invoke each sub-skill in order using the Skill tool and follow all of its instru
 
 ## 4.75 Create .env.development.local
 
-Copy `.env.example` to `.env.development.local` so Vite can load environment variables on `npm run dev`:
+Copy `.env.example` to `.env.development.local` so Vite can load environment variables on `pnpm run dev`:
 
 ```bash
 # macOS / Linux

@@ -14,8 +14,8 @@ Pairs naturally with [[setup-vue-project]] (project scaffolding) and [[setup-scs
 ## Step 1 — Install packages
 
 ```bash
-npm install element-plus --save
-npm install -D unplugin-vue-components unplugin-auto-import
+pnpm add element-plus
+pnpm add -D unplugin-vue-components unplugin-auto-import
 ```
 
 - **element-plus** — the UI component library
@@ -73,7 +73,7 @@ Dark mode is powered by VueUse's `useDark()`, which handles the `class="dark"` t
 1. Install VueUse:
 
 ```bash
-npm install @vueuse/core
+pnpm add @vueuse/core
 ```
 
 2. In `src/main.ts`, import the Element Plus dark mode CSS variables so the dark theme tokens load:
@@ -133,7 +133,7 @@ Map the user's variable names to the corresponding Element Plus tokens. Only ove
 Install the SCSS dependency for Element Plus theming:
 
 ```bash
-npm install -D sass
+pnpm add -D sass
 ```
 
 Update `vite.config.ts` to point the resolvers at the custom theme file:
@@ -203,7 +203,7 @@ Ask the user:
 ### If icons are requested
 
 ```bash
-npm install @element-plus/icons-vue
+pnpm add @element-plus/icons-vue
 ```
 
 Register all icons globally in `src/main.ts` so they can be used anywhere without explicit imports:
