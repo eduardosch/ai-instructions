@@ -68,7 +68,7 @@ Unless verbose mode is active, run in quiet mode for the entire skill:
 
 **If `--log` was NOT passed**, skip all log-writing steps and proceed normally.
 
-**If `--log` was passed**, create the `.claude/` directory inside the project folder if it does not exist, then create `.claude/setup.log.json` with the skeleton below before running any other step. Update the file by appending a new entry to `steps` as each numbered section completes — write partial progress so the log survives an interrupted run. Finalize it in step 6.
+**If `--log` was passed**, create `.claude/setup.log.json` **immediately after step 1 completes** (not before) — `pnpm create vue@latest --force` overwrites the entire project directory, including any `.claude/` folder created beforehand. After the scaffold command returns, create the `.claude/` directory inside the project folder if it does not exist, then write the skeleton below. Update the file by appending a new entry to `steps` as each numbered section completes — write partial progress so the log survives an interrupted run. Finalize it in step 6.
 
 ```json
 {
@@ -225,9 +225,14 @@ Add `VITE_APP_TITLE=<project-folder-name>` to `.env.example` (substituting the a
 
 Before installing, patch `pnpm-workspace.yaml` to pre-allow build scripts for the packages that are known to require them (pnpm v9+ raises `ERR_PNPM_IGNORED_BUILDS` for any package with a build script that is not explicitly listed). This prevents the error and avoids a second install pass.
 
-If `pnpm-workspace.yaml` already exists in the project root, append the `onlyBuiltDependencies` block to it; otherwise create the file with the following content:
+If `pnpm-workspace.yaml` already exists in the project root, merge the blocks below into it; otherwise create the file with the following content:
 
 ```yaml
+allowBuilds:
+  core-js: true
+  vue-inbrowser-compiler-demi: true
+  '@parcel/watcher': true
+  esbuild: true
 onlyBuiltDependencies:
   - core-js
   - vue-inbrowser-compiler-demi
@@ -235,7 +240,9 @@ onlyBuiltDependencies:
   - esbuild
 ```
 
-> **Note:** pnpm may add more packages to this list on its own. If `ERR_PNPM_IGNORED_BUILDS` still appears after install, add the newly flagged packages to this same list and re-run `pnpm install`.
+Both `allowBuilds` (explicit opt-in map) and `onlyBuiltDependencies` (list form) are required together — pnpm v9+ raises `ERR_PNPM_IGNORED_BUILDS` if either is missing for a package that runs build scripts.
+
+> **Note:** If `ERR_PNPM_IGNORED_BUILDS` still appears for other packages after install, add them to both `allowBuilds` (as `package: true`) and `onlyBuiltDependencies`, then re-run `pnpm install`.
 
 Now run the installs:
 
