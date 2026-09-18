@@ -7,15 +7,19 @@ description: Scaffolds a new Vue 3 project with TypeScript, JSX, Vue Router, Pin
 
 Instructions for scaffolding a new Vue project.
 
-## 0. Flags (`--log`, `--quiet`)
+## 0. Flags (`--log`, `--verbose`)
 
-Check which flags the user passed when invoking this skill. Both flags are independent and can be combined (e.g. `/setup-vue-project --log --quiet`).
+Check which flags the user passed when invoking this skill.
+
+**Default mode is quiet** — the progress bar and fun messages are always active unless overridden.
+
+**Verbose mode is active when `--verbose` is passed OR when `--log` is passed** (logging implies verbose). Both flags can be combined, but `--log` alone is enough to switch to verbose.
 
 ---
 
-### `--quiet` flag
+### Default (quiet) mode
 
-**If `--quiet` was passed**, activate quiet mode for the entire run:
+Unless verbose mode is active, run in quiet mode for the entire skill:
 
 1. **Before any step**, output exactly this opening message (pick one randomly to keep it fun):
    - `☕ Grab a coffee — we're setting up your Vue project!`
@@ -48,13 +52,19 @@ Check which flags the user passed when invoking this skill. Both flags are indep
    ```
    ✅ Your Vue project is ready!
    ```
-   Then show the bullet summary as usual (step 6 instructions apply regardless of quiet mode).
+   Then show the bullet summary as usual (step 6 instructions apply regardless of mode).
+
+---
+
+### `--verbose` flag
+
+**If verbose mode is active** (either `--verbose` or `--log` was passed), narrate each step normally as it runs — no suppression, no progress bar.
 
 ---
 
 ### `--log` flag
 
-Check whether the user passed `--log` when invoking this skill (e.g. `/setup-vue-project --log`).
+**Implies verbose mode.** Check whether the user passed `--log` when invoking this skill.
 
 **If `--log` was NOT passed**, skip all log-writing steps and proceed normally.
 
