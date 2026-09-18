@@ -1,5 +1,11 @@
 # Changelog
 
+## v19.1.3 — 2026-09-18
+
+### Other
+
+- update file-based routing conventions
+
 ## v19.1.2 — 2026-09-18
 
 ### Fixes
