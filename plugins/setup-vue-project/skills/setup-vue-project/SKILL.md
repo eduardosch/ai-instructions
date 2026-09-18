@@ -79,6 +79,7 @@ Unless verbose mode is active, run in quiet mode for the entire skill:
   "completedAt": null,
   "completedAtTime": null,
   "duration": null,
+  "issues": [],
   "steps": []
 }
 ```
@@ -94,6 +95,27 @@ Each step entry shape:
 ```
 
 Populate `details` with the relevant facts for that step (see per-step notes below). Use `null` for any field that is not applicable.
+
+**Logging issues:** Whenever an error, warning, or unexpected recovery occurs at any point during the setup — regardless of which step — immediately append an entry to the top-level `issues` array. Do not wait until the step or the run finishes. Capture it as soon as it is detected.
+
+Each issue entry shape:
+
+```json
+{
+  "type": "error | warning | info",
+  "step": "<section number and title where it occurred>",
+  "message": "<concise description of what went wrong or was unexpected>",
+  "resolution": "<how it was resolved or worked around, or null if it blocked the run>"
+}
+```
+
+Examples of things that must be logged as issues:
+
+- A skill could not be loaded directly and had to be found through an alternative path (e.g. `"Unknown skill: setup-vue-project:setup-scss"` → loaded from marketplace cache instead) → `type: "warning"`
+- A shell command failed and was retried or skipped → `type: "error"`
+- A file already existed and was overwritten → `type: "info"`
+- A package install produced deprecation warnings or peer dependency conflicts → `type: "warning"`
+- A sub-skill was not found via the normal Skill tool and required a manual workaround → `type: "warning"`
 
 ---
 
