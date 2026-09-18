@@ -1,5 +1,11 @@
 # Changelog
 
+## v19.5.0 — 2026-09-18
+
+### Features
+
+- add HH:MM:SS timing and duration to setup log
+
 ## v19.4.0 — 2026-09-18
 
 ### Features
