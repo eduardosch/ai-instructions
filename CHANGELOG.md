@@ -1,5 +1,11 @@
 # Changelog
 
+## v21.0.0 — 2026-09-18
+
+### Features
+
+- dual-theme CSS custom properties + remove step 4.6
+
 ## v20.0.1 — 2026-09-18
 
 ### Fixes
