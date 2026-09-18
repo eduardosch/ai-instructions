@@ -54,33 +54,39 @@ const routes = [
 ## 2. File-based routing conventions
 
 - Organise route components under `src/views/` following the file-based routing naming convention so the folder layout mirrors the URL structure.
-- The component name should follow the vue-code naming convention (PascalCase) and at least 2 words (e.g. `UserProfile.vue` instead of `Profile.vue`).
+- Each route is grouped into a **module folder** named `<Feature>Module/`. The main view file and all page-specific subcomponents live inside that folder.
+- The component name should follow the vue-code naming convention (PascalCase) and at least 2 words (e.g. `UserProfileView.vue` instead of `ProfileView.vue`).
+- Page-specific subcomponents are prefixed with the view name (e.g. `HomeViewRulesList.vue`, not `RulesList.vue`) and placed inside the same module folder — never in `src/components/`.
 
 ```
 src/
   views/
-    IndexView.vue             → /
-    AboutView.vue             → /about
-    users/
-      IndexView.vue           → /users
-      [id].vue            → /users/:id
+    HomeModule/
+      HomeView.vue                  → /
+      HomeViewRulesList.vue         (page-specific subcomponent)
+      HomeViewRulesListItem.vue     (page-specific subcomponent)
+    UsersModule/
+      UsersView.vue                 → /users
+      UsersViewList.vue             (page-specific subcomponent)
       [id]/
-        IndexView.vue         → /users/:id
-        EditView.vue          → /users/:id/edit
-    [...path].vue         → /* (catch-all / 404)
+        UserDetailView.vue          → /users/:id
+        UserDetailViewCard.vue      (page-specific subcomponent)
+        UserEditView.vue            → /users/:id/edit
+    [...path].vue                   → /* (catch-all / 404)
 ```
 
 Naming rules:
 
 | Pattern | Route |
 |---|---|
-| `IndexView.vue` | `/` of parent segment |
+| `<Feature>View.vue` | Main route component for that feature |
+| `<Feature>View<Part>.vue` | Page-specific subcomponent (same module folder) |
 | `[param].vue` | Dynamic segment `:param` |
 | `[[param]].vue` | Optional param `:param?` |
 | `[...rest].vue` | Catch-all `/:rest*` |
 | `(group)/` | Nested folder with no URL segment |
 
-Keep the file name meaningful and match the URL segment it represents. Avoid generic names like `Page.vue`.
+Keep file names meaningful and matching the URL segment they represent. Avoid generic names like `PageView.vue` or `IndexPage.vue`.
 
 ## 3. Composition API
 
@@ -249,8 +255,8 @@ Always name every route. Navigate using `{ name }` objects, never hardcoded path
 
 ```ts
 const routes = [
-  { path: '/', name: 'Home', component: () => import('./views/Index.vue') },
-  { path: '/users/:id', name: 'UserProfile', component: () => import('./views/users/[id].vue') }
+  { path: '/', name: 'Home', component: () => import('./views/HomeModule/HomeView.vue') },
+  { path: '/users/:id', name: 'UserDetail', component: () => import('./views/UsersModule/[id]/UserDetailView.vue') }
 ]
 
 // ✅ Good
