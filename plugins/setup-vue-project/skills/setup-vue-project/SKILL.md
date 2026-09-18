@@ -175,35 +175,29 @@ const router = createRouter({
 export default router
 ```
 
-Replace `src/App.vue` with the layout shell. Read the file `App.vue` located in the same directory as this skill file and copy its contents to `src/App.vue`.
+Extract the template zip to populate all custom files in one step. `template.zip` is in the same directory as this SKILL.md file — note the full path to that directory (`<skill-dir>`), then run from inside the project directory:
 
-Copy the home view and its page-specific subcomponents to `src/views/HomeModule/` (create the directory if it does not exist). Read the files from the `views/HomeModule/` subdirectory next to this skill file and write each one to `src/views/HomeModule/`:
-- `HomeView.vue`
-- `HomeViewRulesList.vue`
-- `HomeViewRulesListItem.vue`
+```powershell
+# Windows (PowerShell)
+Expand-Archive -Path "<skill-dir>/template.zip" -DestinationPath "." -Force
+```
 
-Create `src/assets/styles/` and copy the global stylesheet. Read the file `global.scss` from the same directory as this skill file and write it to `src/assets/styles/global.scss`.
+```bash
+# macOS / Linux
+unzip -o "<skill-dir>/template.zip" -d .
+```
 
-Also create the icons directory and copy the bundled SVG assets. Read the files `vue-logo.svg`, `icon-terminal.svg`, `icon-folder.svg`, `icon-help.svg`, `icon-contact.svg`, `icon-check-circle.svg`, `icon-code.svg`, `icon-drop.svg`, `icon-shield.svg`, `icon-globe.svg`, and `icon-document.svg` from the same directory as this skill file, then write each one to `src/assets/icons/` (create the directory first).
+This extracts the full custom template tree (`src/` and `public/`) directly into the project root. After extracting, fix `public/site.webmanifest` — replace every occurrence of `<project-name>` with the actual project folder name:
 
-Copy the component templates to `src/components/` (create the directory first). Read each file from the `components/` subdirectory next to this skill file and write it to `src/components/`:
-- `TheHeader.vue`
-- `TheFooter.vue`
-- `AppButton.vue`
-- `AppCard.vue`
-- `AppTag.vue`
+```powershell
+# Windows (PowerShell)
+(Get-Content public/site.webmanifest) -replace '<project-name>', '<actual-project-name>' | Set-Content public/site.webmanifest
+```
 
-Copy the store template to `src/stores/`. Read `stores/useHomeStore.ts` from the same directory as this skill file and write it to `src/stores/useHomeStore.ts`.
-
-Copy the favicon files to `public/`. Read each file from the `favicons/` subdirectory next to this skill file and write it to `public/`:
-- `favicon.ico`
-- `favicon-16x16.png`
-- `favicon-32x32.png`
-- `favicon-48x48.png`
-- `apple-touch-icon.png`
-- `android-chrome-192x192.png`
-- `android-chrome-512x512.png`
-- `site.webmanifest` — substitute every occurrence of `<project-name>` with the actual project folder name before writing
+```bash
+# macOS / Linux
+sed -i 's/<project-name>/<actual-project-name>/g' public/site.webmanifest
+```
 
 Update `index.html` in the project root:
 1. Replace `<title>Vite App</title>` with `<title>%VITE_APP_TITLE%</title>`
@@ -361,12 +355,19 @@ Invoke each sub-skill in order using the Skill tool and follow all of its instru
 
 ## 4.6 Apply dark theme tokens
 
-After `setup-scss` has created `src/assets/styles/variables/`, overwrite the two variable files with the project's dark theme versions. Read each file from the same directory as this skill file and write it to the path shown:
+After `setup-scss` has created `src/assets/styles/variables/`, re-run the zip extraction to overwrite the light-theme defaults with the project's dark palette. Use the same `<skill-dir>` path from step 1.5:
 
-- Read `_colors.scss` → write to `src/assets/styles/variables/_colors.scss`
-- Read `_fonts.scss` → write to `src/assets/styles/variables/_fonts.scss`
+```powershell
+# Windows (PowerShell)
+Expand-Archive -Path "<skill-dir>/template.zip" -DestinationPath "." -Force
+```
 
-These replace the light-theme defaults from `setup-scss` with the dark palette and the correct font family tokens (`$font-family-heading`, `$font-family-mono`, etc.) used by all template components.
+```bash
+# macOS / Linux
+unzip -o "<skill-dir>/template.zip" -d .
+```
+
+This overwrites `src/assets/styles/variables/_colors.scss` and `_fonts.scss` with the dark theme versions (and harmlessly refreshes other template files). The correct font family tokens (`$font-family-heading`, `$font-family-mono`, etc.) needed by all template components are restored.
 
 > **Log entry (if --log):** append `{ "step": "4.6. Apply dark theme tokens", "completedAt": "...", "details": { "filesWritten": ["src/assets/styles/variables/_colors.scss", "src/assets/styles/variables/_fonts.scss"] } }`.
 
