@@ -1,5 +1,11 @@
 # Changelog
 
+## v20.0.1 — 2026-09-18
+
+### Fixes
+
+- always run sub-skills inline in step 4.5
+
 ## v20.0.0 — 2026-09-18
 
 ### Features
