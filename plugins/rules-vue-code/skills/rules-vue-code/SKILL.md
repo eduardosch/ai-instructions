@@ -53,7 +53,8 @@ defineProps<{
 ```
  
 ### Always key your `v-for`
-Without a stable `key`, Vue can't reliably track which DOM node maps to which data item, which breaks animations, focus state, and component-local state during reordering.
+- Without a stable `key`, Vue can't reliably track which DOM node maps to which data item, which breaks animations, focus state, and component-local state during reordering.
+- Use a unique identifier from the data whenever possible, prefer ids instead of strings. You can mix strings with array index eg. `key="item.title + '-' + index"` if there is no unique ID available.
  
 ```html
 <!-- ✅ Good -->
