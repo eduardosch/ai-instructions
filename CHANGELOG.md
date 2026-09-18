@@ -1,5 +1,11 @@
 # Changelog
 
+## v19.6.0 — 2026-09-18
+
+### Features
+
+- add --quiet flag with progress bar and fun messages
+
 ## v19.5.0 — 2026-09-18
 
 ### Features
