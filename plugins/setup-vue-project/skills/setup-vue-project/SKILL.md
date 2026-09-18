@@ -223,6 +223,22 @@ Add `VITE_APP_TITLE=<project-folder-name>` to `.env.example` (substituting the a
 
 ## 2. Install packages
 
+Before installing, patch `pnpm-workspace.yaml` to pre-allow build scripts for the packages that are known to require them (pnpm v9+ raises `ERR_PNPM_IGNORED_BUILDS` for any package with a build script that is not explicitly listed). This prevents the error and avoids a second install pass.
+
+If `pnpm-workspace.yaml` already exists in the project root, append the `onlyBuiltDependencies` block to it; otherwise create the file with the following content:
+
+```yaml
+onlyBuiltDependencies:
+  - core-js
+  - vue-inbrowser-compiler-demi
+  - '@parcel/watcher'
+  - esbuild
+```
+
+> **Note:** pnpm may add more packages to this list on its own. If `ERR_PNPM_IGNORED_BUILDS` still appears after install, add the newly flagged packages to this same list and re-run `pnpm install`.
+
+Now run the installs:
+
 ```bash
 pnpm install
 pnpm add axios
@@ -251,7 +267,7 @@ Open `env.d.ts` and add the type reference on a new line after the existing `///
 /// <reference types="vite-svg-loader" />
 ```
 
-> **Log entry (if --log):** append `{ "step": "2-2.5. Install packages + vite-svg-loader", "completedAt": "...", "details": { "packagesAdded": ["axios"], "devPackagesAdded": ["sass-embedded", "vue-styleguidist", "vue-docgen-api", "webpack", "webpack-dev-server", "css-loader", "style-loader", "vue-loader", "ts-loader", "vite-svg-loader"], "filesModified": ["vite.config.ts", "env.d.ts"] } }`.
+> **Log entry (if --log):** append `{ "step": "2-2.5. Install packages + vite-svg-loader", "completedAt": "...", "details": { "packagesAdded": ["axios"], "devPackagesAdded": ["sass-embedded", "vue-styleguidist", "vue-docgen-api", "webpack", "webpack-dev-server", "css-loader", "style-loader", "vue-loader", "ts-loader", "vite-svg-loader"], "filesModified": ["vite.config.ts", "env.d.ts", "pnpm-workspace.yaml"] } }`.
 
 ## 3. Fix tsconfig.app.json
 
@@ -320,6 +336,8 @@ Write this file to `.claude/settings.json` inside the project directory (create 
 
 Do NOT stop or summarise here — continue running all steps in this section without pausing.
 
+These are **separate marketplace plugins**, not sub-commands of `setup-vue-project`. Their bare skill names are `setup-scss`, `setup-zod`, `setup-axios`, and `setup-docgen`. **Do NOT prefix them with `setup-vue-project:` — that format is wrong and will always fail.**
+
 Invoke each sub-skill in order using the Skill tool and follow all of its instructions before moving to the next one:
 
 1. Invoke the `setup-scss` skill and follow all its instructions.
@@ -327,11 +345,15 @@ Invoke each sub-skill in order using the Skill tool and follow all of its instru
 3. Invoke the `setup-axios` skill and follow all its instructions.
 4. Invoke the `setup-docgen` skill and follow all its instructions.
 
+**If the Skill tool cannot find a skill by its bare name** (e.g. the marketplace did not finish caching in this session), try the marketplace-qualified name instead: `setup-scss@eduardosch-marketplace`, `setup-zod@eduardosch-marketplace`, etc.
+
+**If the qualified name also fails**, do NOT skip the step. Instead, locate the skill's SKILL.md at `plugins/<skill-name>/skills/<skill-name>/SKILL.md` relative to the `ai-instructions` marketplace root, read it, and execute every instruction it contains manually. Log this as a `"warning"` issue in the setup log so it can be tracked.
+
 `setup-i18n` is optional — invoke the `setup-i18n` skill only if the project requires internationalization.
 
 `setup-element-plus` and `setup-firebase` are separate standalone plugins — the user must invoke them explicitly after the project is created.
 
-> **Log entry (if --log):** append `{ "step": "4.5. Run setup sub-skills", "completedAt": "...", "details": { "skillsInvoked": ["setup-scss", "setup-zod", "setup-axios", "setup-docgen"] } }`.
+> **Log entry (if --log):** append `{ "step": "4.5. Run setup sub-skills", "completedAt": "...", "details": { "skillsInvoked": ["setup-scss", "setup-zod", "setup-axios", "setup-docgen"] } }`. If any skill was run inline instead of via the Skill tool, list it as `"setup-scss (inline)"` so the log accurately reflects what happened.
 
 ## 4.6 Apply dark theme tokens
 
