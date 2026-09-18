@@ -51,7 +51,7 @@ module.exports = {
     '**/*.spec.vue',
     '**/App.vue',
   ],
-  outDir: 'docs/styleguide',
+  styleguideDir: 'docs/styleguide',
   title: 'Component Library',
   usageMode: 'expand',
   exampleMode: 'expand',
