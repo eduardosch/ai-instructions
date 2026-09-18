@@ -18,11 +18,12 @@ import IconGlobe from '@/assets/icons/icon-globe.svg?component'
 import IconDocument from '@/assets/icons/icon-document.svg?component'
 
 import { useHomeStore } from '@/stores/useHomeStore'
+import { env } from '@/env'
 
 const homeStore = useHomeStore()
 const { cards, setupCards, tags } = storeToRefs(homeStore)
 
-const appTitle = import.meta.env.VITE_APP_TITLE as string
+const appTitle = env.VITE_APP_TITLE
 
 const iconMap: Record<string, Component> = {
   terminal: IconTerminal,
