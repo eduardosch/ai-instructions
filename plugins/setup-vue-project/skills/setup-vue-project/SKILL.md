@@ -20,7 +20,10 @@ Check whether the user passed `--log` when invoking this skill (e.g. `/setup-vue
   "plugin": "setup-vue-project",
   "project": "<project-folder-name>",
   "startedAt": "<ISO-8601 timestamp>",
+  "startedAtTime": "<HH:MM:SS>",
   "completedAt": null,
+  "completedAtTime": null,
+  "duration": null,
   "steps": []
 }
 ```
@@ -286,7 +289,16 @@ Copy-Item .env.example .env.development.local
 
 ## 6. Show a summary
 
-**If `--log` was passed**, set `completedAt` to the current ISO-8601 timestamp in `.claude/setup.log.json`, then tell the user: `📋 Setup log written to .claude/setup.log.json`.
+**If `--log` was passed**, finalize `.claude/setup.log.json`:
+- Set `completedAt` to the current ISO-8601 timestamp
+- Set `completedAtTime` to the current wall-clock time as `HH:MM:SS`
+- Set `duration` to a human-readable string of elapsed time since `startedAtTime`, e.g. `"lasted 2 mins"` or `"lasted 1 min 45 secs"`
+
+Then tell the user:
+```
+📋 Setup log written to .claude/setup.log.json
+   Started at: <HH:MM:SS>  Finished at: <HH:MM:SS>  Lasted <duration>
+```
 
 Once everything is finished, show the user a bullet list with emojis and short descriptions of what was done, e.g.:
 
