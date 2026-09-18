@@ -1,5 +1,11 @@
 # Changelog
 
+## v19.8.3 — 2026-09-18
+
+### Fixes
+
+- use exact pnpm-workspace.yaml and create before install
+
 ## v19.8.2 — 2026-09-18
 
 ### Fixes
