@@ -250,8 +250,8 @@ pnpm add -D sass-embedded vue-styleguidist vue-docgen-api webpack webpack-dev-se
 ```
 
 - **axios** — HTTP client used by `setup-axios` (`src/lib/http.ts`)
-- **sass-embedded** — modern Dart Sass implementation required by `setup-scss`; use this instead of `sass` to avoid the legacy-JS-API deprecation warning under Vite
-- **vue-styleguidist** + **vue-docgen-api** — powers the live component documentation site (`pnpm run styleguide`)
+- **sass-embedded** — modern Dart Sass implementation required by `setup-scss`; use this instead of `sass` to avoid the legacy-JS-API deprecation warning under Vite. On Windows, pnpm may print a warning about failing to create `sass.js.EXE` — this is non-blocking and can be safely ignored; sass-embedded works via Vite's Sass integration regardless.
+- **vue-styleguidist** + **vue-docgen-api** — powers the live component documentation site (`pnpm run styleguide`). Expect deprecation warnings from its indirect dependencies (glob, rimraf, uuid, etc.) — these are upstream issues in vue-styleguidist's webpack peer deps and are non-blocking.
 - **webpack**, **webpack-dev-server**, **css-loader**, **style-loader**, **vue-loader**, **ts-loader** — webpack peer dependencies required by Vue Styleguidist in a Vite-only project
 - **vite-svg-loader** — imports SVG files as Vue components via the `?component` query suffix
 
