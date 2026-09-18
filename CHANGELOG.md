@@ -1,5 +1,11 @@
 # Changelog
 
+## v19.8.4 — 2026-09-18
+
+### Other
+
+- note expected Windows sass bin warning and styleguidist deprecations
+
 ## v19.8.3 — 2026-09-18
 
 ### Fixes
