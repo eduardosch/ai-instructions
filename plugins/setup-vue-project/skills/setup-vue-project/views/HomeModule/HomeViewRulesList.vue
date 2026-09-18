@@ -15,8 +15,8 @@ const { ruleRows } = storeToRefs(homeStore)
     </div>
     <div class="home-view-rules-list__grid">
       <HomeViewRulesListItem
-        v-for="row in ruleRows"
-        :key="row.name"
+        v-for="(row, index) in ruleRows"
+        :key="row.name + '-' + index"
         :name="row.name"
         :description="row.description"
       />

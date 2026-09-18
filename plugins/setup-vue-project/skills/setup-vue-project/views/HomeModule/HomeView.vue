@@ -73,8 +73,8 @@ const iconMap: Record<string, Component> = {
 
     <section class="cards">
       <AppCard
-        v-for="card in cards"
-        :key="card.title"
+        v-for="(card, index) in cards"
+        :key="card.title + '-' + index"
         :title="card.title"
         :text="card.text"
       >
@@ -99,8 +99,8 @@ const iconMap: Record<string, Component> = {
       </div>
       <div class="setup__grid">
         <AppCard
-          v-for="card in setupCards"
-          :key="card.title"
+          v-for="(card, index) in setupCards"
+          :key="card.title + '-' + index"
           :title="card.title"
           :text="card.text"
           size="compact"
@@ -123,8 +123,8 @@ const iconMap: Record<string, Component> = {
       <span class="tags__label">Also installed</span>
       <div class="tags__list">
         <AppTag
-          v-for="tag in tags"
-          :key="tag.label"
+          v-for="(tag, index) in tags"
+          :key="tag.label + '-' + index"
           :label="tag.label"
         />
       </div>
