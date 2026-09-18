@@ -53,19 +53,20 @@ const routes = [
 
 ## 2. File-based routing conventions
 
-Organise route components under `src/views/` following the file-based routing naming convention so the folder layout mirrors the URL structure.
+- Organise route components under `src/views/` following the file-based routing naming convention so the folder layout mirrors the URL structure.
+- The component name should follow the vue-code naming convention (PascalCase) and at least 2 words (e.g. `UserProfile.vue` instead of `Profile.vue`).
 
 ```
 src/
   views/
-    Index.vue             → /
-    About.vue             → /about
+    IndexView.vue             → /
+    AboutView.vue             → /about
     users/
-      Index.vue           → /users
+      IndexView.vue           → /users
       [id].vue            → /users/:id
       [id]/
-        Index.vue         → /users/:id
-        Edit.vue          → /users/:id/edit
+        IndexView.vue         → /users/:id
+        EditView.vue          → /users/:id/edit
     [...path].vue         → /* (catch-all / 404)
 ```
 
@@ -73,7 +74,7 @@ Naming rules:
 
 | Pattern | Route |
 |---|---|
-| `Index.vue` | `/` of parent segment |
+| `IndexView.vue` | `/` of parent segment |
 | `[param].vue` | Dynamic segment `:param` |
 | `[[param]].vue` | Optional param `:param?` |
 | `[...rest].vue` | Catch-all `/:rest*` |
