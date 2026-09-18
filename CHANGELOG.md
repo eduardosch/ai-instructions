@@ -1,5 +1,11 @@
 # Changelog
 
+## v19.8.6 — 2026-09-18
+
+### Other
+
+- add step to run release script on every push
+
 ## v19.8.5 — 2026-09-18
 
 ### Other
