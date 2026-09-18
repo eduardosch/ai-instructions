@@ -1,5 +1,11 @@
 # Changelog
 
+## v19.8.1 — 2026-09-18
+
+### Fixes
+
+- handle pnpm build errors and sub-skill resolution failures
+
 ## v19.8.0 — 2026-09-18
 
 ### Features
