@@ -29,8 +29,8 @@ Add scripts to `package.json`:
 ```json
 {
   "scripts": {
-    "styleguide": "vue-styleguidist server",
-    "styleguide:build": "vue-styleguidist build"
+    "styleguide": "vue-styleguidist server --config styleguide.config.cjs",
+    "styleguide:build": "vue-styleguidist build --config styleguide.config.cjs"
   }
 }
 ```
@@ -39,7 +39,7 @@ Add scripts to `package.json`:
 
 ## Part 2 — Styleguidist configuration
 
-Create `styleguide.config.js` at the project root:
+Create `styleguide.config.cjs` at the project root (`.cjs` extension is required when `package.json` contains `"type": "module"` — Vue Styleguidist uses CommonJS `require()` internally):
 
 ```js
 const path = require('path')
@@ -155,6 +155,6 @@ jobs:
 
 - [ ] `vue-styleguidist` and `vue-docgen-api` installed as devDependencies
 - [ ] webpack peer deps installed
-- [ ] `styleguide.config.js` created with correct `components` glob and `sections`
-- [ ] `styleguide` and `styleguide:build` scripts in `package.json`
+- [ ] `styleguide.config.cjs` created with correct `components` glob and `sections`
+- [ ] `styleguide` and `styleguide:build` scripts in `package.json` (with `--config styleguide.config.cjs`)
 - [ ] `docs/styleguide` added to `.gitignore`
