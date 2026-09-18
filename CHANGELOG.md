@@ -1,5 +1,11 @@
 # Changelog
 
+## v19.6.1 — 2026-09-18
+
+### Other
+
+- make quiet the default, replace --quiet with --verbose
+
 ## v19.6.0 — 2026-09-18
 
 ### Features
