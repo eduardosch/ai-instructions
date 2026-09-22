@@ -21,7 +21,7 @@ pnpm add -D vue-styleguidist vue-docgen-api
 Vue Styleguidist uses webpack internally. If the project is Vite-only, install the peer deps it needs:
 
 ```bash
-pnpm add -D webpack webpack-dev-server css-loader style-loader vue-loader ts-loader
+pnpm add -D webpack webpack-dev-server css-loader style-loader vue-loader ts-loader sass-loader
 ```
 
 Add scripts to `package.json`:
@@ -44,6 +44,7 @@ Create `styleguide.config.cjs` at the project root (`.cjs` extension is required
 ```js
 /* eslint-disable @typescript-eslint/no-require-imports */
 const path = require('path')
+const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
   components: 'src/components/**/*.vue',
@@ -58,6 +59,7 @@ module.exports = {
   exampleMode: 'expand',
 
   webpackConfig: {
+    plugins: [new VueLoaderPlugin()],
     module: {
       rules: [
         { test: /\.vue$/, loader: 'vue-loader' },
@@ -68,6 +70,7 @@ module.exports = {
           exclude: /node_modules/,
         },
         { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+        { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
       ],
     },
     resolve: {
@@ -79,7 +82,9 @@ module.exports = {
 ```
 
 Rules:
+- `VueLoaderPlugin` **must** be in `webpackConfig.plugins` — without it, webpack receives the split `.vue` blocks (script/style/template) but has no plugin to route them to the correct loaders, causing every block to fail with "Module parse failed".
 - `/* eslint-disable @typescript-eslint/no-require-imports */` at the top suppresses the TypeScript ESLint rule that flags `require()` — the `.cjs` extension opts into CommonJS but ESLint still applies the rule.
+- `sass-loader` rule is required for `<style lang="scss">` blocks to compile; `sass-loader` automatically uses whichever Sass implementation is installed (`sass` or `sass-embedded`).
 - `components` glob targets only reusable components — `The*.vue` layout shells and spec files are excluded; layout components (`TheHeader`, `TheFooter`) are not individually documented.
 - Do NOT add a `sections` block until you have subdirectories under `src/components/`; when `sections` is defined, Styleguidist ignores the top-level `components` glob and only looks inside each section's own glob — an empty match produces "no components found".
 - `styleguideDir` puts the built docs in `docs/styleguide` — add this folder to `.gitignore` or include it for GitHub Pages.
@@ -141,7 +146,7 @@ jobs:
 ## Quick checklist
 
 - [ ] `vue-styleguidist` and `vue-docgen-api` installed as devDependencies
-- [ ] webpack peer deps installed
+- [ ] webpack peer deps installed (including `sass-loader`)
 - [ ] `styleguide.config.cjs` created with correct `components` glob and `eslint-disable` header
 - [ ] `styleguide` and `styleguide:build` scripts in `package.json` (with `--config styleguide.config.cjs`)
 - [ ] `docs/styleguide` added to `.gitignore`
