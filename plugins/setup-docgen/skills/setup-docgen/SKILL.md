@@ -42,6 +42,7 @@ Add scripts to `package.json`:
 Create `styleguide.config.cjs` at the project root (`.cjs` extension is required when `package.json` contains `"type": "module"` — Vue Styleguidist uses CommonJS `require()` internally):
 
 ```js
+/* eslint-disable @typescript-eslint/no-require-imports */
 const path = require('path')
 
 module.exports = {
@@ -49,28 +50,12 @@ module.exports = {
   ignore: [
     '**/index.vue',
     '**/*.spec.vue',
-    '**/App.vue',
+    '**/The*.vue',
   ],
   styleguideDir: 'docs/styleguide',
   title: 'Component Library',
   usageMode: 'expand',
   exampleMode: 'expand',
-  pagePerSection: true,
-
-  sections: [
-    {
-      name: 'UI Components',
-      components: 'src/components/ui/**/*.vue',
-    },
-    {
-      name: 'Form Components',
-      components: 'src/components/form/**/*.vue',
-    },
-    {
-      name: 'Layout',
-      components: 'src/components/layout/**/*.vue',
-    },
-  ],
 
   webpackConfig: {
     module: {
@@ -94,9 +79,11 @@ module.exports = {
 ```
 
 Rules:
-- `components` glob targets only reusable components — exclude pages, App.vue, and spec files.
-- `sections` groups components by domain; add a section per feature folder.
-- `outDir` puts the built docs in `docs/styleguide` — add this folder to `.gitignore` or include it for GitHub Pages.
+- `/* eslint-disable @typescript-eslint/no-require-imports */` at the top suppresses the TypeScript ESLint rule that flags `require()` — the `.cjs` extension opts into CommonJS but ESLint still applies the rule.
+- `components` glob targets only reusable components — `The*.vue` layout shells and spec files are excluded; layout components (`TheHeader`, `TheFooter`) are not individually documented.
+- Do NOT add a `sections` block until you have subdirectories under `src/components/`; when `sections` is defined, Styleguidist ignores the top-level `components` glob and only looks inside each section's own glob — an empty match produces "no components found".
+- `styleguideDir` puts the built docs in `docs/styleguide` — add this folder to `.gitignore` or include it for GitHub Pages.
+- To add sections later (e.g. after creating `src/components/ui/`, `src/components/form/`), add a `sections` array with per-subdirectory globs and set `pagePerSection: true`.
 
 ---
 
@@ -155,6 +142,6 @@ jobs:
 
 - [ ] `vue-styleguidist` and `vue-docgen-api` installed as devDependencies
 - [ ] webpack peer deps installed
-- [ ] `styleguide.config.cjs` created with correct `components` glob and `sections`
+- [ ] `styleguide.config.cjs` created with correct `components` glob and `eslint-disable` header
 - [ ] `styleguide` and `styleguide:build` scripts in `package.json` (with `--config styleguide.config.cjs`)
 - [ ] `docs/styleguide` added to `.gitignore`
