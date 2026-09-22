@@ -30,9 +30,9 @@ export const useHomeStore = defineStore('home', () => {
       text: "Components and views go under src/, following the plugin's conventions.",
     },
     {
-      iconName: 'contact',
-      title: 'Contact',
-      text: 'Built by Eduardo Schröder — reach out at github.com/eduardosch.',
+      iconName: 'drop',
+      title: 'Enjoy',
+      text: 'Your project is ready — start building features and make it yours.',
     },
   ])
 
