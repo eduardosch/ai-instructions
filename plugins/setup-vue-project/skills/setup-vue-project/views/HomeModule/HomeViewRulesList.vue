@@ -57,8 +57,8 @@ const { ruleRows } = storeToRefs(homeStore)
 }
 
 .home-view-rules-list__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: rem(12);
+  display: flex;
+  flex-direction: column;
+  gap: rem(8);
 }
 </style>
