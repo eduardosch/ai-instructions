@@ -1,5 +1,11 @@
 # Changelog
 
+## v21.3.0 — 2026-09-22
+
+### Features
+
+- locale switcher with pt-BR / en-US flags in header
+
 ## v21.2.0 — 2026-09-22
 
 ### Features
