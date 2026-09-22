@@ -1,5 +1,11 @@
 # Changelog
 
+## v21.3.1 — 2026-09-22
+
+### Fixes
+
+- pre-import SCSS vars/mixins via sass-loader additionalData
+
 ## v21.3.0 — 2026-09-22
 
 ### Features
