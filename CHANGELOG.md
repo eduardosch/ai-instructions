@@ -1,5 +1,11 @@
 # Changelog
 
+## v22.0.0 — 2026-09-22
+
+### Features
+
+- full i18n with pt-BR / en-US SVG flag switcher
+
 ## v21.3.1 — 2026-09-22
 
 ### Fixes
