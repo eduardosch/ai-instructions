@@ -120,6 +120,11 @@ export const useHomeStore = defineStore('home', () => {
       description:
         'Vue Router conventions — lazy-loaded routes, file-based naming, Composition API navigation, and data fetching patterns.',
     },
+    {
+      name: 'rules-i18n',
+      description:
+        'Internationalisation conventions — key naming (nested dot-notation), useI18n Composition API usage, locale file structure, and no hardcoded UI strings.',
+    },
   ])
 
   const tags = ref<HomeTag[]>([

@@ -2,9 +2,11 @@
 import VueLogo from '@/assets/icons/vue-logo.svg?component'
 import { env } from '@/env'
 import { useTheme } from '@/composables/useTheme'
+import { useLocale } from '@/composables/useLocale'
 
 const appTitle = env.VITE_APP_TITLE
 const { isDark, toggleTheme } = useTheme()
+const { locale, setLocale } = useLocale()
 </script>
 
 <template>
@@ -15,6 +17,25 @@ const { isDark, toggleTheme } = useTheme()
         <span class="the-header__name">{{ appTitle }}</span>
       </div>
       <div class="the-header__actions">
+        <div class="the-header__locale" role="group" aria-label="Language">
+          <button
+            class="the-header__locale-btn"
+            :class="{ 'the-header__locale-btn--active': locale === 'pt-BR' }"
+            aria-label="Português (Brasil)"
+            @click="setLocale('pt-BR')"
+          >
+            🇧🇷
+          </button>
+          <button
+            class="the-header__locale-btn"
+            :class="{ 'the-header__locale-btn--active': locale === 'en' }"
+            aria-label="English (US)"
+            @click="setLocale('en')"
+          >
+            🇺🇸
+          </button>
+        </div>
+        <div class="the-header__divider" aria-hidden="true" />
         <button
           class="the-header__theme-toggle"
           :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
@@ -72,7 +93,45 @@ const { isDark, toggleTheme } = useTheme()
 .the-header__actions {
   display: flex;
   align-items: center;
-  gap: rem(20);
+  gap: rem(12);
+}
+
+.the-header__locale {
+  display: flex;
+  align-items: center;
+  gap: rem(4);
+}
+
+.the-header__locale-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(34);
+  height: rem(34);
+  border: 1px solid transparent;
+  border-radius: rem(8);
+  background: transparent;
+  font-size: rem(18);
+  cursor: pointer;
+  opacity: 0.45;
+  transition: opacity 0.15s, border-color 0.15s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &--active {
+    opacity: 1;
+    border-color: $color-border-medium;
+    background: $color-surface;
+  }
+}
+
+.the-header__divider {
+  width: rem(1);
+  height: rem(20);
+  background: $color-border-medium;
+  margin: 0 rem(8);
 }
 
 .the-header__theme-toggle {
@@ -98,5 +157,6 @@ const { isDark, toggleTheme } = useTheme()
   font-size: rem(13);
   color: $color-text-muted;
   text-decoration: none;
+  margin-left: rem(8);
 }
 </style>
