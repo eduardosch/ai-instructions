@@ -67,7 +67,7 @@
       "pinia": "Convenções de store Pinia — defineStore no estilo setup, nomenclatura useXxxStore e sem wiring direto entre stores dentro de componentes.",
       "scss": "Convenções de SCSS — nomes de classe inspirados em BEM, uso de design tokens, sem números mágicos e sem seletores deep em estilos com scoped.",
       "clientApi": "Convenções de cliente de API tipado — módulos de serviço, uso do wrapper axios e normalização consistente de erros em todas as requisições.",
-      "documentation": "Regras de JSDoc e documentação de componentes — props, eventos e slots documentados no formato compatível com Vue Styleguidist.",
+      "documentation": "Regras de JSDoc e documentação de componentes — props, eventos e slots documentados seguindo as convenções padrão de JSDoc do Vue.",
       "zod": "Padrões de uso do Zod — validação de variáveis de ambiente via gateway tipado, nomenclatura de schemas e orientação sobre parse vs safeParse.",
       "vueRouter": "Convenções do Vue Router — rotas com lazy loading, nomenclatura baseada em arquivos, navegação com Composition API e padrões de data fetching.",
       "i18n": "Convenções de internacionalização — nomenclatura de chaves (dot-notation aninhado), uso da Composition API useI18n, estrutura de arquivos de locale e nenhuma string de UI hardcoded."
