@@ -67,7 +67,7 @@
       "pinia": "Pinia store conventions — setup-style defineStore, useXxxStore naming, and no direct store-to-store wiring inside components.",
       "scss": "SCSS coding conventions — BEM-inspired class names, design token usage, no magic numbers, no deep selectors in scoped styles.",
       "clientApi": "Typed API client conventions — service modules, axios wrapper usage, and consistent error normalisation across all requests.",
-      "documentation": "JSDoc and component documentation rules — props, events, and slot docs in the Vue Styleguidist-compatible format.",
+      "documentation": "JSDoc and component documentation rules — props, events, and slot docs with standard Vue JSDoc conventions.",
       "zod": "Zod usage patterns — environment variable validation through a typed gateway, schema naming, and parse vs safeParse guidance.",
       "vueRouter": "Vue Router conventions — lazy-loaded routes, file-based naming, Composition API navigation, and data fetching patterns.",
       "i18n": "Internationalisation conventions — key naming (nested dot-notation), useI18n Composition API usage, locale file structure, and no hardcoded UI strings."
