@@ -1,5 +1,11 @@
 # Changelog
 
+## v21.1.2 — 2026-09-22
+
+### Fixes
+
+- remove sections block causing no-components-found, add eslint-disable for require()
+
 ## v21.1.1 — 2026-09-22
 
 ### Other
