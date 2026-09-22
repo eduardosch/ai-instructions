@@ -1,5 +1,11 @@
 # Changelog
 
+## v21.1.1 — 2026-09-22
+
+### Other
+
+- organize source files into icons/ and styles/ subfolders
+
 ## v21.1.0 — 2026-09-22
 
 ### Features
