@@ -1,5 +1,11 @@
 # Changelog
 
+## v21.1.4 — 2026-09-22
+
+### Other
+
+- replace Contact card with Enjoy on home welcome cards
+
 ## v21.1.3 — 2026-09-22
 
 ### Fixes
