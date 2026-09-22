@@ -70,7 +70,22 @@ module.exports = {
           exclude: /node_modules/,
         },
         { test: /\.css$/, use: ['style-loader', 'css-loader'] },
-        { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
+        {
+          test: /\.scss$/,
+          use: [
+            'style-loader',
+            'css-loader',
+            {
+              loader: 'sass-loader',
+              options: {
+                additionalData: (content) =>
+                  `@use "${path.resolve(__dirname, 'src/assets/styles/variables')}" as *;\n` +
+                  `@use "${path.resolve(__dirname, 'src/assets/styles/mixins')}" as *;\n` +
+                  content,
+              },
+            },
+          ],
+        },
       ],
     },
     resolve: {
@@ -84,7 +99,7 @@ module.exports = {
 Rules:
 - `VueLoaderPlugin` **must** be in `webpackConfig.plugins` — without it, webpack receives the split `.vue` blocks (script/style/template) but has no plugin to route them to the correct loaders, causing every block to fail with "Module parse failed".
 - `/* eslint-disable @typescript-eslint/no-require-imports */` at the top suppresses the TypeScript ESLint rule that flags `require()` — the `.cjs` extension opts into CommonJS but ESLint still applies the rule.
-- `sass-loader` rule is required for `<style lang="scss">` blocks to compile; `sass-loader` automatically uses whichever Sass implementation is installed (`sass` or `sass-embedded`).
+- `sass-loader` must use the `additionalData` function form with absolute `path.resolve` paths — NOT the `@/` alias. Vite's `additionalData` auto-prepend (in `vite.config.ts`) does not apply to the Styleguidist webpack build, so variables and mixins must be re-imported here. Using `@/` in the string would fail because webpack's module resolver does not handle Sass `@use` imports via aliases.
 - `components` glob targets only reusable components — `The*.vue` layout shells and spec files are excluded; layout components (`TheHeader`, `TheFooter`) are not individually documented.
 - Do NOT add a `sections` block until you have subdirectories under `src/components/`; when `sections` is defined, Styleguidist ignores the top-level `components` glob and only looks inside each section's own glob — an empty match produces "no components found".
 - `styleguideDir` puts the built docs in `docs/styleguide` — add this folder to `.gitignore` or include it for GitHub Pages.
