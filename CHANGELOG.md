@@ -1,5 +1,11 @@
 # Changelog
 
+## v23.0.3 — 2026-09-22
+
+### Fixes
+
+- restore IconDrop import for styling setup card
+
 ## v23.0.2 — 2026-09-22
 
 ### Fixes
