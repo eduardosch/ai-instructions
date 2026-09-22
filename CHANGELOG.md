@@ -1,5 +1,11 @@
 # Changelog
 
+## v21.2.0 — 2026-09-22
+
+### Features
+
+- expandable rules list items with chevron and full descriptions
+
 ## v21.1.4 — 2026-09-22
 
 ### Other
