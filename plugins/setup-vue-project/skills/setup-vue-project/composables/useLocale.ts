@@ -1,4 +1,5 @@
 import { ref } from 'vue'
+import i18n from '@/i18n'
 
 export type AppLocale = 'en' | 'pt-BR'
 
@@ -14,14 +15,21 @@ function getStored(): AppLocale {
 
 const locale = ref<AppLocale>(getStored())
 
+function applyLocale(): void {
+  i18n.global.locale.value = locale.value
+  try {
+    localStorage.setItem(STORAGE_KEY, locale.value)
+  } catch {
+    // storage unavailable
+  }
+}
+
+applyLocale()
+
 export function useLocale() {
   function setLocale(lang: AppLocale): void {
     locale.value = lang
-    try {
-      localStorage.setItem(STORAGE_KEY, lang)
-    } catch {
-      // storage unavailable
-    }
+    applyLocale()
   }
 
   return { locale, setLocale }

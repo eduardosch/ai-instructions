@@ -1,17 +1,19 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
+import { useI18n } from 'vue-i18n'
 import { useHomeStore } from '@/stores/useHomeStore'
 import HomeViewRulesListItem from './HomeViewRulesListItem.vue'
 
 const homeStore = useHomeStore()
 const { ruleRows } = storeToRefs(homeStore)
+const { t } = useI18n()
 </script>
 
 <template>
   <section class="home-view-rules-list">
     <div class="home-view-rules-list__header">
-      <span class="home-view-rules-list__label">Conventions enforced</span>
-      <h2 class="home-view-rules-list__heading">Rules for consistent code</h2>
+      <span class="home-view-rules-list__label">{{ t('home.rules.label') }}</span>
+      <h2 class="home-view-rules-list__heading">{{ t('home.rules.heading') }}</h2>
     </div>
     <div class="home-view-rules-list__grid">
       <HomeViewRulesListItem

@@ -1,0 +1,83 @@
+{
+  "header": {
+    "switchToLight": "Switch to light mode",
+    "switchToDark": "Switch to dark mode",
+    "langPtBR": "Português (Brasil)",
+    "langEn": "English (US)",
+    "language": "Language"
+  },
+  "footer": {
+    "credits": "Scaffolded with {plugin} — a plugin by Eduardo Schröder",
+    "githubLink": "github.com/eduardosch"
+  },
+  "home": {
+    "badge": "Project scaffolded",
+    "hero": {
+      "title": "Your Vue project is ready.",
+      "subtitle": "This project was scaffolded with {plugin} — TypeScript and project tooling are wired up and ready for {command}.",
+      "readDocs": "Read the Vue docs",
+      "viewPlugin": "View the plugin"
+    },
+    "cards": {
+      "devServer": {
+        "title": "Start the dev server",
+        "text": "Run pnpm run dev and open the local URL printed in your terminal."
+      },
+      "explore": {
+        "title": "Explore the structure",
+        "text": "Components and views go under src/, following the plugin's conventions."
+      },
+      "enjoy": {
+        "title": "Enjoy",
+        "text": "Your project is ready — start building features and make it yours."
+      }
+    },
+    "setup": {
+      "label": "Configured automatically",
+      "heading": "Everything is already wired up",
+      "desc": "The plugin installed and configured the following as part of scaffolding this project.",
+      "e2e": {
+        "title": "End-to-end testing",
+        "text": "Playwright is installed and ready for end-to-end tests."
+      },
+      "quality": {
+        "title": "Code quality",
+        "text": "ESLint and Prettier are configured for linting and formatting."
+      },
+      "styling": {
+        "title": "Styling",
+        "text": "setup-scss configures Sass with global variables and mixins."
+      },
+      "envValidation": {
+        "title": "Environment validation",
+        "text": "setup-zod validates environment variables through a typed gateway."
+      },
+      "apiLayer": {
+        "title": "API layer",
+        "text": "setup-axios adds a typed wrapper with error normalisation, service modules, and composables."
+      },
+      "docs": {
+        "title": "Documentation",
+        "text": "setup-docgen configures Vue Styleguidist for the component library."
+      }
+    },
+    "rules": {
+      "label": "Conventions enforced",
+      "heading": "Rules for consistent code",
+      "commit": "Enforces conventional commit format (feat/fix/chore) with emoji prefix, keeping history scannable and compatible with changelog automation.",
+      "versioning": "Automates semver bumps and CHANGELOG.md entries based on commit types. Run release.mjs after each push to tag and publish the new version.",
+      "vueCode": "Vue 3 Composition API style guide — single-file component structure, template conventions, component naming, and prop/emit patterns.",
+      "ts": "TypeScript rules for Composition API — script setup, typed props and emits, no implicit any, and consistent import style.",
+      "pinia": "Pinia store conventions — setup-style defineStore, useXxxStore naming, and no direct store-to-store wiring inside components.",
+      "scss": "SCSS coding conventions — BEM-inspired class names, design token usage, no magic numbers, no deep selectors in scoped styles.",
+      "clientApi": "Typed API client conventions — service modules, axios wrapper usage, and consistent error normalisation across all requests.",
+      "documentation": "JSDoc and component documentation rules — props, events, and slot docs in the Vue Styleguidist-compatible format.",
+      "zod": "Zod usage patterns — environment variable validation through a typed gateway, schema naming, and parse vs safeParse guidance.",
+      "vueRouter": "Vue Router conventions — lazy-loaded routes, file-based naming, Composition API navigation, and data fetching patterns.",
+      "i18n": "Internationalisation conventions — key naming (nested dot-notation), useI18n Composition API usage, locale file structure, and no hardcoded UI strings."
+    },
+    "tags": {
+      "label": "Also installed"
+    }
+  }
+}

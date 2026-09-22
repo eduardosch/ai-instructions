@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Component } from 'vue'
 import { storeToRefs } from 'pinia'
+import { useI18n } from 'vue-i18n'
 
 import AppButton from '@/components/AppButton.vue'
 import AppCard from '@/components/AppCard.vue'
@@ -24,6 +25,7 @@ const homeStore = useHomeStore()
 const { cards, setupCards, tags } = storeToRefs(homeStore)
 
 const appTitle = env.VITE_APP_TITLE
+const { t } = useI18n()
 
 const iconMap: Record<string, Component> = {
   terminal: IconTerminal,
@@ -43,13 +45,16 @@ const iconMap: Record<string, Component> = {
     <div class="glow" />
 
     <section class="hero">
-      <span class="badge">Project scaffolded</span>
-      <h1>Your Vue project is ready.</h1>
-      <p class="subtitle">
-        This project was scaffolded with <strong>setup-vue-project</strong> —
-        TypeScript and project tooling are wired up and ready for
-        <code>pnpm run dev</code>.
-      </p>
+      <span class="badge">{{ t('home.badge') }}</span>
+      <h1>{{ t('home.hero.title') }}</h1>
+      <i18n-t keypath="home.hero.subtitle" tag="p" class="subtitle">
+        <template #plugin>
+          <strong>setup-vue-project</strong>
+        </template>
+        <template #command>
+          <code>pnpm run dev</code>
+        </template>
+      </i18n-t>
       <div class="terminal">
         <div><span class="prompt">$</span> pnpm install</div>
         <div><span class="prompt">$</span> pnpm run dev</div>
@@ -60,14 +65,14 @@ const iconMap: Record<string, Component> = {
           variant="primary"
           target="_blank"
         >
-          Read the Vue docs
+          {{ t('home.hero.readDocs') }}
         </AppButton>
         <AppButton
           href="https://github.com/eduardosch"
           variant="ghost"
           target="_blank"
         >
-          View the plugin
+          {{ t('home.hero.viewPlugin') }}
         </AppButton>
       </div>
     </section>
@@ -92,11 +97,9 @@ const iconMap: Record<string, Component> = {
 
     <section class="setup">
       <div class="setup__header">
-        <span class="setup__label">Configured automatically</span>
-        <h2 class="setup__heading">Everything is already wired up</h2>
-        <p class="setup__desc">
-          The plugin installed and configured the following as part of scaffolding this project.
-        </p>
+        <span class="setup__label">{{ t('home.setup.label') }}</span>
+        <h2 class="setup__heading">{{ t('home.setup.heading') }}</h2>
+        <p class="setup__desc">{{ t('home.setup.desc') }}</p>
       </div>
       <div class="setup__grid">
         <AppCard
@@ -121,7 +124,7 @@ const iconMap: Record<string, Component> = {
     <HomeViewRulesList />
 
     <section class="tags">
-      <span class="tags__label">Also installed</span>
+      <span class="tags__label">{{ t('home.tags.label') }}</span>
       <div class="tags__list">
         <AppTag
           v-for="(tag, index) in tags"

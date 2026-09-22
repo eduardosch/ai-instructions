@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import VueLogo from '@/assets/icons/vue-logo.svg?component'
+import IconFlagBrazil from '@/assets/icons/icon-flag-brazil.svg?component'
+import IconFlagUsa from '@/assets/icons/icon-flag-usa.svg?component'
 import { env } from '@/env'
 import { useTheme } from '@/composables/useTheme'
 import { useLocale } from '@/composables/useLocale'
@@ -7,6 +10,7 @@ import { useLocale } from '@/composables/useLocale'
 const appTitle = env.VITE_APP_TITLE
 const { isDark, toggleTheme } = useTheme()
 const { locale, setLocale } = useLocale()
+const { t } = useI18n()
 </script>
 
 <template>
@@ -17,28 +21,28 @@ const { locale, setLocale } = useLocale()
         <span class="the-header__name">{{ appTitle }}</span>
       </div>
       <div class="the-header__actions">
-        <div class="the-header__locale" role="group" aria-label="Language">
+        <div class="the-header__locale" role="group" :aria-label="t('header.language')">
           <button
             class="the-header__locale-btn"
             :class="{ 'the-header__locale-btn--active': locale === 'pt-BR' }"
-            aria-label="Português (Brasil)"
+            :aria-label="t('header.langPtBR')"
             @click="setLocale('pt-BR')"
           >
-            🇧🇷
+            <IconFlagBrazil class="the-header__flag" aria-hidden="true" />
           </button>
           <button
             class="the-header__locale-btn"
             :class="{ 'the-header__locale-btn--active': locale === 'en' }"
-            aria-label="English (US)"
+            :aria-label="t('header.langEn')"
             @click="setLocale('en')"
           >
-            🇺🇸
+            <IconFlagUsa class="the-header__flag" aria-hidden="true" />
           </button>
         </div>
         <div class="the-header__divider" aria-hidden="true" />
         <button
           class="the-header__theme-toggle"
-          :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+          :aria-label="isDark ? t('header.switchToLight') : t('header.switchToDark')"
           @click="toggleTheme"
         >
           <svg v-if="isDark" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -111,13 +115,13 @@ const { locale, setLocale } = useLocale()
   border: 1px solid transparent;
   border-radius: rem(8);
   background: transparent;
-  font-size: rem(18);
   cursor: pointer;
-  opacity: 0.45;
-  transition: opacity 0.15s, border-color 0.15s;
+  padding: 0;
+  opacity: 0.4;
+  transition: opacity 0.15s, border-color 0.15s, background 0.15s;
 
   &:hover {
-    opacity: 0.8;
+    opacity: 0.75;
   }
 
   &--active {
@@ -125,6 +129,13 @@ const { locale, setLocale } = useLocale()
     border-color: $color-border-medium;
     background: $color-surface;
   }
+}
+
+.the-header__flag {
+  width: rem(22);
+  height: rem(22);
+  border-radius: 50%;
+  display: block;
 }
 
 .the-header__divider {

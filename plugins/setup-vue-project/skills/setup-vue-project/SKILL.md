@@ -164,10 +164,36 @@ Remove-Item -Force src/views/HomeView.vue, src/views/AboutView.vue
 Remove-Item -Force src/stores/counter.ts
 ```
 
-Also remove the CSS import from `src/main.ts` — delete the line `import './assets/main.css'` (or `import './assets/base.css'` — whichever `create-vue` generated), then add the global stylesheet import in its place:
+Also remove the CSS import from `src/main.ts` — delete the line `import './assets/main.css'` (or `import './assets/base.css'` — whichever `create-vue` generated), then add the global stylesheet import and wire vue-i18n:
 
 ```ts
 import '@/assets/styles/global.scss'
+```
+
+Open `src/main.ts` and add the i18n plugin — the final file must include:
+
+```ts
+import i18n from './i18n'
+// ...
+app.use(i18n)
+```
+
+Full `src/main.ts` after this step:
+
+```ts
+import './env'
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import router from './router'
+import i18n from './i18n'
+import '@/assets/styles/global.scss'
+import App from './App.vue'
+
+const app = createApp(App)
+app.use(createPinia())
+app.use(router)
+app.use(i18n)
+app.mount('#app')
 ```
 
 Then clear the router so the deleted views no longer cause TypeScript errors.
@@ -255,11 +281,12 @@ Now run the installs:
 ```bash
 pnpm install --reporter=append-only > install.log 2>&1
 grep -iE "error|failed" install.log || echo "Install OK (warnings suppressed, see install.log if needed)"
-pnpm add axios
+pnpm add axios vue-i18n
 pnpm add -D sass-embedded vue-styleguidist vue-docgen-api webpack webpack-dev-server css-loader style-loader vue-loader ts-loader vite-svg-loader
 ```
 
 - **axios** — HTTP client used by `setup-axios` (`src/lib/http.ts`)
+- **vue-i18n** — internationalisation; `src/i18n.ts` and `src/locales/` are included in the template
 - **sass-embedded** — modern Dart Sass implementation required by `setup-scss`; use this instead of `sass` to avoid the legacy-JS-API deprecation warning under Vite. On Windows, pnpm may print a warning about failing to create `sass.js.EXE` — this is non-blocking and can be safely ignored; sass-embedded works via Vite's Sass integration regardless.
 - **vue-styleguidist** + **vue-docgen-api** — powers the live component documentation site (`pnpm run styleguide`). Expect deprecation warnings from its indirect dependencies (glob, rimraf, uuid, etc.) — these are upstream issues in vue-styleguidist's webpack peer deps and are non-blocking.
 - **webpack**, **webpack-dev-server**, **css-loader**, **style-loader**, **vue-loader**, **ts-loader** — webpack peer dependencies required by Vue Styleguidist in a Vite-only project
@@ -363,7 +390,7 @@ Follow each skill's full instructions before moving to the next one.
 
 **If a SKILL.md file cannot be found at the expected path**, log it as a `"warning"` issue and try resolving the marketplace root via `glob **/setup-scss/SKILL.md` under the Claude plugins directory.
 
-`setup-i18n` is optional — invoke the `setup-i18n` skill only if the project requires internationalization.
+`setup-i18n` is optional — `vue-i18n`, `src/i18n.ts`, `src/locales/en.json`, and `src/locales/pt-BR.json` are already included in the template. Invoke `setup-i18n` only if you need the additional VS Code i18n Ally extension configuration.
 
 `setup-element-plus` and `setup-firebase` are separate standalone plugins — the user must invoke them explicitly after the project is created.
 

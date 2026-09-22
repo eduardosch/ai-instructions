@@ -1,17 +1,24 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 </script>
 
 <template>
   <footer class="the-footer">
     <div class="the-footer__inner">
-      <span>Scaffolded with <em>setup-vue-project</em> — a plugin by Eduardo Schröder</span>
+      <i18n-t keypath="footer.credits" tag="span">
+        <template #plugin>
+          <em>setup-vue-project</em>
+        </template>
+      </i18n-t>
       <a
         href="https://github.com/eduardosch"
         class="the-footer__link"
         target="_blank"
         rel="noopener"
       >
-        github.com/eduardosch
+        {{ t('footer.githubLink') }}
       </a>
     </div>
   </footer>

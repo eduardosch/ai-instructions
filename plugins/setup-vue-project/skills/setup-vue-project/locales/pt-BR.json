@@ -1,0 +1,83 @@
+{
+  "header": {
+    "switchToLight": "Mudar para modo claro",
+    "switchToDark": "Mudar para modo escuro",
+    "langPtBR": "Português (Brasil)",
+    "langEn": "English (US)",
+    "language": "Idioma"
+  },
+  "footer": {
+    "credits": "Gerado com {plugin} — um plugin de Eduardo Schröder",
+    "githubLink": "github.com/eduardosch"
+  },
+  "home": {
+    "badge": "Projeto gerado",
+    "hero": {
+      "title": "Seu projeto Vue está pronto.",
+      "subtitle": "Este projeto foi gerado com {plugin} — TypeScript e ferramentas de projeto estão configurados e prontos para {command}.",
+      "readDocs": "Ler a documentação do Vue",
+      "viewPlugin": "Ver o plugin"
+    },
+    "cards": {
+      "devServer": {
+        "title": "Inicie o servidor de desenvolvimento",
+        "text": "Rode pnpm run dev e abra a URL local exibida no terminal."
+      },
+      "explore": {
+        "title": "Explore a estrutura",
+        "text": "Componentes e views ficam em src/, seguindo as convenções do plugin."
+      },
+      "enjoy": {
+        "title": "Aproveite",
+        "text": "Seu projeto está pronto — comece a criar funcionalidades e torne-o seu."
+      }
+    },
+    "setup": {
+      "label": "Configurado automaticamente",
+      "heading": "Tudo já está conectado",
+      "desc": "O plugin instalou e configurou o seguinte durante a geração do projeto.",
+      "e2e": {
+        "title": "Testes end-to-end",
+        "text": "O Playwright está instalado e pronto para testes end-to-end."
+      },
+      "quality": {
+        "title": "Qualidade de código",
+        "text": "ESLint e Prettier estão configurados para lint e formatação."
+      },
+      "styling": {
+        "title": "Estilização",
+        "text": "O setup-scss configura o Sass com variáveis e mixins globais."
+      },
+      "envValidation": {
+        "title": "Validação de ambiente",
+        "text": "O setup-zod valida variáveis de ambiente através de um gateway tipado."
+      },
+      "apiLayer": {
+        "title": "Camada de API",
+        "text": "O setup-axios adiciona um wrapper tipado com normalização de erros, módulos de serviço e composables."
+      },
+      "docs": {
+        "title": "Documentação",
+        "text": "O setup-docgen configura o Vue Styleguidist para a biblioteca de componentes."
+      }
+    },
+    "rules": {
+      "label": "Convenções aplicadas",
+      "heading": "Regras para código consistente",
+      "commit": "Aplica o formato de commit convencional (feat/fix/chore) com prefixo emoji, mantendo o histórico legível e compatível com automação de changelog.",
+      "versioning": "Automatiza bumps de semver e entradas no CHANGELOG.md com base nos tipos de commit. Rode release.mjs após cada push para criar a tag e publicar a nova versão.",
+      "vueCode": "Guia de estilo da Composition API do Vue 3 — estrutura de single-file component, convenções de template, nomenclatura de componentes e padrões de prop/emit.",
+      "ts": "Regras TypeScript para Composition API — script setup, props e emits tipados, sem any implícito e estilo de importação consistente.",
+      "pinia": "Convenções de store Pinia — defineStore no estilo setup, nomenclatura useXxxStore e sem wiring direto entre stores dentro de componentes.",
+      "scss": "Convenções de SCSS — nomes de classe inspirados em BEM, uso de design tokens, sem números mágicos e sem seletores deep em estilos com scoped.",
+      "clientApi": "Convenções de cliente de API tipado — módulos de serviço, uso do wrapper axios e normalização consistente de erros em todas as requisições.",
+      "documentation": "Regras de JSDoc e documentação de componentes — props, eventos e slots documentados no formato compatível com Vue Styleguidist.",
+      "zod": "Padrões de uso do Zod — validação de variáveis de ambiente via gateway tipado, nomenclatura de schemas e orientação sobre parse vs safeParse.",
+      "vueRouter": "Convenções do Vue Router — rotas com lazy loading, nomenclatura baseada em arquivos, navegação com Composition API e padrões de data fetching.",
+      "i18n": "Convenções de internacionalização — nomenclatura de chaves (dot-notation aninhado), uso da Composition API useI18n, estrutura de arquivos de locale e nenhuma string de UI hardcoded."
+    },
+    "tags": {
+      "label": "Também instalado"
+    }
+  }
+}

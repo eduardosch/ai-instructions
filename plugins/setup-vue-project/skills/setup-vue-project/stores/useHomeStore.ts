@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 export interface HomeCard {
   iconName: string
@@ -16,115 +17,72 @@ export interface HomeTag {
   label: string
 }
 
-// Stores content for the home/welcome page sections
 export const useHomeStore = defineStore('home', () => {
-  const cards = ref<HomeCard[]>([
+  const { t } = useI18n()
+
+  const cards = computed<HomeCard[]>(() => [
     {
       iconName: 'terminal',
-      title: 'Start the dev server',
-      text: 'Run pnpm run dev and open the local URL printed in your terminal.',
+      title: t('home.cards.devServer.title'),
+      text: t('home.cards.devServer.text'),
     },
     {
       iconName: 'folder',
-      title: 'Explore the structure',
-      text: "Components and views go under src/, following the plugin's conventions.",
+      title: t('home.cards.explore.title'),
+      text: t('home.cards.explore.text'),
     },
     {
       iconName: 'drop',
-      title: 'Enjoy',
-      text: 'Your project is ready — start building features and make it yours.',
+      title: t('home.cards.enjoy.title'),
+      text: t('home.cards.enjoy.text'),
     },
   ])
 
-  const setupCards = ref<HomeCard[]>([
+  const setupCards = computed<HomeCard[]>(() => [
     {
       iconName: 'check-circle',
-      title: 'End-to-end testing',
-      text: 'Playwright is installed and ready for end-to-end tests.',
+      title: t('home.setup.e2e.title'),
+      text: t('home.setup.e2e.text'),
     },
     {
       iconName: 'code',
-      title: 'Code quality',
-      text: 'ESLint and Prettier are configured for linting and formatting.',
+      title: t('home.setup.quality.title'),
+      text: t('home.setup.quality.text'),
     },
     {
       iconName: 'drop',
-      title: 'Styling',
-      text: 'setup-scss configures Sass with global variables and mixins.',
+      title: t('home.setup.styling.title'),
+      text: t('home.setup.styling.text'),
     },
     {
       iconName: 'shield',
-      title: 'Environment validation',
-      text: 'setup-zod validates environment variables through a typed gateway.',
+      title: t('home.setup.envValidation.title'),
+      text: t('home.setup.envValidation.text'),
     },
     {
       iconName: 'globe',
-      title: 'API layer',
-      text: 'setup-axios adds a typed wrapper with error normalisation, service modules, and composables.',
+      title: t('home.setup.apiLayer.title'),
+      text: t('home.setup.apiLayer.text'),
     },
     {
       iconName: 'document',
-      title: 'Documentation',
-      text: 'setup-docgen configures Vue Styleguidist for the component library.',
+      title: t('home.setup.docs.title'),
+      text: t('home.setup.docs.text'),
     },
   ])
 
-  const ruleRows = ref<HomeRuleRow[]>([
-    {
-      name: 'rules-commit',
-      description:
-        'Enforces conventional commit format (feat/fix/chore) with emoji prefix, keeping history scannable and compatible with changelog automation.',
-    },
-    {
-      name: 'rules-versioning',
-      description:
-        'Automates semver bumps and CHANGELOG.md entries based on commit types. Run release.mjs after each push to tag and publish the new version.',
-    },
-    {
-      name: 'rules-vue-code',
-      description:
-        'Vue 3 Composition API style guide — single-file component structure, template conventions, component naming, and prop/emit patterns.',
-    },
-    {
-      name: 'rules-ts',
-      description:
-        'TypeScript rules for Composition API — script setup, typed props and emits, no implicit any, and consistent import style.',
-    },
-    {
-      name: 'rules-pinia',
-      description:
-        'Pinia store conventions — setup-style defineStore, useXxxStore naming, and no direct store-to-store wiring inside components.',
-    },
-    {
-      name: 'rules-vue-scss',
-      description:
-        'SCSS coding conventions — BEM-inspired class names, design token usage, no magic numbers, no deep selectors in scoped styles.',
-    },
-    {
-      name: 'rules-client-api',
-      description:
-        'Typed API client conventions — service modules, axios wrapper usage, and consistent error normalisation across all requests.',
-    },
-    {
-      name: 'rules-documentation',
-      description:
-        'JSDoc and component documentation rules — props, events, and slot docs in the Vue Styleguidist-compatible format.',
-    },
-    {
-      name: 'rules-zod',
-      description:
-        'Zod usage patterns — environment variable validation through a typed gateway, schema naming, and parse vs safeParse guidance.',
-    },
-    {
-      name: 'rules-vue-router',
-      description:
-        'Vue Router conventions — lazy-loaded routes, file-based naming, Composition API navigation, and data fetching patterns.',
-    },
-    {
-      name: 'rules-i18n',
-      description:
-        'Internationalisation conventions — key naming (nested dot-notation), useI18n Composition API usage, locale file structure, and no hardcoded UI strings.',
-    },
+  const ruleRows = computed<HomeRuleRow[]>(() => [
+    { name: 'rules-commit',        description: t('home.rules.commit') },
+    { name: 'rules-versioning',    description: t('home.rules.versioning') },
+    { name: 'rules-vue-code',      description: t('home.rules.vueCode') },
+    { name: 'rules-ts',            description: t('home.rules.ts') },
+    { name: 'rules-pinia',         description: t('home.rules.pinia') },
+    { name: 'rules-vue-scss',      description: t('home.rules.scss') },
+    { name: 'rules-client-api',    description: t('home.rules.clientApi') },
+    { name: 'rules-documentation', description: t('home.rules.documentation') },
+    { name: 'rules-zod',           description: t('home.rules.zod') },
+    { name: 'rules-vue-router',    description: t('home.rules.vueRouter') },
+    { name: 'rules-i18n',          description: t('home.rules.i18n') },
   ])
 
   const tags = ref<HomeTag[]>([
