@@ -1,5 +1,11 @@
 # Changelog
 
+## v23.0.0 — 2026-09-22
+
+### Features
+
+- remove setup-docgen; add party icon for Enjoy card
+
 ## v22.0.0 — 2026-09-22
 
 ### Features
