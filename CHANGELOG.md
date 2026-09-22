@@ -1,5 +1,11 @@
 # Changelog
 
+## v21.1.0 — 2026-09-22
+
+### Features
+
+- dual-theme support with dark/light toggle
+
 ## v21.0.1 — 2026-09-18
 
 ### Fixes
