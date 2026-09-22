@@ -1,5 +1,11 @@
 # Changelog
 
+## v23.0.1 — 2026-09-22
+
+### Fixes
+
+- remove Styleguidist mention from documentation rule description
+
 ## v23.0.0 — 2026-09-22
 
 ### Features
