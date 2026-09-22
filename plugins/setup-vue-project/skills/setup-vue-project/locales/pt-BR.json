@@ -55,10 +55,6 @@
       "apiLayer": {
         "title": "Camada de API",
         "text": "O setup-axios adiciona um wrapper tipado com normalização de erros, módulos de serviço e composables."
-      },
-      "docs": {
-        "title": "Documentação",
-        "text": "O setup-docgen configura o Vue Styleguidist para a biblioteca de componentes."
       }
     },
     "rules": {

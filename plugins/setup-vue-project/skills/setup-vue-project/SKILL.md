@@ -1,6 +1,6 @@
 ---
 name: setup-vue-project
-description: Scaffolds a new Vue 3 project with TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, Prettier, and Vue DevTools, then runs the core setup sub-skills (setup-scss, setup-zod, setup-axios, setup-docgen) and installs all rules plugins. Always strips example files and replaces App.vue with a clean landing page. Use when starting a new Vue 3 project.
+description: Scaffolds a new Vue 3 project with TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, Prettier, and Vue DevTools, then runs the core setup sub-skills (setup-scss, setup-zod, setup-axios) and installs all rules plugins. Always strips example files and replaces App.vue with a clean landing page. Use when starting a new Vue 3 project.
 ---
 
 # Vue Project Setup
@@ -264,10 +264,8 @@ Before running any install command, create `pnpm-workspace.yaml` in the project 
 allowBuilds:
   '@parcel/watcher': true
   core-js: true
-  vue-inbrowser-compiler-demi: true
 onlyBuiltDependencies:
   - core-js
-  - vue-inbrowser-compiler-demi
   - '@parcel/watcher'
   - esbuild
 ```
@@ -282,14 +280,12 @@ Now run the installs:
 pnpm install --reporter=append-only > install.log 2>&1
 grep -iE "error|failed" install.log || echo "Install OK (warnings suppressed, see install.log if needed)"
 pnpm add axios vue-i18n
-pnpm add -D sass-embedded vue-styleguidist vue-docgen-api webpack webpack-dev-server css-loader style-loader vue-loader ts-loader vite-svg-loader
+pnpm add -D sass-embedded vite-svg-loader
 ```
 
 - **axios** — HTTP client used by `setup-axios` (`src/lib/http.ts`)
 - **vue-i18n** — internationalisation; `src/i18n.ts` and `src/locales/` are included in the template
 - **sass-embedded** — modern Dart Sass implementation required by `setup-scss`; use this instead of `sass` to avoid the legacy-JS-API deprecation warning under Vite. On Windows, pnpm may print a warning about failing to create `sass.js.EXE` — this is non-blocking and can be safely ignored; sass-embedded works via Vite's Sass integration regardless.
-- **vue-styleguidist** + **vue-docgen-api** — powers the live component documentation site (`pnpm run styleguide`). Expect deprecation warnings from its indirect dependencies (glob, rimraf, uuid, etc.) — these are upstream issues in vue-styleguidist's webpack peer deps and are non-blocking.
-- **webpack**, **webpack-dev-server**, **css-loader**, **style-loader**, **vue-loader**, **ts-loader** — webpack peer dependencies required by Vue Styleguidist in a Vite-only project
 - **vite-svg-loader** — imports SVG files as Vue components via the `?component` query suffix
 
 ## 2.5 Configure vite-svg-loader
@@ -308,7 +304,7 @@ Open `env.d.ts` and add the type reference on a new line after the existing `///
 /// <reference types="vite-svg-loader" />
 ```
 
-> **Log entry (if --log):** append `{ "step": "2-2.5. Install packages + vite-svg-loader", "completedAt": "...", "details": { "packagesAdded": ["axios"], "devPackagesAdded": ["sass-embedded", "vue-styleguidist", "vue-docgen-api", "webpack", "webpack-dev-server", "css-loader", "style-loader", "vue-loader", "ts-loader", "vite-svg-loader"], "filesModified": ["vite.config.ts", "env.d.ts", "pnpm-workspace.yaml"] } }`.
+> **Log entry (if --log):** append `{ "step": "2-2.5. Install packages + vite-svg-loader", "completedAt": "...", "details": { "packagesAdded": ["axios", "vue-i18n"], "devPackagesAdded": ["sass-embedded", "vite-svg-loader"], "filesModified": ["vite.config.ts", "env.d.ts", "pnpm-workspace.yaml"] } }`.
 
 ## 3. Fix tsconfig.app.json
 
@@ -377,14 +373,13 @@ Write this file to `.claude/settings.json` inside the project directory (create 
 
 Do NOT stop or summarise here — continue running all steps in this section without pausing.
 
-These are **separate marketplace plugins** — `setup-scss`, `setup-zod`, `setup-axios`, and `setup-docgen`. Because the marketplace is registered in step 4 of this same session, the Skill tool's cache will never contain these skills in time — **do not attempt to invoke them via the Skill tool**. Go directly to inline execution:
+These are **separate marketplace plugins** — `setup-scss`, `setup-zod`, and `setup-axios`. Because the marketplace is registered in step 4 of this same session, the Skill tool's cache will never contain these skills in time — **do not attempt to invoke them via the Skill tool**. Go directly to inline execution:
 
 For each sub-skill, find the `ai-instructions` marketplace root (the local clone Claude Code pulled when the marketplace was registered — typically `~/.claude/plugins/<marketplace-id>/ai-instructions` or the equivalent path on the current platform), then:
 
 1. Read `plugins/setup-scss/skills/setup-scss/SKILL.md` and execute every instruction it contains.
 2. Read `plugins/setup-zod/skills/setup-zod/SKILL.md` and execute every instruction it contains.
 3. Read `plugins/setup-axios/skills/setup-axios/SKILL.md` and execute every instruction it contains.
-4. Read `plugins/setup-docgen/skills/setup-docgen/SKILL.md` and execute every instruction it contains.
 
 Follow each skill's full instructions before moving to the next one.
 
@@ -394,7 +389,7 @@ Follow each skill's full instructions before moving to the next one.
 
 `setup-element-plus` and `setup-firebase` are separate standalone plugins — the user must invoke them explicitly after the project is created.
 
-> **Log entry (if --log):** append `{ "step": "4.5. Run setup sub-skills", "completedAt": "...", "details": { "skillsInvoked": ["setup-scss (inline)", "setup-zod (inline)", "setup-axios (inline)", "setup-docgen (inline)"] } }`. All sub-skills are always run inline in this step — the `(inline)` suffix is correct and expected, not a fallback.
+> **Log entry (if --log):** append `{ "step": "4.5. Run setup sub-skills", "completedAt": "...", "details": { "skillsInvoked": ["setup-scss (inline)", "setup-zod (inline)", "setup-axios (inline)"] } }`. All sub-skills are always run inline in this step — the `(inline)` suffix is correct and expected, not a fallback.
 
 ## 4.75 Create .env.development.local
 
@@ -452,7 +447,6 @@ Once everything is finished, show the user a bullet list with emojis and short d
 - 🔒 **setup-zod** — environment variable validation with Zod gateway
 - 📄 **.env.development.local** — copied from `.env.example` so Vite loads env vars on dev
 - 🌐 **setup-axios** — typed axios wrapper with error normalisation, service modules, and composables
-- 📚 **setup-docgen** — Vue Styleguidist configured for component library documentation
 - 📝 **rules-commit** — semantic commit messages enabled
 - 🔖 **rules-versioning** — automatic versioning and CHANGELOG generation
 - 🎨 **rules-vue-code** — Vue style guide installed
@@ -465,5 +459,5 @@ Once everything is finished, show the user a bullet list with emojis and short d
 - 🛣️ **rules-vue-router** — Vue Router conventions installed
 - 📦 **axios** — HTTP client installed
 - 📦 **sass-embedded** — Dart Sass installed
-- 📦 **vue-styleguidist + deps** — Styleguidist and webpack peer dependencies installed
+- 📦 **vue-i18n** — internationalisation installed
 - 📦 **vite-svg-loader** — SVG-as-component support configured

@@ -55,10 +55,6 @@
       "apiLayer": {
         "title": "API layer",
         "text": "setup-axios adds a typed wrapper with error normalisation, service modules, and composables."
-      },
-      "docs": {
-        "title": "Documentation",
-        "text": "setup-docgen configures Vue Styleguidist for the component library."
       }
     },
     "rules": {

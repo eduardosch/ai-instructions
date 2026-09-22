@@ -32,7 +32,7 @@ export const useHomeStore = defineStore('home', () => {
       text: t('home.cards.explore.text'),
     },
     {
-      iconName: 'drop',
+      iconName: 'party',
       title: t('home.cards.enjoy.title'),
       text: t('home.cards.enjoy.text'),
     },
@@ -64,11 +64,6 @@ export const useHomeStore = defineStore('home', () => {
       title: t('home.setup.apiLayer.title'),
       text: t('home.setup.apiLayer.text'),
     },
-    {
-      iconName: 'document',
-      title: t('home.setup.docs.title'),
-      text: t('home.setup.docs.text'),
-    },
   ])
 
   const ruleRows = computed<HomeRuleRow[]>(() => [
@@ -88,7 +83,8 @@ export const useHomeStore = defineStore('home', () => {
   const tags = ref<HomeTag[]>([
     { label: 'axios' },
     { label: 'sass-embedded' },
-    { label: 'vue-styleguidist + peer deps' },
+    { label: 'vue-i18n' },
+    { label: 'vite-svg-loader' },
   ])
 
   return { cards, setupCards, ruleRows, tags }

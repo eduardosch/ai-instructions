@@ -32,7 +32,7 @@ Install any plugin individually:
 
 ### <img src="icons/vue.svg" height="20" valign="middle"> `setup-vue-project`
 
-Scaffolds a new Vue 3 project with an opinionated stack — TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, Prettier — then runs the core setup sub-skills (SCSS, Zod, Axios, Docgen) and installs all rules plugins so the project is ready from the first commit.
+Scaffolds a new Vue 3 project with an opinionated stack — TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, Prettier — then runs the core setup sub-skills (SCSS, Zod, Axios) and installs all rules plugins so the project is ready from the first commit.
 
 Core sub-skills (run automatically):
 
@@ -41,7 +41,6 @@ Core sub-skills (run automatically):
 | `setup-scss` | Installs sass-embedded, global variable + mixin partials, wires vite.config.ts |
 | `setup-zod` | Installs Zod, creates `src/env.ts` gateway, fail-fast import |
 | `setup-axios` | Creates `src/lib/http.ts` typed wrapper + `src/types/api.ts` |
-| `setup-docgen` | Installs Vue Styleguidist, creates `styleguide.config.js` |
 | `setup-i18n` | Installs vue-i18n, creates config + locale files, wires i18n Ally *(optional)* |
 
 ```bash
@@ -220,7 +219,7 @@ House style guide for Vitest unit/component tests and Playwright e2e tests — f
 
 ### 📚 `rules-documentation`
 
-Enforces JSDoc-style comments on Vue 3 reusable components — component description with `@displayName`, every prop/emit/slot documented, side-car `.examples.md` files, and auditing missing documentation. Requires `setup-docgen`.
+Enforces JSDoc-style comments on Vue 3 reusable components — component description with `@displayName`, every prop/emit/slot documented, and side-car `.examples.md` files.
 
 ```bash
 /plugin install rules-documentation@eduardosch-marketplace

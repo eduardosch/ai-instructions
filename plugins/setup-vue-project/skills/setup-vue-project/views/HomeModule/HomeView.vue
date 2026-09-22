@@ -13,10 +13,9 @@ import IconFolder from '@/assets/icons/icon-folder.svg?component'
 import IconContact from '@/assets/icons/icon-contact.svg?component'
 import IconCheckCircle from '@/assets/icons/icon-check-circle.svg?component'
 import IconCode from '@/assets/icons/icon-code.svg?component'
-import IconDrop from '@/assets/icons/icon-drop.svg?component'
+import IconParty from '@/assets/icons/icon-party.svg?component'
 import IconShield from '@/assets/icons/icon-shield.svg?component'
 import IconGlobe from '@/assets/icons/icon-globe.svg?component'
-import IconDocument from '@/assets/icons/icon-document.svg?component'
 
 import { useHomeStore } from '@/stores/useHomeStore'
 import { env } from '@/env'
@@ -33,10 +32,9 @@ const iconMap: Record<string, Component> = {
   contact: IconContact,
   'check-circle': IconCheckCircle,
   code: IconCode,
-  drop: IconDrop,
+  party: IconParty,
   shield: IconShield,
   globe: IconGlobe,
-  document: IconDocument,
 }
 </script>
 

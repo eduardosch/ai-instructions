@@ -83,21 +83,6 @@
       "category": "vue"
     },
     {
-      "name": "setup-docgen",
-      "description": "Installs vue-styleguidist and vue-docgen-api, creates styleguide.config.js, adds npm scripts, and optionally configures GitHub Pages CI",
-      "version": "1.0.0",
-      "source": "./plugins/setup-docgen",
-      "strict": false,
-      "oneshot": true,
-      "skills": [
-        "./skills/setup-docgen"
-      ],
-      "keywords": ["vue", "styleguidist", "docgen", "documentation", "component-library", "setup"],
-      "author": { "name": "Eduardo Schroder", "email": "dudu.schroder@gmail.com" },
-      "license": "MIT",
-      "category": "vue"
-    },
-    {
       "name": "setup-i18n",
       "description": "Installs and bootstraps vue-i18n v9 in a Vue 3 project — installs the package, creates src/i18n.ts, creates src/locales/en.json, wires the plugin into main.ts, and configures the i18n Ally VS Code extension",
       "version": "1.0.0",
