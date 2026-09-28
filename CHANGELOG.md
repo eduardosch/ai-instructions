@@ -1,5 +1,11 @@
 # Changelog
 
+## v25.0.0 — 2026-09-28
+
+### Features
+
+- add new plugin for Firebase Cloud Functions scaffolding
+
 ## v24.0.5 — 2026-09-28
 
 ### Other
