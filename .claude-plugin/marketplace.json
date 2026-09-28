@@ -476,6 +476,31 @@
       },
       "license": "MIT",
       "category": "backend"
+    },
+    {
+      "name": "rules-firebase-functions",
+      "description": "Coding conventions for Firebase Cloud Functions with TypeScript — function naming, typed callable/HTTP/trigger patterns, error handling with HttpsError, structured logging, security validation, and testing conventions.",
+      "version": "1.0.0",
+      "source": "./plugins/rules-firebase-functions",
+      "strict": false,
+      "skills": [
+        "./skills/rules-firebase-functions"
+      ],
+      "keywords": [
+        "firebase",
+        "firebase-functions",
+        "cloud-functions",
+        "typescript",
+        "conventions",
+        "backend",
+        "serverless"
+      ],
+      "author": {
+        "name": "Eduardo Schroder",
+        "email": "dudu.schroder@gmail.com"
+      },
+      "license": "MIT",
+      "category": "backend"
     }
   ]
 }

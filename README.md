@@ -362,6 +362,18 @@ House style guide for Vitest unit/component tests and Playwright e2e tests — f
 
 ---
 
+### ⚡ `rules-firebase-functions`
+
+Coding conventions for Firebase Cloud Functions with TypeScript — function naming, typed callable/HTTP/trigger patterns, error handling with `HttpsError`, structured logging with `functions.logger`, security validation, and testing conventions. Automatically installed by `setup-firebase-functions`.
+
+```bash
+/plugin install rules-firebase-functions@eduardosch-marketplace
+```
+
+**Usage:** `/rules-firebase-functions`
+
+---
+
 ## Uninstalling
 
 ```bash

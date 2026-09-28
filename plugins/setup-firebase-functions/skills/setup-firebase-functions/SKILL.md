@@ -329,6 +329,24 @@ npm install
 
 ---
 
+## Step 11.5 — Register marketplace and wire rules plugin
+
+Create `.claude/settings.json` inside the functions folder so Claude Code picks up `rules-firebase-functions` when the project is opened:
+
+```json
+{
+  "enabledPlugins": {
+    "rules-firebase-functions@eduardosch-marketplace": true
+  }
+}
+```
+
+Write this file to `.claude/settings.json` inside the functions folder (create the `.claude/` directory if it does not exist).
+
+The marketplace is already registered from the session that invoked `setup-firebase-functions` (either from `setup-firebase` or directly). No `/plugin marketplace add` command is needed.
+
+---
+
 ## Step 12 — Show a summary
 
 ```
@@ -350,6 +368,7 @@ Then tell the user:
 
 - 🔥 **firebase.json** — updated in the app folder to point at the functions project
 - 📦 **Dependencies** — installed via `npm install`
+- 📋 **rules-firebase-functions** — enabled in `.claude/settings.json`
 
 ### Next steps
 
