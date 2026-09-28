@@ -157,7 +157,7 @@ You can also add the block directly to `~/.claude/settings.local.json` to apply 
 
 </details>
 
-> These cover all `setup-*` plugins: `setup-vue-project` (including sub-skills `setup-scss`, `setup-zod`, `setup-axios`), `setup-i18n`, `setup-element-plus`, and `setup-firebase`. The `pnpm add *` rule handles every package installation across all of them. `code *` is used by `setup-i18n` to install the i18n Ally VS Code extension.
+> These cover all `setup-*` plugins: `setup-vue-project` (including sub-skills `setup-scss`, `setup-zod`, `setup-axios`), `setup-i18n`, `setup-element-plus`, `setup-firebase`, and `setup-firebase-functions`. The `pnpm add *` rule handles every package installation across all of them. `code *` is used by `setup-i18n` to install the i18n Ally VS Code extension. `setup-firebase-functions` uses `npm install` (not pnpm) — no extra permission needed as `npm` is already trusted by the system.
 
 ---
 
@@ -207,6 +207,18 @@ Installs and configures Firebase in an existing TypeScript project — asks whic
 ```
 
 **Usage:** `/setup-firebase`
+
+---
+
+### ⚡ `setup-firebase-functions`
+
+Scaffolds a Firebase Cloud Functions project in a sibling folder next to your app. Creates `<app-name>-firebase-functions/` with TypeScript, ESLint, shared types, and callable/HTTP/Firestore trigger stubs — ready to build and deploy. Invoked automatically by `setup-firebase` when Cloud Functions is selected, or run standalone to add a functions project to any existing app.
+
+```bash
+/plugin install setup-firebase-functions@eduardosch-marketplace
+```
+
+**Usage:** `/setup-firebase-functions`
 
 ---
 

@@ -66,8 +66,9 @@ Install extra packages based on selected services:
 
 | Service           | Extra package          |
 |-------------------|------------------------|
-| Cloud Functions   | `firebase-admin`       |
 | Hosting only      | (no extra package)     |
+
+> **Cloud Functions:** no extra client-side package needed — `firebase/functions` is included in the core `firebase` SDK. The `firebase-admin` SDK belongs only in the server-side functions project scaffolded by `setup-firebase-functions`.
 
 ---
 
@@ -275,6 +276,8 @@ export { storageRef, uploadBytes, uploadBytesResumable, getDownloadURL, deleteOb
 
 ### 7.5 Cloud Functions — `src/lib/functions.ts`
 
+Create the client-side wrapper that calls deployed functions from the app:
+
 ```ts
 import { getFunctions, httpsCallable, connectFunctionsEmulator } from 'firebase/functions'
 import { app } from './firebase'
@@ -288,6 +291,18 @@ export const functions = getFunctions(app)
 
 export { httpsCallable }
 ```
+
+### 7.6 Scaffold the functions project — invoke `setup-firebase-functions`
+
+After creating `src/lib/functions.ts`, invoke `setup-firebase-functions` inline to scaffold the server-side functions project.
+
+Find the `ai-instructions` marketplace root (the local clone — typically `~/.claude/plugins/<marketplace-id>/ai-instructions` or the equivalent path on the current platform), then read `plugins/setup-firebase-functions/skills/setup-firebase-functions/SKILL.md` and execute every instruction it contains.
+
+Pass the following context so the skill does not need to ask:
+- **App folder name:** the current working directory name
+- **Firebase project ID:** the project ID from the config (if already known from Step 2); otherwise `null` and the skill will leave a placeholder
+
+Do **not** re-ask the user for the folder name or project ID — they were already resolved in this session.
 
 ---
 
@@ -327,7 +342,7 @@ Once everything is done, show the user a bullet list with emojis summarising wha
 - 🔐 **Authentication** — `src/lib/auth.ts` + `src/composables/useAuth.ts` (if selected)
 - ⚡ **Realtime Database** — `src/lib/database.ts` (if selected)
 - 📦 **Storage** — `src/lib/storage.ts` (if selected)
-- ☁️ **Cloud Functions** — `src/lib/functions.ts` (if selected)
+- ☁️ **Cloud Functions** — `src/lib/functions.ts` client wrapper + `../<app-name>-firebase-functions/` server project scaffolded by `setup-firebase-functions` (if selected)
 - 🌐 **Hosting** — `firebase.json` configuration ready (if selected)
 - ✅ **env-validation** — Firebase vars added to Zod schema (if env-validation was already in use)
 

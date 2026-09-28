@@ -47,8 +47,18 @@
       "skills": [
         "./skills/setup-scss"
       ],
-      "keywords": ["vue", "scss", "sass", "vite", "styling", "setup"],
-      "author": { "name": "Eduardo Schroder", "email": "dudu.schroder@gmail.com" },
+      "keywords": [
+        "vue",
+        "scss",
+        "sass",
+        "vite",
+        "styling",
+        "setup"
+      ],
+      "author": {
+        "name": "Eduardo Schroder",
+        "email": "dudu.schroder@gmail.com"
+      },
       "license": "MIT",
       "category": "vue"
     },
@@ -62,8 +72,18 @@
       "skills": [
         "./skills/setup-zod"
       ],
-      "keywords": ["zod", "env", "environment-variables", "validation", "typescript", "setup"],
-      "author": { "name": "Eduardo Schroder", "email": "dudu.schroder@gmail.com" },
+      "keywords": [
+        "zod",
+        "env",
+        "environment-variables",
+        "validation",
+        "typescript",
+        "setup"
+      ],
+      "author": {
+        "name": "Eduardo Schroder",
+        "email": "dudu.schroder@gmail.com"
+      },
       "license": "MIT",
       "category": "configuration"
     },
@@ -77,8 +97,17 @@
       "skills": [
         "./skills/setup-axios"
       ],
-      "keywords": ["axios", "http-client", "api", "typescript", "setup"],
-      "author": { "name": "Eduardo Schroder", "email": "dudu.schroder@gmail.com" },
+      "keywords": [
+        "axios",
+        "http-client",
+        "api",
+        "typescript",
+        "setup"
+      ],
+      "author": {
+        "name": "Eduardo Schroder",
+        "email": "dudu.schroder@gmail.com"
+      },
       "license": "MIT",
       "category": "vue"
     },
@@ -92,8 +121,17 @@
       "skills": [
         "./skills/setup-i18n"
       ],
-      "keywords": ["vue", "i18n", "vue-i18n", "internationalization", "setup"],
-      "author": { "name": "Eduardo Schroder", "email": "dudu.schroder@gmail.com" },
+      "keywords": [
+        "vue",
+        "i18n",
+        "vue-i18n",
+        "internationalization",
+        "setup"
+      ],
+      "author": {
+        "name": "Eduardo Schroder",
+        "email": "dudu.schroder@gmail.com"
+      },
       "license": "MIT",
       "category": "i18n"
     },
@@ -413,6 +451,31 @@
       },
       "license": "MIT",
       "category": "vue"
+    },
+    {
+      "name": "setup-firebase-functions",
+      "description": "Scaffolds a Firebase Cloud Functions project alongside an existing app — creates a sibling folder named <app-name>-firebase-functions with TypeScript, ESLint, shared types, and typed callable/HTTP/trigger function stubs. Invoked automatically by setup-firebase when Functions is selected, or standalone for a dedicated functions project.",
+      "version": "1.0.0",
+      "source": "./plugins/setup-firebase-functions",
+      "strict": false,
+      "oneshot": true,
+      "skills": [
+        "./skills/setup-firebase-functions"
+      ],
+      "keywords": [
+        "firebase",
+        "firebase-functions",
+        "cloud-functions",
+        "typescript",
+        "backend",
+        "serverless"
+      ],
+      "author": {
+        "name": "Eduardo Schroder",
+        "email": "dudu.schroder@gmail.com"
+      },
+      "license": "MIT",
+      "category": "backend"
     }
   ]
 }
