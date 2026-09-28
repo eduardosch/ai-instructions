@@ -1,5 +1,11 @@
 # Changelog
 
+## v24.0.3 — 2026-09-28
+
+### Other
+
+- extend permissions to cover all marketplace plugins
+
 ## v24.0.2 — 2026-09-28
 
 ### Other
