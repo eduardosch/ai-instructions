@@ -1,5 +1,11 @@
 # Changelog
 
+## v26.0.0 — 2026-09-28
+
+### Features
+
+- add Firebase Functions conventions plugin
+
 ## v25.0.0 — 2026-09-28
 
 ### Features
