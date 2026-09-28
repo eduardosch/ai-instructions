@@ -8,31 +8,103 @@ Feel free to create a PR and add more plugins.
 
 ## Installation
 
-Launch Claude Code first:
+### 1. Create the project folder
+
+```bash
+mkdir my-project-name
+```
+
+### 2. Access the folder
+
+```bash
+cd my-project-name
+```
+
+### 3. Initialize Claude
 
 ```bash
 claude
 ```
 
-Then add this marketplace:
+### 4. Add the marketplace
 
 ```bash
 /plugin marketplace add eduardosch/ai-instructions
 ```
 
-Install any plugin individually:
+### 5. Install the desired plugin
 
 ```bash
 /plugin install <plugin-name>@eduardosch-marketplace
 ```
 
+### 6. Create the Auto Mode file — **(IMPORTANT)**
+
+All `setup-*` plugins run many shell commands. Create `.claude/settings.local.json` right after installing the plugin so Claude can run without pausing for permission prompts on every command.
+
+<details>
+<summary><strong>Windows (PowerShell)</strong></summary>
+
+```powershell
+New-Item -ItemType Directory -Force .claude | Out-Null
+@'
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(pnpm create vue@latest *)",
+      "PowerShell(pnpm install *)",
+      "PowerShell(pnpm add *)",
+      "PowerShell(Remove-Item *)",
+      "PowerShell(Expand-Archive *)",
+      "PowerShell(Get-Content *)",
+      "PowerShell(Set-Content *)",
+      "PowerShell(Get-ChildItem *)",
+      "PowerShell(Set-Location *)",
+      "PowerShell(Copy-Item *)",
+      "PowerShell(New-Item *)",
+      "PowerShell(code *)"
+    ]
+  }
+}
+'@ | Set-Content .claude/settings.local.json
+```
+
+</details>
+
+<details>
+<summary><strong>macOS / Linux (Bash)</strong></summary>
+
+```bash
+mkdir -p .claude && cat > .claude/settings.local.json << 'EOF'
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm create vue@latest *)",
+      "Bash(pnpm install *)",
+      "Bash(pnpm add *)",
+      "Bash(rm -rf *)",
+      "Bash(rm -f *)",
+      "Bash(unzip *)",
+      "Bash(sed *)",
+      "Bash(grep *)",
+      "Bash(cp *)",
+      "Bash(mkdir *)",
+      "Bash(code *)"
+    ]
+  }
+}
+EOF
+```
+
+</details>
+
 ---
 
-## Auto Mode
+## Auto Mode **(IMPORTANT)**
 
-All `setup-*` plugins run many shell commands. In **auto-mode** Claude Code will pause to ask for permission at each one unless you pre-approve them upfront.
+All `setup-*` plugins run many shell commands. In **auto-mode** Claude Code will pause to ask for permission at each one unless you pre-approve them upfront. **After installing any `setup-*` plugin, create `.claude/settings.local.json` in the project folder before running the plugin** — see step 6 above for the ready-to-run commands.
 
-Add the block for your OS to `.claude/settings.local.json` in the project where you'll run the plugin, or to `~/.claude/settings.local.json` to apply globally to all projects.
+You can also add the block directly to `~/.claude/settings.local.json` to apply it globally to all projects.
 
 <details>
 <summary><strong>Windows (PowerShell)</strong></summary>
