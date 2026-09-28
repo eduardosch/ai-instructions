@@ -28,30 +28,11 @@ Install any plugin individually:
 
 ---
 
-## Setup Plugins
+## Auto Mode
 
-### <img src="icons/vue.svg" height="20" valign="middle"> `setup-vue-project`
+All `setup-*` plugins run many shell commands. In **auto-mode** Claude Code will pause to ask for permission at each one unless you pre-approve them upfront.
 
-Scaffolds a new Vue 3 project with an opinionated stack — TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, Prettier — then runs the core setup sub-skills (SCSS, Zod, Axios) and installs all rules plugins so the project is ready from the first commit.
-
-Core sub-skills (run automatically):
-
-| Sub-skill | What it does |
-|---|---|
-| `setup-scss` | Installs sass-embedded, global variable + mixin partials, wires vite.config.ts |
-| `setup-zod` | Installs Zod, creates `src/env.ts` gateway, fail-fast import |
-| `setup-axios` | Creates `src/lib/http.ts` typed wrapper + `src/types/api.ts` |
-| `setup-i18n` | Installs vue-i18n, creates config + locale files, wires i18n Ally *(optional)* |
-
-```bash
-/plugin install setup-vue-project@eduardosch-marketplace
-```
-
-**Usage:** `/setup-vue-project`
-
-#### Auto-mode permissions
-
-`setup-vue-project` runs many shell commands. In **auto-mode** Claude Code will pause to ask for permission unless you pre-approve them in `.claude/settings.local.json` (project-level) or `~/.claude/settings.local.json` (global, applies to all projects).
+Add the block for your OS to `.claude/settings.local.json` in the project where you'll run the plugin, or to `~/.claude/settings.local.json` to apply globally to all projects.
 
 <details>
 <summary><strong>Windows (PowerShell)</strong></summary>
@@ -104,7 +85,30 @@ Core sub-skills (run automatically):
 
 </details>
 
-> These cover **all marketplace plugins**: `setup-vue-project` (and its automatic sub-skills `setup-scss`, `setup-zod`, `setup-axios`), `setup-i18n`, `setup-element-plus`, and `setup-firebase`. The `pnpm add *` rule handles every package installation across all plugins. `code *` is used by `setup-i18n` to install the i18n Ally VS Code extension. If you already have broader `pnpm *` rules in your global settings you do not need these.
+> These cover all `setup-*` plugins: `setup-vue-project` (including sub-skills `setup-scss`, `setup-zod`, `setup-axios`), `setup-i18n`, `setup-element-plus`, and `setup-firebase`. The `pnpm add *` rule handles every package installation across all of them. `code *` is used by `setup-i18n` to install the i18n Ally VS Code extension.
+
+---
+
+## Setup Plugins
+
+### <img src="icons/vue.svg" height="20" valign="middle"> `setup-vue-project`
+
+Scaffolds a new Vue 3 project with an opinionated stack — TypeScript, JSX, Vue Router, Pinia, Playwright, ESLint, Prettier — then runs the core setup sub-skills (SCSS, Zod, Axios) and installs all rules plugins so the project is ready from the first commit.
+
+Core sub-skills (run automatically):
+
+| Sub-skill | What it does |
+|---|---|
+| `setup-scss` | Installs sass-embedded, global variable + mixin partials, wires vite.config.ts |
+| `setup-zod` | Installs Zod, creates `src/env.ts` gateway, fail-fast import |
+| `setup-axios` | Creates `src/lib/http.ts` typed wrapper + `src/types/api.ts` |
+| `setup-i18n` | Installs vue-i18n, creates config + locale files, wires i18n Ally *(optional)* |
+
+```bash
+/plugin install setup-vue-project@eduardosch-marketplace
+```
+
+**Usage:** `/setup-vue-project`
 
 ---
 
