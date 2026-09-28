@@ -1,5 +1,11 @@
 # Changelog
 
+## v24.0.2 — 2026-09-28
+
+### Other
+
+- add auto-mode permissions section to README
+
 ## v24.0.1 — 2026-09-28
 
 ### Other
