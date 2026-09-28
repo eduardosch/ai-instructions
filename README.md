@@ -70,7 +70,8 @@ Core sub-skills (run automatically):
       "PowerShell(Get-ChildItem *)",
       "PowerShell(Set-Location *)",
       "PowerShell(Copy-Item *)",
-      "PowerShell(New-Item *)"
+      "PowerShell(New-Item *)",
+      "PowerShell(code *)"
     ]
   }
 }
@@ -94,7 +95,8 @@ Core sub-skills (run automatically):
       "Bash(sed *)",
       "Bash(grep *)",
       "Bash(cp *)",
-      "Bash(mkdir *)"
+      "Bash(mkdir *)",
+      "Bash(code *)"
     ]
   }
 }
@@ -102,7 +104,7 @@ Core sub-skills (run automatically):
 
 </details>
 
-> These cover the main skill and its automatic sub-skills (`setup-scss`, `setup-zod`, `setup-axios`). If you already have broader `pnpm *` rules in your global settings you do not need these.
+> These cover **all marketplace plugins**: `setup-vue-project` (and its automatic sub-skills `setup-scss`, `setup-zod`, `setup-axios`), `setup-i18n`, `setup-element-plus`, and `setup-firebase`. The `pnpm add *` rule handles every package installation across all plugins. `code *` is used by `setup-i18n` to install the i18n Ally VS Code extension. If you already have broader `pnpm *` rules in your global settings you do not need these.
 
 ---
 
