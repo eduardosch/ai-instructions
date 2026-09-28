@@ -1,6 +1,6 @@
 {
   "enabledPlugins": {
-    "commit-message@eduardosch-marketplace": true,
-    "versioning@eduardosch-marketplace": true
+    "rules-commit@eduardosch-marketplace": true,
+    "rules-versioning@eduardosch-marketplace": true
   }
 }
