@@ -1,5 +1,11 @@
 # Changelog
 
+## v24.0.0 — 2026-09-28
+
+### Features
+
+- remove plugin and all references
+
 ## v23.0.3 — 2026-09-22
 
 ### Fixes
