@@ -358,7 +358,6 @@ Create the project's `.claude/settings.json` so Claude Code picks up all rules p
     "rules-pinia@eduardosch-marketplace": true,
     "rules-vue-scss@eduardosch-marketplace": true,
     "rules-client-api@eduardosch-marketplace": true,
-    "rules-documentation@eduardosch-marketplace": true,
     "rules-zod@eduardosch-marketplace": true,
     "rules-vue-router@eduardosch-marketplace": true
   }
@@ -367,7 +366,7 @@ Create the project's `.claude/settings.json` so Claude Code picks up all rules p
 
 Write this file to `.claude/settings.json` inside the project directory (create the `.claude` folder if it does not exist).
 
-> **Log entry (if --log):** append `{ "step": "4. Register marketplace and wire plugins", "completedAt": "...", "details": { "marketplace": "eduardosch/ai-instructions", "filesWritten": [".claude/settings.json"], "pluginsEnabled": ["rules-commit", "rules-versioning", "rules-vue-code", "rules-ts", "rules-pinia", "rules-vue-scss", "rules-client-api", "rules-documentation", "rules-zod", "rules-vue-router"] } }`.
+> **Log entry (if --log):** append `{ "step": "4. Register marketplace and wire plugins", "completedAt": "...", "details": { "marketplace": "eduardosch/ai-instructions", "filesWritten": [".claude/settings.json"], "pluginsEnabled": ["rules-commit", "rules-versioning", "rules-vue-code", "rules-ts", "rules-pinia", "rules-vue-scss", "rules-client-api", "rules-zod", "rules-vue-router"] } }`.
 
 ## 4.5 Run setup sub-skills
 
@@ -418,7 +417,6 @@ Copy-Item .env.example .env.development.local
 - **rules-pinia** — Pinia store conventions
 - **rules-vue-scss** — SCSS coding conventions
 - **rules-client-api** — typed API client conventions
-- **rules-documentation** — JSDoc and component documentation conventions
 - **rules-zod** — Zod usage patterns and env validation rules
 - **rules-vue-router** — Vue Router conventions (lazy loading, file-based routing, Composition API, data fetching)
 
@@ -454,7 +452,6 @@ Once everything is finished, show the user a bullet list with emojis and short d
 - 🍍 **rules-pinia** — Pinia store conventions installed
 - 🖌️ **rules-vue-scss** — SCSS coding conventions installed
 - 🌐 **rules-client-api** — API client conventions installed
-- 📚 **rules-documentation** — component documentation rules installed
 - 🔒 **rules-zod** — Zod usage rules installed
 - 🛣️ **rules-vue-router** — Vue Router conventions installed
 - 📦 **axios** — HTTP client installed

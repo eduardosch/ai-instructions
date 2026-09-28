@@ -217,18 +217,6 @@ House style guide for Vitest unit/component tests and Playwright e2e tests — f
 
 ---
 
-### 📚 `rules-documentation`
-
-Enforces JSDoc-style comments on Vue 3 reusable components — component description with `@displayName`, every prop/emit/slot documented, and side-car `.examples.md` files.
-
-```bash
-/plugin install rules-documentation@eduardosch-marketplace
-```
-
-**Usage:** `/rules-documentation`
-
----
-
 ## Uninstalling
 
 ```bash

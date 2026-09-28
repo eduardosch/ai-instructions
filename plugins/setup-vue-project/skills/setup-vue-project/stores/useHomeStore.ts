@@ -74,7 +74,6 @@ export const useHomeStore = defineStore('home', () => {
     { name: 'rules-pinia',         description: t('home.rules.pinia') },
     { name: 'rules-vue-scss',      description: t('home.rules.scss') },
     { name: 'rules-client-api',    description: t('home.rules.clientApi') },
-    { name: 'rules-documentation', description: t('home.rules.documentation') },
     { name: 'rules-zod',           description: t('home.rules.zod') },
     { name: 'rules-vue-router',    description: t('home.rules.vueRouter') },
     { name: 'rules-i18n',          description: t('home.rules.i18n') },

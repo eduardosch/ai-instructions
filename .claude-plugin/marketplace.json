@@ -310,31 +310,6 @@
       "category": "testing"
     },
     {
-      "name": "rules-documentation",
-      "description": "Enforces JSDoc-style comments on Vue 3 reusable components — component description with @displayName, every prop, emit, slot, and exposed member documented, plus example files",
-      "version": "1.0.0",
-      "source": "./plugins/rules-documentation",
-      "strict": false,
-      "skills": [
-        "./skills/rules-documentation",
-        "./skills/styleguide"
-      ],
-      "keywords": [
-        "vue",
-        "documentation",
-        "jsdoc",
-        "vue-styleguidist",
-        "vue-docgen-api",
-        "component-library"
-      ],
-      "author": {
-        "name": "Eduardo Schroder",
-        "email": "dudu.schroder@gmail.com"
-      },
-      "license": "MIT",
-      "category": "vue"
-    },
-    {
       "name": "setup-element-plus",
       "description": "Installs and configures Element Plus in an existing Vue 3 + Vite project — auto-import, optional dark mode via VueUse useDark, theming, optional icons, reusable App* wrapper components, and optional auth pages + navigation layout",
       "version": "1.0.0",
