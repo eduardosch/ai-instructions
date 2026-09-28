@@ -1,5 +1,11 @@
 # Changelog
 
+## v24.0.4 — 2026-09-28
+
+### Other
+
+- move auto-mode permissions to top-level section after Installation
+
 ## v24.0.3 — 2026-09-28
 
 ### Other
