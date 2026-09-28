@@ -1,5 +1,11 @@
 # Changelog
 
+## v24.0.5 — 2026-09-28
+
+### Other
+
+- restructure Installation into 6 steps with auto-mode command in step 6
+
 ## v24.0.4 — 2026-09-28
 
 ### Other
