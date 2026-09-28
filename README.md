@@ -49,6 +49,61 @@ Core sub-skills (run automatically):
 
 **Usage:** `/setup-vue-project`
 
+#### Auto-mode permissions
+
+`setup-vue-project` runs many shell commands. In **auto-mode** Claude Code will pause to ask for permission unless you pre-approve them in `.claude/settings.local.json` (project-level) or `~/.claude/settings.local.json` (global, applies to all projects).
+
+<details>
+<summary><strong>Windows (PowerShell)</strong></summary>
+
+```json
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(pnpm create vue@latest *)",
+      "PowerShell(pnpm install *)",
+      "PowerShell(pnpm add *)",
+      "PowerShell(Remove-Item *)",
+      "PowerShell(Expand-Archive *)",
+      "PowerShell(Get-Content *)",
+      "PowerShell(Set-Content *)",
+      "PowerShell(Get-ChildItem *)",
+      "PowerShell(Set-Location *)",
+      "PowerShell(Copy-Item *)",
+      "PowerShell(New-Item *)"
+    ]
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><strong>macOS / Linux (Bash)</strong></summary>
+
+```json
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm create vue@latest *)",
+      "Bash(pnpm install *)",
+      "Bash(pnpm add *)",
+      "Bash(rm -rf *)",
+      "Bash(rm -f *)",
+      "Bash(unzip *)",
+      "Bash(sed *)",
+      "Bash(grep *)",
+      "Bash(cp *)",
+      "Bash(mkdir *)"
+    ]
+  }
+}
+```
+
+</details>
+
+> These cover the main skill and its automatic sub-skills (`setup-scss`, `setup-zod`, `setup-axios`). If you already have broader `pnpm *` rules in your global settings you do not need these.
+
 ---
 
 ### 🧩 `setup-element-plus`
