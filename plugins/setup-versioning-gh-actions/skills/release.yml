@@ -20,7 +20,7 @@ permissions:
 jobs:
   release:
     # Skip the release commit itself so the workflow doesn't loop
-    if: ${{ !startsWith(github.event.head_commit.message, '🔨 chore: release') }}
+    if: "!startsWith(github.event.head_commit.message, 'chore: release')"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
