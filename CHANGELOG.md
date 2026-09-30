@@ -1,5 +1,11 @@
 # Changelog
 
+## v27.0.0 — 2026-09-30
+
+### Features
+
+- replace rules-versioning with GitHub Actions-based setup plugin
+
 ## v26.1.0 — 2026-09-30
 
 ### Features
