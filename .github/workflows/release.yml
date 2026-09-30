@@ -1,0 +1,47 @@
+name: Release
+
+# Cuts a new semantic version on every push to main/master:
+# bumps the version from commit history, updates CHANGELOG.md (and
+# package.json / Gradle files if present), then pushes the release
+# commit and tag. Logic lives in .github/scripts/release.mjs.
+
+on:
+  push:
+    branches: [main, master]
+
+# Never run two releases at once (they would race on the same tag)
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    # Skip the release commit itself so the workflow doesn't loop
+    if: "!startsWith(github.event.head_commit.message, 'chore: release')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # full history + tags, required by `git describe`
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install pnpm
+        if: ${{ hashFiles('pnpm-lock.yaml') != '' }}
+        run: npm install -g pnpm
+
+      - name: Configure git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Cut release
+        run: node .github/scripts/release.mjs
+
+      - name: Push release commit and tag
+        run: git push origin HEAD --follow-tags
