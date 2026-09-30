@@ -1,5 +1,11 @@
 # Changelog
 
+## v26.1.0 — 2026-09-30
+
+### Features
+
+- add Kotlin/Android version file support and initial-dev versioning rules
+
 ## v26.0.0 — 2026-09-28
 
 ### Features
