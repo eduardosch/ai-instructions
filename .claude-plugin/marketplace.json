@@ -136,11 +136,12 @@
       "category": "i18n"
     },
     {
-      "name": "rules-versioning",
-      "description": "Run automated semantic versioning via release.mjs — reads commit history, bumps MAJOR/MINOR/PATCH, updates package.json, prepends CHANGELOG.md, and creates a release commit + git tag",
+      "name": "setup-versioning-gh-actions",
+      "description": "One-time setup of automated semantic versioning via GitHub Actions — installs a workflow that runs on every push to main/master, bumps MAJOR/MINOR/PATCH from commit history, updates package.json and Kotlin/Android version files, prepends CHANGELOG.md, and creates a release commit + git tag",
       "version": "1.0.0",
-      "source": "./plugins/rules-versioning",
+      "source": "./plugins/setup-versioning-gh-actions",
       "strict": false,
+      "oneshot": true,
       "skills": [
         "./skills"
       ],
@@ -149,7 +150,9 @@
         "versioning",
         "release",
         "changelog",
-        "conventional-commits"
+        "conventional-commits",
+        "github-actions",
+        "ci"
       ],
       "author": {
         "name": "Eduardo Schroder",

@@ -18,8 +18,10 @@
  *     yourself once the public API is stable and you commit to backward
  *     compatibility. The script continues from there.
  *
- * Usage: run from the project root (all paths are relative to the cwd):
- *        node /path/to/release.mjs
+ * Runs in CI on every push to main/master (.github/workflows/release.yml),
+ * which pushes the release commit and tag afterwards.
+ * Can also be run locally from the project root (paths are relative to the cwd):
+ *        node .github/scripts/release.mjs
  */
 import { execSync } from 'node:child_process'
 import { readFileSync, writeFileSync, existsSync } from 'node:fs'
@@ -145,7 +147,9 @@ if (!lastTag) {
 const pkgPath = 'package.json'
 const hasPkg = existsSync(pkgPath)
 if (hasPkg) {
-  run(`pnpm version ${newVersion} --no-git-tag-version --allow-same-version`)
+  const pkg = JSON.parse(readFileSync(pkgPath, 'utf8'))
+  pkg.version = newVersion
+  writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + '\n')
 }
 
 // --- 6b. Update Kotlin/Android version files if present ----------------
@@ -208,7 +212,6 @@ writeFileSync(changelogPath, updatedChangelog)
 const filesToStage = [changelogPath]
 if (hasPkg) {
   filesToStage.push(pkgPath)
-  if (existsSync('package-lock.json')) filesToStage.push('package-lock.json')
 }
 filesToStage.push(...kotlinFiles)
 run(`git add ${filesToStage.join(' ')}`)
@@ -226,6 +229,4 @@ console.log(`
     kotlinFiles.length ? `\n  Updated: ${kotlinFiles.join(', ')} (versionCode ${versionCode})` : ''
   }
 
-Next steps:
-  git push && git push --tags
-`)
+${process.env.CI ? '' : 'Next steps:\n  git push && git push --tags\n'}`)

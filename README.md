@@ -240,17 +240,17 @@ Generates semantic git commit messages based on staged changes, following the Co
 
 ---
 
-### 📖 `rules-versioning`
+### ⚙️ `setup-versioning-gh-actions`
 
-Automated semantic versioning — reads commit history since the last git tag, decides the correct MAJOR/MINOR/PATCH bump, prepends a `CHANGELOG.md` entry, and creates a release commit + annotated git tag.
+One-time setup of automated semantic versioning via GitHub Actions — installs a workflow that runs on every push to `main`/`master`, reads commit history since the last tag, decides the correct MAJOR/MINOR/PATCH bump, prepends a `CHANGELOG.md` entry, and creates a release commit + annotated git tag.
 
 > Requires commits to follow [Conventional Commits](https://www.conventionalcommits.org/) — use `rules-commit` to enforce this.
 
 ```bash
-/plugin install rules-versioning@eduardosch-marketplace
+/plugin install setup-versioning-gh-actions@eduardosch-marketplace
 ```
 
-**Usage:** `/rules-versioning`, then `node release.mjs` to cut a release.
+**Usage:** `/setup-versioning` once to install the workflow files, then commit and push them. Releases are cut automatically by GitHub Actions on every push to `main`/`master`.
 
 ---
 
