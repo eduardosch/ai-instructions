@@ -1,5 +1,11 @@
 # Changelog
 
+## v27.0.2 — 2026-09-30
+
+### Fixes
+
+- fix YAML syntax error in release.yml if condition
+
 ## v27.0.1 — 2026-09-30
 
 ### Other
