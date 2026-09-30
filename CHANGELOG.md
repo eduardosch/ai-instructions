@@ -1,5 +1,12 @@
 # Changelog
 
+## v27.0.3 — 2026-09-30
+
+### Other
+
+- update enabled plugin from rules-versioning to setup-versioning-gh-actions
+- add GitHub Actions release workflow
+
 ## v27.0.2 — 2026-09-30
 
 ### Fixes
