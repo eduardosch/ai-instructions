@@ -1,6 +1,6 @@
 {
   "enabledPlugins": {
     "rules-commit@eduardosch-marketplace": true,
-    "rules-versioning@eduardosch-marketplace": true
+    "setup-versioning-gh-actions@eduardosch-marketplace": true
   }
 }
