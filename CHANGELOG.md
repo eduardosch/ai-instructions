@@ -1,5 +1,11 @@
 # Changelog
 
+## v27.0.1 — 2026-09-30
+
+### Other
+
+- update release.yml with concurrency, pnpm install step, and correct git push flags
+
 ## v27.0.0 — 2026-09-30
 
 ### Features
